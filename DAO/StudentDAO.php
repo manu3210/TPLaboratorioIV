@@ -52,7 +52,6 @@
                 $jsonContent = file_get_contents('Data/students.json');
 
                 $arrayToDecode = ($jsonContent) ? json_decode($jsonContent, true) : array();
-
             }
             else
             {
@@ -62,7 +61,6 @@
                 curl_setopt($ch, CURLOPT_HTTPHEADER, array("x-api-key: 4f3bceed-50ba-4461-a910-518598664c08"));
                 curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
                 
-
                 $arrayToDecode = json_decode(curl_exec($ch), true);
                 
                 curl_close($ch);
@@ -81,7 +79,5 @@
             $this->SaveData();
             
         }
-
-      
     }
 ?>
