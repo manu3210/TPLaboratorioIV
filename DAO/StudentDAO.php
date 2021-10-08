@@ -30,9 +30,19 @@
 
             foreach($this->studentList as $student)
             {
-                $valuesArray["studentId"] = $student->getRecordId();
+                $valuesArray["studentId"] = $student->getStudentId();
+                $valuesArray["careerId"] = $student->getCareerId();
                 $valuesArray["firstName"] = $student->getFirstName();
                 $valuesArray["lastName"] = $student->getLastName();
+                $valuesArray["dni"] = $student->getDni();
+                $valuesArray["fileNumber"] = $student->getFileNumber();
+                $valuesArray["gender"] = $student->getGender();
+                $valuesArray["birthDate"] = $student->getBirthDate();
+                $valuesArray["email"] = $student->getEmail();
+                $valuesArray["phoneNumber"] = $student->getPhoneNumber();
+                $valuesArray["isActive"] = $student->getIsActive();
+                $valuesArray["password"] = $student->getPassword();
+                $valuesArray["userType"] = $student->getUserType();
 
                 array_push($arrayToEncode, $valuesArray);
             }
@@ -52,32 +62,64 @@
                 $jsonContent = file_get_contents('Data/students.json');
 
                 $arrayToDecode = ($jsonContent) ? json_decode($jsonContent, true) : array();
+
+                foreach($arrayToDecode as $valuesArray)
+                {
+                    $student = new Student();
+                    
+                    $this->LoadInfo($student, $valuesArray);
+                    $student->setIsActive($valuesArray["isActive"]);
+                    $student->setPassword($valuesArray["password"]);
+                    $student->setUserType($valuesArray["userType"]);
+
+                    array_push($this->studentList, $student);
+                }
             }
             else
             {
-                $ch = curl_init();
-
-                curl_setopt($ch, CURLOPT_URL, "https://utn-students-api.herokuapp.com/api/Student");
-                curl_setopt($ch, CURLOPT_HTTPHEADER, array("x-api-key: 4f3bceed-50ba-4461-a910-518598664c08"));
-                curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-                
-                $arrayToDecode = json_decode(curl_exec($ch), true);
-                
-                curl_close($ch);
+                $this->GetDataFromApi();
             }
+
+            $this->SaveData();
+        }
+
+        private function GetDataFromApi()
+        {
+            $ch = curl_init();
+
+            curl_setopt($ch, CURLOPT_URL, "https://utn-students-api.herokuapp.com/api/Student");
+            curl_setopt($ch, CURLOPT_HTTPHEADER, array("x-api-key: 4f3bceed-50ba-4461-a910-518598664c08"));
+            curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+            
+            $arrayToDecode = json_decode(curl_exec($ch), true);
 
             foreach($arrayToDecode as $valuesArray)
             {
                 $student = new Student();
-                $student->setRecordId($valuesArray["studentId"]);
-                $student->setFirstName($valuesArray["firstName"]);
-                $student->setLastName($valuesArray["lastName"]);
+                
+                $this->LoadInfo($student, $valuesArray);
+                $student->setIsActive(1);
+                $student->setPassword("");
+                $student->setUserType(1);
 
                 array_push($this->studentList, $student);
             }
-
-            $this->SaveData();
             
+            curl_close($ch);
+        }
+
+        private function LoadInfo($student, $valuesArray)
+        {
+            $student->setStudentId($valuesArray["studentId"]);
+            $student->setCareerId($valuesArray["careerId"]);
+            $student->setFirstName($valuesArray["firstName"]);
+            $student->setLastName($valuesArray["lastName"]);
+            $student->setDni($valuesArray["dni"]);
+            $student->setFileNumber($valuesArray["fileNumber"]);
+            $student->setGender($valuesArray["gender"]);
+            $student->setBirthDate($valuesArray["birthDate"]);
+            $student->setEmail($valuesArray["email"]);
+            $student->setPhoneNumber($valuesArray["phoneNumber"]);
         }
     }
 ?>
