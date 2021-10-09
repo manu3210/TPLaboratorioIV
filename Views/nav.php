@@ -4,13 +4,10 @@
      </span>
      <ul class="navbar-nav ml-auto">
           <li class="nav-item">
-               <a class="nav-link" href="<?php echo FRONT_ROOT ?>User/ShowAddView">Agregar Alumno</a>
+               <a class="nav-link" href="<?php echo FRONT_ROOT ?>Student/ShowAddView">Agregar Alumno</a>
           </li>
           <li class="nav-item">
-               <a class="nav-link" href="<?php echo FRONT_ROOT ?>User/ShowListView">Listar Alumnos</a>
-          </li>  
-          <li class="nav-item">
-               <a class="nav-link" href="<?php echo FRONT_ROOT ?>User/Logout">Cerrar sesión</a>
+               <a class="nav-link" href="<?php echo FRONT_ROOT ?>Student/ShowListView">Listar Alumnos</a>
           </li>          
      </ul>
 </nav>
