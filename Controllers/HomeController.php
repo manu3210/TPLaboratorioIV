@@ -8,14 +8,6 @@
             require_once(VIEWS_PATH."login.php");
         }      
         
-        public function login($username, $password)
-        {
-
-            // logic
-
-
-
-            header("location:" .FRONT_ROOT . "Student/ShowAddView");
-        }
+        
     }
 ?>

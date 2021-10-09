@@ -1,5 +1,20 @@
 [
     {
+        "studentId": 0,
+        "careerId": 0,
+        "firstName": "Emanuel",
+        "lastName": "Rivas",
+        "dni": "38230975",
+        "fileNumber": "33-059-4172",
+        "gender": "Male",
+        "birthDate": "2021-04-21T00:00:00",
+        "email": "manu_1019@hotmail.com",
+        "phoneNumber": "849-713-4523",
+        "active": 1,
+        "password": "emita",
+        "typeOfUser": 1
+    },
+    {
         "studentId": 1,
         "careerId": 2,
         "firstName": "Devlen",
@@ -10,9 +25,9 @@
         "birthDate": "2021-06-28T00:00:00",
         "email": "ddouthwaite0@goo.gl",
         "phoneNumber": "849-713-4523",
-        "isActive": 1,
-        "password": "",
-        "userType": 1
+        "active": 1,
+        "password": "1234",
+        "typeOfUser": 0
     },
     {
         "studentId": 2,
@@ -25,9 +40,9 @@
         "birthDate": "2021-02-23T00:00:00",
         "email": "wlorant1@sbwire.com",
         "phoneNumber": "171-448-9062",
-        "isActive": 1,
-        "password": "",
-        "userType": 1
+        "active": 0,
+        "password": "soyyo",
+        "typeOfUser": 0
     },
     {
         "studentId": 3,
@@ -40,9 +55,9 @@
         "birthDate": "2021-07-03T00:00:00",
         "email": "aseemmonds2@upenn.edu",
         "phoneNumber": "961-404-8720",
-        "isActive": 1,
-        "password": "",
-        "userType": 1
+        "active": 0,
+        "password": "1234",
+        "typeOfUser": 0
     },
     {
         "studentId": 4,
@@ -55,9 +70,9 @@
         "birthDate": "2020-09-29T00:00:00",
         "email": "ediben3@multiply.com",
         "phoneNumber": "337-480-1652",
-        "isActive": 1,
-        "password": "",
-        "userType": 1
+        "active": 0,
+        "password": "1234",
+        "typeOfUser": 0
     },
     {
         "studentId": 5,
@@ -70,9 +85,9 @@
         "birthDate": "2021-03-14T00:00:00",
         "email": "dhasely4@blinklist.com",
         "phoneNumber": "936-600-0486",
-        "isActive": 1,
-        "password": "",
-        "userType": 1
+        "active": 1,
+        "password": "hola",
+        "typeOfUser": 0
     },
     {
         "studentId": 6,
@@ -85,9 +100,9 @@
         "birthDate": "2020-09-25T00:00:00",
         "email": "walelsandrowicz5@nasa.gov",
         "phoneNumber": "328-137-1386",
-        "isActive": 1,
-        "password": "",
-        "userType": 1
+        "active": 1,
+        "password": "passnueva",
+        "typeOfUser": 0
     },
     {
         "studentId": 7,
@@ -100,9 +115,9 @@
         "birthDate": "2021-09-15T00:00:00",
         "email": "kwitheford6@salon.com",
         "phoneNumber": "525-769-1695",
-        "isActive": 1,
-        "password": "",
-        "userType": 1
+        "active": 1,
+        "password": "1234",
+        "typeOfUser": 0
     },
     {
         "studentId": 8,
@@ -115,9 +130,9 @@
         "birthDate": "2021-09-06T00:00:00",
         "email": "iaberdalgy7@mlb.com",
         "phoneNumber": "977-660-8938",
-        "isActive": 1,
-        "password": "",
-        "userType": 1
+        "active": 0,
+        "password": "1234",
+        "typeOfUser": 0
     },
     {
         "studentId": 9,
@@ -130,9 +145,9 @@
         "birthDate": "2021-08-30T00:00:00",
         "email": "gcastle8@hexun.com",
         "phoneNumber": "904-335-2660",
-        "isActive": 1,
-        "password": "",
-        "userType": 1
+        "active": 1,
+        "password": "1234",
+        "typeOfUser": 0
     },
     {
         "studentId": 10,
@@ -145,9 +160,9 @@
         "birthDate": "2021-03-13T00:00:00",
         "email": "sforrington9@webnode.com",
         "phoneNumber": "720-205-4748",
-        "isActive": 1,
-        "password": "",
-        "userType": 1
+        "active": 0,
+        "password": "1234",
+        "typeOfUser": 0
     },
     {
         "studentId": 11,
@@ -160,9 +175,9 @@
         "birthDate": "2021-03-14T00:00:00",
         "email": "sjanteta@businessinsider.com",
         "phoneNumber": "860-103-9915",
-        "isActive": 1,
-        "password": "",
-        "userType": 1
+        "active": 0,
+        "password": "1234",
+        "typeOfUser": 0
     },
     {
         "studentId": 12,
@@ -175,9 +190,9 @@
         "birthDate": "2021-04-12T00:00:00",
         "email": "jdoringb@un.org",
         "phoneNumber": "414-609-3692",
-        "isActive": 1,
-        "password": "",
-        "userType": 1
+        "active": 0,
+        "password": "1234",
+        "typeOfUser": 0
     },
     {
         "studentId": 13,
@@ -190,9 +205,9 @@
         "birthDate": "2021-03-09T00:00:00",
         "email": "jyaxleyc@ifeng.com",
         "phoneNumber": "595-862-1690",
-        "isActive": 1,
-        "password": "",
-        "userType": 1
+        "active": 1,
+        "password": "1234",
+        "typeOfUser": 0
     },
     {
         "studentId": 14,
@@ -205,9 +220,9 @@
         "birthDate": "2020-10-02T00:00:00",
         "email": "slaxsond@squarespace.com",
         "phoneNumber": "174-737-9358",
-        "isActive": 1,
-        "password": "",
-        "userType": 1
+        "active": 0,
+        "password": "1234",
+        "typeOfUser": 0
     },
     {
         "studentId": 15,
@@ -220,9 +235,9 @@
         "birthDate": "2021-06-24T00:00:00",
         "email": "bvandaalene@sphinn.com",
         "phoneNumber": "267-278-5971",
-        "isActive": 1,
-        "password": "",
-        "userType": 1
+        "active": 0,
+        "password": "1234",
+        "typeOfUser": 0
     },
     {
         "studentId": 16,
@@ -235,9 +250,9 @@
         "birthDate": "2021-08-09T00:00:00",
         "email": "acrannagef@baidu.com",
         "phoneNumber": "126-254-6195",
-        "isActive": 1,
-        "password": "",
-        "userType": 1
+        "active": 0,
+        "password": "1234",
+        "typeOfUser": 0
     },
     {
         "studentId": 17,
@@ -250,9 +265,9 @@
         "birthDate": "2021-07-05T00:00:00",
         "email": "fgorvetteg@list-manage.com",
         "phoneNumber": "152-846-1928",
-        "isActive": 1,
-        "password": "",
-        "userType": 1
+        "active": 0,
+        "password": "1234",
+        "typeOfUser": 0
     },
     {
         "studentId": 18,
@@ -265,9 +280,9 @@
         "birthDate": "2021-08-19T00:00:00",
         "email": "owebburnh@google.co.uk",
         "phoneNumber": "598-324-4986",
-        "isActive": 1,
-        "password": "",
-        "userType": 1
+        "active": 0,
+        "password": "1234",
+        "typeOfUser": 0
     },
     {
         "studentId": 19,
@@ -280,9 +295,9 @@
         "birthDate": "2021-05-11T00:00:00",
         "email": "tpeterseni@nydailynews.com",
         "phoneNumber": "138-603-2531",
-        "isActive": 1,
-        "password": "",
-        "userType": 1
+        "active": 0,
+        "password": "1234",
+        "typeOfUser": 0
     },
     {
         "studentId": 20,
@@ -295,9 +310,9 @@
         "birthDate": "2020-09-27T00:00:00",
         "email": "jbruntonj@imageshack.us",
         "phoneNumber": "241-206-2755",
-        "isActive": 1,
-        "password": "",
-        "userType": 1
+        "active": 1,
+        "password": "1234",
+        "typeOfUser": 0
     },
     {
         "studentId": 21,
@@ -310,9 +325,9 @@
         "birthDate": "2020-10-19T00:00:00",
         "email": "lsynek@msn.com",
         "phoneNumber": "812-829-3352",
-        "isActive": 1,
-        "password": "",
-        "userType": 1
+        "active": 0,
+        "password": "1234",
+        "typeOfUser": 0
     },
     {
         "studentId": 22,
@@ -325,9 +340,9 @@
         "birthDate": "2021-02-06T00:00:00",
         "email": "tthompstonel@unblog.fr",
         "phoneNumber": "581-862-8307",
-        "isActive": 1,
-        "password": "",
-        "userType": 1
+        "active": 0,
+        "password": "1234",
+        "typeOfUser": 0
     },
     {
         "studentId": 23,
@@ -340,9 +355,9 @@
         "birthDate": "2021-09-15T00:00:00",
         "email": "mvasilischevm@123-reg.co.uk",
         "phoneNumber": "758-919-0671",
-        "isActive": 1,
-        "password": "",
-        "userType": 1
+        "active": 0,
+        "password": "1234",
+        "typeOfUser": 0
     },
     {
         "studentId": 24,
@@ -355,9 +370,9 @@
         "birthDate": "2021-05-07T00:00:00",
         "email": "kheismann@purevolume.com",
         "phoneNumber": "687-607-3859",
-        "isActive": 1,
-        "password": "",
-        "userType": 1
+        "active": 1,
+        "password": "1234",
+        "typeOfUser": 0
     },
     {
         "studentId": 25,
@@ -370,9 +385,9 @@
         "birthDate": "2021-02-17T00:00:00",
         "email": "bstrivenso@surveymonkey.com",
         "phoneNumber": "411-285-2703",
-        "isActive": 1,
-        "password": "",
-        "userType": 1
+        "active": 0,
+        "password": "1234",
+        "typeOfUser": 0
     },
     {
         "studentId": 26,
@@ -385,9 +400,9 @@
         "birthDate": "2021-09-07T00:00:00",
         "email": "rhallerp@free.fr",
         "phoneNumber": "964-943-9988",
-        "isActive": 1,
-        "password": "",
-        "userType": 1
+        "active": 1,
+        "password": "1234",
+        "typeOfUser": 0
     },
     {
         "studentId": 27,
@@ -400,9 +415,9 @@
         "birthDate": "2020-10-27T00:00:00",
         "email": "rgeipelq@jugem.jp",
         "phoneNumber": "533-522-7527",
-        "isActive": 1,
-        "password": "",
-        "userType": 1
+        "active": 0,
+        "password": "1234",
+        "typeOfUser": 0
     },
     {
         "studentId": 28,
@@ -415,9 +430,9 @@
         "birthDate": "2021-04-16T00:00:00",
         "email": "hsellenr@nba.com",
         "phoneNumber": "425-253-5570",
-        "isActive": 1,
-        "password": "",
-        "userType": 1
+        "active": 0,
+        "password": "1234",
+        "typeOfUser": 0
     },
     {
         "studentId": 29,
@@ -430,9 +445,9 @@
         "birthDate": "2021-02-05T00:00:00",
         "email": "mbromidges@smugmug.com",
         "phoneNumber": "306-431-3867",
-        "isActive": 1,
-        "password": "",
-        "userType": 1
+        "active": 0,
+        "password": "1234",
+        "typeOfUser": 0
     },
     {
         "studentId": 30,
@@ -445,9 +460,9 @@
         "birthDate": "2021-08-07T00:00:00",
         "email": "hbettingtont@marketwatch.com",
         "phoneNumber": "543-608-6067",
-        "isActive": 1,
-        "password": "",
-        "userType": 1
+        "active": 0,
+        "password": "1234",
+        "typeOfUser": 0
     },
     {
         "studentId": 31,
@@ -460,9 +475,9 @@
         "birthDate": "2021-08-09T00:00:00",
         "email": "klittriku@army.mil",
         "phoneNumber": "776-195-5544",
-        "isActive": 1,
-        "password": "",
-        "userType": 1
+        "active": 1,
+        "password": "1234",
+        "typeOfUser": 0
     },
     {
         "studentId": 32,
@@ -475,9 +490,9 @@
         "birthDate": "2020-10-12T00:00:00",
         "email": "isimukovv@bbc.co.uk",
         "phoneNumber": "415-385-0195",
-        "isActive": 1,
-        "password": "",
-        "userType": 1
+        "active": 1,
+        "password": "1234",
+        "typeOfUser": 0
     },
     {
         "studentId": 33,
@@ -490,9 +505,9 @@
         "birthDate": "2021-06-21T00:00:00",
         "email": "cfyshw@mysql.com",
         "phoneNumber": "682-889-8851",
-        "isActive": 1,
-        "password": "",
-        "userType": 1
+        "active": 0,
+        "password": "1234",
+        "typeOfUser": 0
     },
     {
         "studentId": 34,
@@ -505,9 +520,9 @@
         "birthDate": "2021-05-22T00:00:00",
         "email": "mdanzelmanx@hhs.gov",
         "phoneNumber": "847-391-5838",
-        "isActive": 1,
-        "password": "",
-        "userType": 1
+        "active": 1,
+        "password": "1234",
+        "typeOfUser": 0
     },
     {
         "studentId": 35,
@@ -520,9 +535,9 @@
         "birthDate": "2021-03-04T00:00:00",
         "email": "wdallay@printfriendly.com",
         "phoneNumber": "767-735-0534",
-        "isActive": 1,
-        "password": "",
-        "userType": 1
+        "active": 1,
+        "password": "1234",
+        "typeOfUser": 0
     },
     {
         "studentId": 36,
@@ -535,9 +550,9 @@
         "birthDate": "2021-06-03T00:00:00",
         "email": "pjohnesz@columbia.edu",
         "phoneNumber": "945-808-3754",
-        "isActive": 1,
-        "password": "",
-        "userType": 1
+        "active": 1,
+        "password": "1234",
+        "typeOfUser": 0
     },
     {
         "studentId": 37,
@@ -550,9 +565,9 @@
         "birthDate": "2020-11-20T00:00:00",
         "email": "koffiler10@youku.com",
         "phoneNumber": "703-628-6849",
-        "isActive": 1,
-        "password": "",
-        "userType": 1
+        "active": 1,
+        "password": "1234",
+        "typeOfUser": 0
     },
     {
         "studentId": 38,
@@ -565,9 +580,9 @@
         "birthDate": "2021-08-14T00:00:00",
         "email": "bpoyner11@php.net",
         "phoneNumber": "688-583-4742",
-        "isActive": 1,
-        "password": "",
-        "userType": 1
+        "active": 0,
+        "password": "1234",
+        "typeOfUser": 0
     },
     {
         "studentId": 39,
@@ -580,9 +595,9 @@
         "birthDate": "2021-04-26T00:00:00",
         "email": "olouys12@army.mil",
         "phoneNumber": "365-275-7347",
-        "isActive": 1,
-        "password": "",
-        "userType": 1
+        "active": 0,
+        "password": "1234",
+        "typeOfUser": 0
     },
     {
         "studentId": 40,
@@ -595,9 +610,9 @@
         "birthDate": "2020-11-01T00:00:00",
         "email": "sleary13@eventbrite.com",
         "phoneNumber": "343-120-7321",
-        "isActive": 1,
-        "password": "",
-        "userType": 1
+        "active": 1,
+        "password": "1234",
+        "typeOfUser": 0
     },
     {
         "studentId": 41,
@@ -610,9 +625,9 @@
         "birthDate": "2020-10-17T00:00:00",
         "email": "bbenham14@vimeo.com",
         "phoneNumber": "971-848-4265",
-        "isActive": 1,
-        "password": "",
-        "userType": 1
+        "active": 1,
+        "password": "1234",
+        "typeOfUser": 0
     },
     {
         "studentId": 42,
@@ -625,9 +640,9 @@
         "birthDate": "2021-03-11T00:00:00",
         "email": "gmcgarel15@disqus.com",
         "phoneNumber": "371-171-1943",
-        "isActive": 1,
-        "password": "",
-        "userType": 1
+        "active": 0,
+        "password": "1234",
+        "typeOfUser": 0
     },
     {
         "studentId": 43,
@@ -640,9 +655,9 @@
         "birthDate": "2020-09-29T00:00:00",
         "email": "kodonoghue16@vinaora.com",
         "phoneNumber": "675-855-8792",
-        "isActive": 1,
-        "password": "",
-        "userType": 1
+        "active": 1,
+        "password": "1234",
+        "typeOfUser": 0
     },
     {
         "studentId": 44,
@@ -655,9 +670,9 @@
         "birthDate": "2021-03-30T00:00:00",
         "email": "aknowlys17@unicef.org",
         "phoneNumber": "647-835-8682",
-        "isActive": 1,
-        "password": "",
-        "userType": 1
+        "active": 1,
+        "password": "1234",
+        "typeOfUser": 0
     },
     {
         "studentId": 45,
@@ -670,9 +685,9 @@
         "birthDate": "2021-01-29T00:00:00",
         "email": "mspilsbury18@gravatar.com",
         "phoneNumber": "161-726-5357",
-        "isActive": 1,
-        "password": "",
-        "userType": 1
+        "active": 0,
+        "password": "1234",
+        "typeOfUser": 0
     },
     {
         "studentId": 46,
@@ -685,9 +700,9 @@
         "birthDate": "2021-01-19T00:00:00",
         "email": "eatyeo19@nba.com",
         "phoneNumber": "604-138-2728",
-        "isActive": 1,
-        "password": "",
-        "userType": 1
+        "active": 1,
+        "password": "1234",
+        "typeOfUser": 0
     },
     {
         "studentId": 47,
@@ -700,9 +715,9 @@
         "birthDate": "2021-04-28T00:00:00",
         "email": "ghilland1a@mit.edu",
         "phoneNumber": "708-702-4402",
-        "isActive": 1,
-        "password": "",
-        "userType": 1
+        "active": 1,
+        "password": "1234",
+        "typeOfUser": 0
     },
     {
         "studentId": 48,
@@ -715,9 +730,9 @@
         "birthDate": "2021-08-11T00:00:00",
         "email": "dphilot1b@kickstarter.com",
         "phoneNumber": "168-403-8062",
-        "isActive": 1,
-        "password": "",
-        "userType": 1
+        "active": 0,
+        "password": "1234",
+        "typeOfUser": 0
     },
     {
         "studentId": 49,
@@ -730,9 +745,9 @@
         "birthDate": "2020-11-05T00:00:00",
         "email": "yraynham1c@studiopress.com",
         "phoneNumber": "369-540-5290",
-        "isActive": 1,
-        "password": "",
-        "userType": 1
+        "active": 0,
+        "password": "1234",
+        "typeOfUser": 0
     },
     {
         "studentId": 50,
@@ -745,9 +760,9 @@
         "birthDate": "2021-07-31T00:00:00",
         "email": "ghruska1d@zimbio.com",
         "phoneNumber": "375-200-9564",
-        "isActive": 1,
-        "password": "",
-        "userType": 1
+        "active": 0,
+        "password": "1234",
+        "typeOfUser": 0
     },
     {
         "studentId": 51,
@@ -760,9 +775,9 @@
         "birthDate": "2020-12-05T00:00:00",
         "email": "mlabroue1e@webeden.co.uk",
         "phoneNumber": "254-542-2439",
-        "isActive": 1,
-        "password": "",
-        "userType": 1
+        "active": 0,
+        "password": "1234",
+        "typeOfUser": 0
     },
     {
         "studentId": 52,
@@ -775,9 +790,9 @@
         "birthDate": "2021-05-29T00:00:00",
         "email": "csnelgar1f@etsy.com",
         "phoneNumber": "511-192-9263",
-        "isActive": 1,
-        "password": "",
-        "userType": 1
+        "active": 0,
+        "password": "1234",
+        "typeOfUser": 0
     },
     {
         "studentId": 53,
@@ -790,9 +805,9 @@
         "birthDate": "2021-07-23T00:00:00",
         "email": "zjurek1g@indiegogo.com",
         "phoneNumber": "772-700-7304",
-        "isActive": 1,
-        "password": "",
-        "userType": 1
+        "active": 0,
+        "password": "1234",
+        "typeOfUser": 0
     },
     {
         "studentId": 54,
@@ -805,9 +820,9 @@
         "birthDate": "2021-08-25T00:00:00",
         "email": "dmichurin1h@msn.com",
         "phoneNumber": "571-480-7716",
-        "isActive": 1,
-        "password": "",
-        "userType": 1
+        "active": 1,
+        "password": "1234",
+        "typeOfUser": 0
     },
     {
         "studentId": 55,
@@ -820,9 +835,9 @@
         "birthDate": "2021-06-15T00:00:00",
         "email": "ejeskins1i@forbes.com",
         "phoneNumber": "628-593-0925",
-        "isActive": 1,
-        "password": "",
-        "userType": 1
+        "active": 1,
+        "password": "1234",
+        "typeOfUser": 0
     },
     {
         "studentId": 56,
@@ -835,9 +850,9 @@
         "birthDate": "2021-01-22T00:00:00",
         "email": "wyaxley1j@cargocollective.com",
         "phoneNumber": "319-587-6296",
-        "isActive": 1,
-        "password": "",
-        "userType": 1
+        "active": 1,
+        "password": "1234",
+        "typeOfUser": 0
     },
     {
         "studentId": 57,
@@ -850,9 +865,9 @@
         "birthDate": "2021-04-15T00:00:00",
         "email": "tbassam1k@rediff.com",
         "phoneNumber": "847-461-4910",
-        "isActive": 1,
-        "password": "",
-        "userType": 1
+        "active": 0,
+        "password": "1234",
+        "typeOfUser": 0
     },
     {
         "studentId": 58,
@@ -865,9 +880,9 @@
         "birthDate": "2021-07-18T00:00:00",
         "email": "fbeardsley1l@berkeley.edu",
         "phoneNumber": "128-308-3463",
-        "isActive": 1,
-        "password": "",
-        "userType": 1
+        "active": 1,
+        "password": "1234",
+        "typeOfUser": 0
     },
     {
         "studentId": 59,
@@ -880,9 +895,9 @@
         "birthDate": "2021-03-31T00:00:00",
         "email": "bsooper1m@nba.com",
         "phoneNumber": "649-524-7466",
-        "isActive": 1,
-        "password": "",
-        "userType": 1
+        "active": 1,
+        "password": "1234",
+        "typeOfUser": 0
     },
     {
         "studentId": 60,
@@ -895,9 +910,9 @@
         "birthDate": "2021-09-22T00:00:00",
         "email": "bsnoden1n@nydailynews.com",
         "phoneNumber": "901-495-3237",
-        "isActive": 1,
-        "password": "",
-        "userType": 1
+        "active": 0,
+        "password": "1234",
+        "typeOfUser": 0
     },
     {
         "studentId": 61,
@@ -910,9 +925,9 @@
         "birthDate": "2021-03-28T00:00:00",
         "email": "mavrahamy1o@mapy.cz",
         "phoneNumber": "186-463-5122",
-        "isActive": 1,
-        "password": "",
-        "userType": 1
+        "active": 1,
+        "password": "1234",
+        "typeOfUser": 0
     },
     {
         "studentId": 62,
@@ -925,9 +940,9 @@
         "birthDate": "2020-11-29T00:00:00",
         "email": "mhaestier1p@constantcontact.com",
         "phoneNumber": "118-132-5905",
-        "isActive": 1,
-        "password": "",
-        "userType": 1
+        "active": 0,
+        "password": "1234",
+        "typeOfUser": 0
     },
     {
         "studentId": 63,
@@ -940,9 +955,9 @@
         "birthDate": "2020-12-30T00:00:00",
         "email": "adobing1q@hostgator.com",
         "phoneNumber": "649-157-3136",
-        "isActive": 1,
-        "password": "",
-        "userType": 1
+        "active": 0,
+        "password": "1234",
+        "typeOfUser": 0
     },
     {
         "studentId": 64,
@@ -955,9 +970,9 @@
         "birthDate": "2020-12-16T00:00:00",
         "email": "ghullett1r@smugmug.com",
         "phoneNumber": "966-302-3954",
-        "isActive": 1,
-        "password": "",
-        "userType": 1
+        "active": 0,
+        "password": "1234",
+        "typeOfUser": 0
     },
     {
         "studentId": 65,
@@ -970,9 +985,9 @@
         "birthDate": "2021-05-11T00:00:00",
         "email": "kizkovitz1s@mac.com",
         "phoneNumber": "262-601-0659",
-        "isActive": 1,
-        "password": "",
-        "userType": 1
+        "active": 0,
+        "password": "1234",
+        "typeOfUser": 0
     },
     {
         "studentId": 66,
@@ -985,9 +1000,9 @@
         "birthDate": "2020-11-12T00:00:00",
         "email": "tshears1t@icq.com",
         "phoneNumber": "303-218-7999",
-        "isActive": 1,
-        "password": "",
-        "userType": 1
+        "active": 0,
+        "password": "1234",
+        "typeOfUser": 0
     },
     {
         "studentId": 67,
@@ -1000,9 +1015,9 @@
         "birthDate": "2020-12-18T00:00:00",
         "email": "abruineman1u@typepad.com",
         "phoneNumber": "469-982-7985",
-        "isActive": 1,
-        "password": "",
-        "userType": 1
+        "active": 0,
+        "password": "1234",
+        "typeOfUser": 0
     },
     {
         "studentId": 68,
@@ -1015,9 +1030,9 @@
         "birthDate": "2020-12-04T00:00:00",
         "email": "nyven1v@unicef.org",
         "phoneNumber": "106-171-8503",
-        "isActive": 1,
-        "password": "",
-        "userType": 1
+        "active": 1,
+        "password": "1234",
+        "typeOfUser": 0
     },
     {
         "studentId": 69,
@@ -1030,9 +1045,9 @@
         "birthDate": "2021-04-30T00:00:00",
         "email": "sannis1w@cnn.com",
         "phoneNumber": "145-198-0335",
-        "isActive": 1,
-        "password": "",
-        "userType": 1
+        "active": 0,
+        "password": "1234",
+        "typeOfUser": 0
     },
     {
         "studentId": 70,
@@ -1045,9 +1060,9 @@
         "birthDate": "2021-08-28T00:00:00",
         "email": "gbrabyn1x@moonfruit.com",
         "phoneNumber": "969-271-8721",
-        "isActive": 1,
-        "password": "",
-        "userType": 1
+        "active": 0,
+        "password": "1234",
+        "typeOfUser": 0
     },
     {
         "studentId": 71,
@@ -1060,9 +1075,9 @@
         "birthDate": "2021-03-12T00:00:00",
         "email": "bglanfield1y@globo.com",
         "phoneNumber": "903-991-3132",
-        "isActive": 1,
-        "password": "",
-        "userType": 1
+        "active": 0,
+        "password": "1234",
+        "typeOfUser": 0
     },
     {
         "studentId": 72,
@@ -1075,9 +1090,9 @@
         "birthDate": "2021-06-19T00:00:00",
         "email": "tstuehmeier1z@privacy.gov.au",
         "phoneNumber": "901-727-3778",
-        "isActive": 1,
-        "password": "",
-        "userType": 1
+        "active": 0,
+        "password": "1234",
+        "typeOfUser": 0
     },
     {
         "studentId": 73,
@@ -1090,9 +1105,9 @@
         "birthDate": "2021-09-16T00:00:00",
         "email": "tmillmoe20@blogspot.com",
         "phoneNumber": "992-568-7663",
-        "isActive": 1,
-        "password": "",
-        "userType": 1
+        "active": 1,
+        "password": "1234",
+        "typeOfUser": 0
     },
     {
         "studentId": 74,
@@ -1105,9 +1120,9 @@
         "birthDate": "2020-10-03T00:00:00",
         "email": "agannicleff21@livejournal.com",
         "phoneNumber": "858-907-0753",
-        "isActive": 1,
-        "password": "",
-        "userType": 1
+        "active": 1,
+        "password": "1234",
+        "typeOfUser": 0
     },
     {
         "studentId": 75,
@@ -1120,9 +1135,9 @@
         "birthDate": "2020-10-06T00:00:00",
         "email": "gdepietri22@github.io",
         "phoneNumber": "607-464-2013",
-        "isActive": 1,
-        "password": "",
-        "userType": 1
+        "active": 1,
+        "password": "1234",
+        "typeOfUser": 0
     },
     {
         "studentId": 76,
@@ -1135,9 +1150,9 @@
         "birthDate": "2020-11-12T00:00:00",
         "email": "pfriman23@columbia.edu",
         "phoneNumber": "492-691-2537",
-        "isActive": 1,
-        "password": "",
-        "userType": 1
+        "active": 0,
+        "password": "1234",
+        "typeOfUser": 0
     },
     {
         "studentId": 77,
@@ -1150,9 +1165,9 @@
         "birthDate": "2021-07-14T00:00:00",
         "email": "tvreiberg24@state.tx.us",
         "phoneNumber": "569-585-2167",
-        "isActive": 1,
-        "password": "",
-        "userType": 1
+        "active": 1,
+        "password": "1234",
+        "typeOfUser": 0
     },
     {
         "studentId": 78,
@@ -1165,9 +1180,9 @@
         "birthDate": "2021-05-31T00:00:00",
         "email": "tbeagles25@gov.uk",
         "phoneNumber": "994-971-1461",
-        "isActive": 1,
-        "password": "",
-        "userType": 1
+        "active": 1,
+        "password": "1234",
+        "typeOfUser": 0
     },
     {
         "studentId": 79,
@@ -1180,9 +1195,9 @@
         "birthDate": "2020-10-11T00:00:00",
         "email": "amcglashan26@washingtonpost.com",
         "phoneNumber": "488-672-3631",
-        "isActive": 1,
-        "password": "",
-        "userType": 1
+        "active": 0,
+        "password": "1234",
+        "typeOfUser": 0
     },
     {
         "studentId": 80,
@@ -1195,9 +1210,9 @@
         "birthDate": "2021-02-10T00:00:00",
         "email": "rbainbridge27@delicious.com",
         "phoneNumber": "614-601-7046",
-        "isActive": 1,
-        "password": "",
-        "userType": 1
+        "active": 0,
+        "password": "1234",
+        "typeOfUser": 0
     },
     {
         "studentId": 81,
@@ -1210,9 +1225,9 @@
         "birthDate": "2021-07-22T00:00:00",
         "email": "zshepley28@typepad.com",
         "phoneNumber": "902-436-1480",
-        "isActive": 1,
-        "password": "",
-        "userType": 1
+        "active": 0,
+        "password": "1234",
+        "typeOfUser": 0
     },
     {
         "studentId": 82,
@@ -1225,9 +1240,9 @@
         "birthDate": "2021-01-15T00:00:00",
         "email": "ljocic29@economist.com",
         "phoneNumber": "356-793-8759",
-        "isActive": 1,
-        "password": "",
-        "userType": 1
+        "active": 0,
+        "password": "1234",
+        "typeOfUser": 0
     },
     {
         "studentId": 83,
@@ -1240,9 +1255,9 @@
         "birthDate": "2021-06-22T00:00:00",
         "email": "cwaylen2a@princeton.edu",
         "phoneNumber": "526-290-6310",
-        "isActive": 1,
-        "password": "",
-        "userType": 1
+        "active": 0,
+        "password": "1234",
+        "typeOfUser": 0
     },
     {
         "studentId": 84,
@@ -1255,9 +1270,9 @@
         "birthDate": "2021-04-27T00:00:00",
         "email": "kdevaen2b@usgs.gov",
         "phoneNumber": "640-502-4617",
-        "isActive": 1,
-        "password": "",
-        "userType": 1
+        "active": 1,
+        "password": "1234",
+        "typeOfUser": 0
     },
     {
         "studentId": 85,
@@ -1270,9 +1285,9 @@
         "birthDate": "2021-08-07T00:00:00",
         "email": "rreckhouse2c@cnn.com",
         "phoneNumber": "101-527-3576",
-        "isActive": 1,
-        "password": "",
-        "userType": 1
+        "active": 0,
+        "password": "1234",
+        "typeOfUser": 0
     },
     {
         "studentId": 86,
@@ -1285,9 +1300,9 @@
         "birthDate": "2021-05-23T00:00:00",
         "email": "bgilby2d@usda.gov",
         "phoneNumber": "696-388-0069",
-        "isActive": 1,
-        "password": "",
-        "userType": 1
+        "active": 1,
+        "password": "1234",
+        "typeOfUser": 0
     },
     {
         "studentId": 87,
@@ -1300,9 +1315,9 @@
         "birthDate": "2021-06-22T00:00:00",
         "email": "csutliff2e@ihg.com",
         "phoneNumber": "925-140-1998",
-        "isActive": 1,
-        "password": "",
-        "userType": 1
+        "active": 1,
+        "password": "1234",
+        "typeOfUser": 0
     },
     {
         "studentId": 88,
@@ -1315,9 +1330,9 @@
         "birthDate": "2021-01-17T00:00:00",
         "email": "mdevil2f@ox.ac.uk",
         "phoneNumber": "248-921-6676",
-        "isActive": 1,
-        "password": "",
-        "userType": 1
+        "active": 0,
+        "password": "1234",
+        "typeOfUser": 0
     },
     {
         "studentId": 89,
@@ -1330,9 +1345,9 @@
         "birthDate": "2021-02-28T00:00:00",
         "email": "ueighteen2g@twitpic.com",
         "phoneNumber": "820-769-0779",
-        "isActive": 1,
-        "password": "",
-        "userType": 1
+        "active": 1,
+        "password": "1234",
+        "typeOfUser": 0
     },
     {
         "studentId": 90,
@@ -1345,9 +1360,9 @@
         "birthDate": "2020-09-25T00:00:00",
         "email": "tturmall2h@newsvine.com",
         "phoneNumber": "488-931-4301",
-        "isActive": 1,
-        "password": "",
-        "userType": 1
+        "active": 0,
+        "password": "1234",
+        "typeOfUser": 0
     },
     {
         "studentId": 91,
@@ -1360,9 +1375,9 @@
         "birthDate": "2020-09-26T00:00:00",
         "email": "bblew2i@biglobe.ne.jp",
         "phoneNumber": "828-834-1196",
-        "isActive": 1,
-        "password": "",
-        "userType": 1
+        "active": 0,
+        "password": "1234",
+        "typeOfUser": 0
     },
     {
         "studentId": 92,
@@ -1375,9 +1390,9 @@
         "birthDate": "2021-05-22T00:00:00",
         "email": "jsabathe2j@studiopress.com",
         "phoneNumber": "721-457-9122",
-        "isActive": 1,
-        "password": "",
-        "userType": 1
+        "active": 1,
+        "password": "1234",
+        "typeOfUser": 0
     },
     {
         "studentId": 93,
@@ -1390,9 +1405,9 @@
         "birthDate": "2020-11-27T00:00:00",
         "email": "ezipsell2k@nymag.com",
         "phoneNumber": "188-708-3056",
-        "isActive": 1,
-        "password": "",
-        "userType": 1
+        "active": 0,
+        "password": "1234",
+        "typeOfUser": 0
     },
     {
         "studentId": 94,
@@ -1405,9 +1420,9 @@
         "birthDate": "2020-11-27T00:00:00",
         "email": "swhiteside2l@pbs.org",
         "phoneNumber": "967-927-0327",
-        "isActive": 1,
-        "password": "",
-        "userType": 1
+        "active": 0,
+        "password": "1234",
+        "typeOfUser": 0
     },
     {
         "studentId": 95,
@@ -1420,9 +1435,9 @@
         "birthDate": "2021-03-26T00:00:00",
         "email": "fstave2m@ezinearticles.com",
         "phoneNumber": "399-493-0794",
-        "isActive": 1,
-        "password": "",
-        "userType": 1
+        "active": 1,
+        "password": "1234",
+        "typeOfUser": 0
     },
     {
         "studentId": 96,
@@ -1435,9 +1450,9 @@
         "birthDate": "2020-12-29T00:00:00",
         "email": "btonner2n@diigo.com",
         "phoneNumber": "120-371-4961",
-        "isActive": 1,
-        "password": "",
-        "userType": 1
+        "active": 1,
+        "password": "1234",
+        "typeOfUser": 0
     },
     {
         "studentId": 97,
@@ -1450,9 +1465,9 @@
         "birthDate": "2021-07-31T00:00:00",
         "email": "acolaco2o@shop-pro.jp",
         "phoneNumber": "425-810-4447",
-        "isActive": 1,
-        "password": "",
-        "userType": 1
+        "active": 1,
+        "password": "1234",
+        "typeOfUser": 0
     },
     {
         "studentId": 98,
@@ -1465,9 +1480,9 @@
         "birthDate": "2021-07-03T00:00:00",
         "email": "edalgety2p@cornell.edu",
         "phoneNumber": "829-518-6610",
-        "isActive": 1,
-        "password": "",
-        "userType": 1
+        "active": 0,
+        "password": "1234",
+        "typeOfUser": 0
     },
     {
         "studentId": 99,
@@ -1480,9 +1495,9 @@
         "birthDate": "2021-09-16T00:00:00",
         "email": "kbonnett2q@tmall.com",
         "phoneNumber": "627-902-1623",
-        "isActive": 1,
-        "password": "",
-        "userType": 1
+        "active": 0,
+        "password": "1234",
+        "typeOfUser": 0
     },
     {
         "studentId": 100,
@@ -1495,9 +1510,9 @@
         "birthDate": "2021-05-28T00:00:00",
         "email": "fdeave2r@wix.com",
         "phoneNumber": "826-543-3453",
-        "isActive": 1,
-        "password": "",
-        "userType": 1
+        "active": 1,
+        "password": "1234",
+        "typeOfUser": 0
     },
     {
         "studentId": 101,
@@ -1510,9 +1525,9 @@
         "birthDate": "2021-07-20T00:00:00",
         "email": "rcrimp2s@posterous.com",
         "phoneNumber": "300-596-9167",
-        "isActive": 1,
-        "password": "",
-        "userType": 1
+        "active": 0,
+        "password": "1234",
+        "typeOfUser": 0
     },
     {
         "studentId": 102,
@@ -1525,9 +1540,9 @@
         "birthDate": "2021-07-19T00:00:00",
         "email": "egoves2t@squarespace.com",
         "phoneNumber": "988-703-4660",
-        "isActive": 1,
-        "password": "",
-        "userType": 1
+        "active": 0,
+        "password": "1234",
+        "typeOfUser": 0
     },
     {
         "studentId": 103,
@@ -1540,9 +1555,9 @@
         "birthDate": "2021-07-20T00:00:00",
         "email": "bscemp2u@tumblr.com",
         "phoneNumber": "687-360-6606",
-        "isActive": 1,
-        "password": "",
-        "userType": 1
+        "active": 1,
+        "password": "1234",
+        "typeOfUser": 0
     },
     {
         "studentId": 104,
@@ -1555,9 +1570,9 @@
         "birthDate": "2021-09-02T00:00:00",
         "email": "kburn2v@arstechnica.com",
         "phoneNumber": "530-613-3865",
-        "isActive": 1,
-        "password": "",
-        "userType": 1
+        "active": 1,
+        "password": "1234",
+        "typeOfUser": 0
     },
     {
         "studentId": 105,
@@ -1570,9 +1585,9 @@
         "birthDate": "2021-08-15T00:00:00",
         "email": "lspight2w@examiner.com",
         "phoneNumber": "242-192-0925",
-        "isActive": 1,
-        "password": "",
-        "userType": 1
+        "active": 0,
+        "password": "1234",
+        "typeOfUser": 0
     },
     {
         "studentId": 106,
@@ -1585,9 +1600,9 @@
         "birthDate": "2021-03-27T00:00:00",
         "email": "hbradder2x@ibm.com",
         "phoneNumber": "344-574-1632",
-        "isActive": 1,
-        "password": "",
-        "userType": 1
+        "active": 1,
+        "password": "1234",
+        "typeOfUser": 0
     },
     {
         "studentId": 107,
@@ -1600,9 +1615,9 @@
         "birthDate": "2021-06-07T00:00:00",
         "email": "lhunn2y@cbslocal.com",
         "phoneNumber": "313-213-0165",
-        "isActive": 1,
-        "password": "",
-        "userType": 1
+        "active": 1,
+        "password": "1234",
+        "typeOfUser": 0
     },
     {
         "studentId": 108,
@@ -1615,9 +1630,9 @@
         "birthDate": "2020-11-24T00:00:00",
         "email": "bhamilton2z@ezinearticles.com",
         "phoneNumber": "550-811-8535",
-        "isActive": 1,
-        "password": "",
-        "userType": 1
+        "active": 1,
+        "password": "1234",
+        "typeOfUser": 0
     },
     {
         "studentId": 109,
@@ -1630,9 +1645,9 @@
         "birthDate": "2021-08-16T00:00:00",
         "email": "lcockill30@time.com",
         "phoneNumber": "296-278-1935",
-        "isActive": 1,
-        "password": "",
-        "userType": 1
+        "active": 0,
+        "password": "1234",
+        "typeOfUser": 0
     },
     {
         "studentId": 110,
@@ -1645,9 +1660,9 @@
         "birthDate": "2021-07-12T00:00:00",
         "email": "nsouthwick31@cargocollective.com",
         "phoneNumber": "881-814-3989",
-        "isActive": 1,
-        "password": "",
-        "userType": 1
+        "active": 0,
+        "password": "1234",
+        "typeOfUser": 0
     },
     {
         "studentId": 111,
@@ -1660,9 +1675,9 @@
         "birthDate": "2020-11-05T00:00:00",
         "email": "apetran32@yahoo.com",
         "phoneNumber": "917-438-0078",
-        "isActive": 1,
-        "password": "",
-        "userType": 1
+        "active": 1,
+        "password": "1234",
+        "typeOfUser": 0
     },
     {
         "studentId": 112,
@@ -1675,9 +1690,9 @@
         "birthDate": "2021-05-03T00:00:00",
         "email": "dshilburne33@zimbio.com",
         "phoneNumber": "975-792-2824",
-        "isActive": 1,
-        "password": "",
-        "userType": 1
+        "active": 0,
+        "password": "1234",
+        "typeOfUser": 0
     },
     {
         "studentId": 113,
@@ -1690,9 +1705,9 @@
         "birthDate": "2021-01-04T00:00:00",
         "email": "mdelhay34@irs.gov",
         "phoneNumber": "815-902-4143",
-        "isActive": 1,
-        "password": "",
-        "userType": 1
+        "active": 1,
+        "password": "1234",
+        "typeOfUser": 0
     },
     {
         "studentId": 114,
@@ -1705,9 +1720,9 @@
         "birthDate": "2021-06-02T00:00:00",
         "email": "msket35@dmoz.org",
         "phoneNumber": "131-365-3935",
-        "isActive": 1,
-        "password": "",
-        "userType": 1
+        "active": 0,
+        "password": "1234",
+        "typeOfUser": 0
     },
     {
         "studentId": 115,
@@ -1720,9 +1735,9 @@
         "birthDate": "2021-08-12T00:00:00",
         "email": "mkowalski36@hc360.com",
         "phoneNumber": "875-401-6852",
-        "isActive": 1,
-        "password": "",
-        "userType": 1
+        "active": 1,
+        "password": "1234",
+        "typeOfUser": 0
     },
     {
         "studentId": 116,
@@ -1735,9 +1750,9 @@
         "birthDate": "2021-08-21T00:00:00",
         "email": "cflewan37@rediff.com",
         "phoneNumber": "116-810-7043",
-        "isActive": 1,
-        "password": "",
-        "userType": 1
+        "active": 1,
+        "password": "1234",
+        "typeOfUser": 0
     },
     {
         "studentId": 117,
@@ -1750,9 +1765,9 @@
         "birthDate": "2021-07-20T00:00:00",
         "email": "tethelston38@samsung.com",
         "phoneNumber": "271-502-2244",
-        "isActive": 1,
-        "password": "",
-        "userType": 1
+        "active": 0,
+        "password": "1234",
+        "typeOfUser": 0
     },
     {
         "studentId": 118,
@@ -1765,9 +1780,9 @@
         "birthDate": "2020-12-06T00:00:00",
         "email": "ddesimoni39@surveymonkey.com",
         "phoneNumber": "246-502-4545",
-        "isActive": 1,
-        "password": "",
-        "userType": 1
+        "active": 0,
+        "password": "1234",
+        "typeOfUser": 0
     },
     {
         "studentId": 119,
@@ -1780,9 +1795,9 @@
         "birthDate": "2021-06-14T00:00:00",
         "email": "hantic3a@fotki.com",
         "phoneNumber": "635-152-6564",
-        "isActive": 1,
-        "password": "",
-        "userType": 1
+        "active": 1,
+        "password": "1234",
+        "typeOfUser": 0
     },
     {
         "studentId": 120,
@@ -1795,9 +1810,9 @@
         "birthDate": "2021-05-28T00:00:00",
         "email": "tturbayne3b@apache.org",
         "phoneNumber": "323-395-0040",
-        "isActive": 1,
-        "password": "",
-        "userType": 1
+        "active": 0,
+        "password": "1234",
+        "typeOfUser": 0
     },
     {
         "studentId": 121,
@@ -1810,9 +1825,9 @@
         "birthDate": "2021-08-20T00:00:00",
         "email": "fbilam3c@auda.org.au",
         "phoneNumber": "396-536-7478",
-        "isActive": 1,
-        "password": "",
-        "userType": 1
+        "active": 1,
+        "password": "1234",
+        "typeOfUser": 0
     },
     {
         "studentId": 122,
@@ -1825,9 +1840,9 @@
         "birthDate": "2021-05-10T00:00:00",
         "email": "bhonnicott3d@amazon.de",
         "phoneNumber": "996-124-9094",
-        "isActive": 1,
-        "password": "",
-        "userType": 1
+        "active": 1,
+        "password": "1234",
+        "typeOfUser": 0
     },
     {
         "studentId": 123,
@@ -1840,9 +1855,9 @@
         "birthDate": "2021-08-04T00:00:00",
         "email": "wrawne3e@phpbb.com",
         "phoneNumber": "784-509-5500",
-        "isActive": 1,
-        "password": "",
-        "userType": 1
+        "active": 0,
+        "password": "1234",
+        "typeOfUser": 0
     },
     {
         "studentId": 124,
@@ -1855,9 +1870,9 @@
         "birthDate": "2021-09-19T00:00:00",
         "email": "tchessum3f@chicagotribune.com",
         "phoneNumber": "981-831-1449",
-        "isActive": 1,
-        "password": "",
-        "userType": 1
+        "active": 1,
+        "password": "1234",
+        "typeOfUser": 0
     },
     {
         "studentId": 125,
@@ -1870,9 +1885,9 @@
         "birthDate": "2020-11-12T00:00:00",
         "email": "kiddison3g@usnews.com",
         "phoneNumber": "418-438-4982",
-        "isActive": 1,
-        "password": "",
-        "userType": 1
+        "active": 0,
+        "password": "1234",
+        "typeOfUser": 0
     },
     {
         "studentId": 126,
@@ -1885,9 +1900,9 @@
         "birthDate": "2021-09-07T00:00:00",
         "email": "clegrice3h@parallels.com",
         "phoneNumber": "642-929-9923",
-        "isActive": 1,
-        "password": "",
-        "userType": 1
+        "active": 1,
+        "password": "1234",
+        "typeOfUser": 0
     },
     {
         "studentId": 127,
@@ -1900,9 +1915,9 @@
         "birthDate": "2020-09-29T00:00:00",
         "email": "dkinkead3i@tinypic.com",
         "phoneNumber": "478-475-7057",
-        "isActive": 1,
-        "password": "",
-        "userType": 1
+        "active": 1,
+        "password": "1234",
+        "typeOfUser": 0
     },
     {
         "studentId": 128,
@@ -1915,9 +1930,9 @@
         "birthDate": "2020-12-30T00:00:00",
         "email": "hbruckstein3j@ow.ly",
         "phoneNumber": "610-756-6491",
-        "isActive": 1,
-        "password": "",
-        "userType": 1
+        "active": 1,
+        "password": "1234",
+        "typeOfUser": 0
     },
     {
         "studentId": 129,
@@ -1930,9 +1945,9 @@
         "birthDate": "2021-08-22T00:00:00",
         "email": "imansfield3k@amazonaws.com",
         "phoneNumber": "485-876-5605",
-        "isActive": 1,
-        "password": "",
-        "userType": 1
+        "active": 0,
+        "password": "1234",
+        "typeOfUser": 0
     },
     {
         "studentId": 130,
@@ -1945,9 +1960,9 @@
         "birthDate": "2021-06-11T00:00:00",
         "email": "nmetzke3l@cargocollective.com",
         "phoneNumber": "876-319-3747",
-        "isActive": 1,
-        "password": "",
-        "userType": 1
+        "active": 1,
+        "password": "1234",
+        "typeOfUser": 0
     },
     {
         "studentId": 131,
@@ -1960,9 +1975,9 @@
         "birthDate": "2021-06-25T00:00:00",
         "email": "llittlechild3m@europa.eu",
         "phoneNumber": "460-395-6975",
-        "isActive": 1,
-        "password": "",
-        "userType": 1
+        "active": 0,
+        "password": "1234",
+        "typeOfUser": 0
     },
     {
         "studentId": 132,
@@ -1975,9 +1990,9 @@
         "birthDate": "2021-02-17T00:00:00",
         "email": "viacofo3n@github.com",
         "phoneNumber": "153-170-3448",
-        "isActive": 1,
-        "password": "",
-        "userType": 1
+        "active": 0,
+        "password": "1234",
+        "typeOfUser": 0
     },
     {
         "studentId": 133,
@@ -1990,9 +2005,9 @@
         "birthDate": "2021-03-07T00:00:00",
         "email": "lchoulerton3o@cyberchimps.com",
         "phoneNumber": "387-858-5444",
-        "isActive": 1,
-        "password": "",
-        "userType": 1
+        "active": 0,
+        "password": "1234",
+        "typeOfUser": 0
     },
     {
         "studentId": 134,
@@ -2005,9 +2020,9 @@
         "birthDate": "2021-04-27T00:00:00",
         "email": "rdalessio3p@prnewswire.com",
         "phoneNumber": "371-769-6875",
-        "isActive": 1,
-        "password": "",
-        "userType": 1
+        "active": 0,
+        "password": "1234",
+        "typeOfUser": 0
     },
     {
         "studentId": 135,
@@ -2020,9 +2035,9 @@
         "birthDate": "2021-04-01T00:00:00",
         "email": "rgouny3q@yellowbook.com",
         "phoneNumber": "146-632-7102",
-        "isActive": 1,
-        "password": "",
-        "userType": 1
+        "active": 0,
+        "password": "1234",
+        "typeOfUser": 0
     },
     {
         "studentId": 136,
@@ -2035,9 +2050,9 @@
         "birthDate": "2020-11-02T00:00:00",
         "email": "hcrudgington3r@aboutads.info",
         "phoneNumber": "214-172-6385",
-        "isActive": 1,
-        "password": "",
-        "userType": 1
+        "active": 0,
+        "password": "1234",
+        "typeOfUser": 0
     },
     {
         "studentId": 137,
@@ -2050,9 +2065,9 @@
         "birthDate": "2020-10-03T00:00:00",
         "email": "rbonus3s@cnn.com",
         "phoneNumber": "530-875-5915",
-        "isActive": 1,
-        "password": "",
-        "userType": 1
+        "active": 0,
+        "password": "1234",
+        "typeOfUser": 0
     },
     {
         "studentId": 138,
@@ -2065,9 +2080,9 @@
         "birthDate": "2021-04-06T00:00:00",
         "email": "gfish3t@shutterfly.com",
         "phoneNumber": "250-677-4442",
-        "isActive": 1,
-        "password": "",
-        "userType": 1
+        "active": 1,
+        "password": "1234",
+        "typeOfUser": 0
     },
     {
         "studentId": 139,
@@ -2080,9 +2095,9 @@
         "birthDate": "2021-01-16T00:00:00",
         "email": "fgoodey3u@bandcamp.com",
         "phoneNumber": "260-141-9667",
-        "isActive": 1,
-        "password": "",
-        "userType": 1
+        "active": 1,
+        "password": "1234",
+        "typeOfUser": 0
     },
     {
         "studentId": 140,
@@ -2095,9 +2110,9 @@
         "birthDate": "2020-11-26T00:00:00",
         "email": "gscoggan3v@t.co",
         "phoneNumber": "924-769-3310",
-        "isActive": 1,
-        "password": "",
-        "userType": 1
+        "active": 0,
+        "password": "1234",
+        "typeOfUser": 0
     },
     {
         "studentId": 141,
@@ -2110,9 +2125,9 @@
         "birthDate": "2021-09-15T00:00:00",
         "email": "lpenburton3w@joomla.org",
         "phoneNumber": "344-134-4871",
-        "isActive": 1,
-        "password": "",
-        "userType": 1
+        "active": 0,
+        "password": "1234",
+        "typeOfUser": 0
     },
     {
         "studentId": 142,
@@ -2125,9 +2140,9 @@
         "birthDate": "2021-03-11T00:00:00",
         "email": "edunphy3x@census.gov",
         "phoneNumber": "165-945-4956",
-        "isActive": 1,
-        "password": "",
-        "userType": 1
+        "active": 1,
+        "password": "1234",
+        "typeOfUser": 0
     },
     {
         "studentId": 143,
@@ -2140,9 +2155,9 @@
         "birthDate": "2021-06-12T00:00:00",
         "email": "gmcgillivray3y@mediafire.com",
         "phoneNumber": "833-449-3661",
-        "isActive": 1,
-        "password": "",
-        "userType": 1
+        "active": 0,
+        "password": "1234",
+        "typeOfUser": 0
     },
     {
         "studentId": 144,
@@ -2155,9 +2170,9 @@
         "birthDate": "2021-01-21T00:00:00",
         "email": "ytucknott3z@sogou.com",
         "phoneNumber": "370-149-7338",
-        "isActive": 1,
-        "password": "",
-        "userType": 1
+        "active": 1,
+        "password": "1234",
+        "typeOfUser": 0
     },
     {
         "studentId": 145,
@@ -2170,9 +2185,9 @@
         "birthDate": "2021-09-24T00:00:00",
         "email": "arilton40@merriam-webster.com",
         "phoneNumber": "483-562-7792",
-        "isActive": 1,
-        "password": "",
-        "userType": 1
+        "active": 1,
+        "password": "1234",
+        "typeOfUser": 0
     },
     {
         "studentId": 146,
@@ -2185,9 +2200,9 @@
         "birthDate": "2020-11-25T00:00:00",
         "email": "sstrongman41@skype.com",
         "phoneNumber": "961-561-9646",
-        "isActive": 1,
-        "password": "",
-        "userType": 1
+        "active": 1,
+        "password": "1234",
+        "typeOfUser": 0
     },
     {
         "studentId": 147,
@@ -2200,9 +2215,9 @@
         "birthDate": "2021-03-14T00:00:00",
         "email": "gwebbbowen42@t.co",
         "phoneNumber": "836-256-7957",
-        "isActive": 1,
-        "password": "",
-        "userType": 1
+        "active": 1,
+        "password": "1234",
+        "typeOfUser": 0
     },
     {
         "studentId": 148,
@@ -2215,9 +2230,9 @@
         "birthDate": "2021-01-26T00:00:00",
         "email": "bmullen43@last.fm",
         "phoneNumber": "641-224-2494",
-        "isActive": 1,
-        "password": "",
-        "userType": 1
+        "active": 0,
+        "password": "1234",
+        "typeOfUser": 0
     },
     {
         "studentId": 149,
@@ -2230,9 +2245,9 @@
         "birthDate": "2020-10-30T00:00:00",
         "email": "sthirst44@comsenz.com",
         "phoneNumber": "797-402-2816",
-        "isActive": 1,
-        "password": "",
-        "userType": 1
+        "active": 0,
+        "password": "1234",
+        "typeOfUser": 0
     },
     {
         "studentId": 150,
@@ -2245,9 +2260,9 @@
         "birthDate": "2021-09-15T00:00:00",
         "email": "igainforth45@hubpages.com",
         "phoneNumber": "670-349-1455",
-        "isActive": 1,
-        "password": "",
-        "userType": 1
+        "active": 1,
+        "password": "1234",
+        "typeOfUser": 0
     },
     {
         "studentId": 151,
@@ -2260,9 +2275,9 @@
         "birthDate": "2021-08-23T00:00:00",
         "email": "kmorfell46@slate.com",
         "phoneNumber": "915-593-9589",
-        "isActive": 1,
-        "password": "",
-        "userType": 1
+        "active": 0,
+        "password": "1234",
+        "typeOfUser": 0
     },
     {
         "studentId": 152,
@@ -2275,9 +2290,9 @@
         "birthDate": "2021-02-01T00:00:00",
         "email": "jfakeley47@ning.com",
         "phoneNumber": "807-724-1840",
-        "isActive": 1,
-        "password": "",
-        "userType": 1
+        "active": 0,
+        "password": "1234",
+        "typeOfUser": 0
     },
     {
         "studentId": 153,
@@ -2290,9 +2305,9 @@
         "birthDate": "2021-02-23T00:00:00",
         "email": "dlebbon48@virginia.edu",
         "phoneNumber": "970-161-7429",
-        "isActive": 1,
-        "password": "",
-        "userType": 1
+        "active": 1,
+        "password": "1234",
+        "typeOfUser": 0
     },
     {
         "studentId": 154,
@@ -2305,9 +2320,9 @@
         "birthDate": "2021-01-08T00:00:00",
         "email": "rdelamere49@mtv.com",
         "phoneNumber": "459-182-2906",
-        "isActive": 1,
-        "password": "",
-        "userType": 1
+        "active": 1,
+        "password": "1234",
+        "typeOfUser": 0
     },
     {
         "studentId": 155,
@@ -2320,9 +2335,9 @@
         "birthDate": "2021-05-04T00:00:00",
         "email": "lcostall4a@alibaba.com",
         "phoneNumber": "107-342-4871",
-        "isActive": 1,
-        "password": "",
-        "userType": 1
+        "active": 0,
+        "password": "1234",
+        "typeOfUser": 0
     },
     {
         "studentId": 156,
@@ -2335,9 +2350,9 @@
         "birthDate": "2021-05-24T00:00:00",
         "email": "bcherrett4b@aboutads.info",
         "phoneNumber": "663-263-2110",
-        "isActive": 1,
-        "password": "",
-        "userType": 1
+        "active": 1,
+        "password": "1234",
+        "typeOfUser": 0
     },
     {
         "studentId": 157,
@@ -2350,9 +2365,9 @@
         "birthDate": "2020-10-13T00:00:00",
         "email": "mstone4c@infoseek.co.jp",
         "phoneNumber": "821-347-9937",
-        "isActive": 1,
-        "password": "",
-        "userType": 1
+        "active": 0,
+        "password": "1234",
+        "typeOfUser": 0
     },
     {
         "studentId": 158,
@@ -2365,9 +2380,9 @@
         "birthDate": "2021-03-03T00:00:00",
         "email": "yhenrique4d@wired.com",
         "phoneNumber": "238-174-5782",
-        "isActive": 1,
-        "password": "",
-        "userType": 1
+        "active": 0,
+        "password": "1234",
+        "typeOfUser": 0
     },
     {
         "studentId": 159,
@@ -2380,9 +2395,9 @@
         "birthDate": "2021-04-18T00:00:00",
         "email": "wmcharg4e@reddit.com",
         "phoneNumber": "848-998-3882",
-        "isActive": 1,
-        "password": "",
-        "userType": 1
+        "active": 1,
+        "password": "1234",
+        "typeOfUser": 0
     },
     {
         "studentId": 160,
@@ -2395,9 +2410,9 @@
         "birthDate": "2021-03-09T00:00:00",
         "email": "sbrittlebank4f@cornell.edu",
         "phoneNumber": "616-391-9245",
-        "isActive": 1,
-        "password": "",
-        "userType": 1
+        "active": 1,
+        "password": "1234",
+        "typeOfUser": 0
     },
     {
         "studentId": 161,
@@ -2410,9 +2425,9 @@
         "birthDate": "2021-07-01T00:00:00",
         "email": "gautin4g@ucoz.com",
         "phoneNumber": "615-247-7087",
-        "isActive": 1,
-        "password": "",
-        "userType": 1
+        "active": 0,
+        "password": "1234",
+        "typeOfUser": 0
     },
     {
         "studentId": 162,
@@ -2425,9 +2440,9 @@
         "birthDate": "2021-06-25T00:00:00",
         "email": "cvaudin4h@businesswire.com",
         "phoneNumber": "549-755-1391",
-        "isActive": 1,
-        "password": "",
-        "userType": 1
+        "active": 0,
+        "password": "1234",
+        "typeOfUser": 0
     },
     {
         "studentId": 163,
@@ -2440,9 +2455,9 @@
         "birthDate": "2021-04-05T00:00:00",
         "email": "rwasselin4i@theguardian.com",
         "phoneNumber": "369-853-4412",
-        "isActive": 1,
-        "password": "",
-        "userType": 1
+        "active": 1,
+        "password": "1234",
+        "typeOfUser": 0
     },
     {
         "studentId": 164,
@@ -2455,9 +2470,9 @@
         "birthDate": "2021-07-29T00:00:00",
         "email": "bskrzynski4j@feedburner.com",
         "phoneNumber": "612-173-5472",
-        "isActive": 1,
-        "password": "",
-        "userType": 1
+        "active": 0,
+        "password": "1234",
+        "typeOfUser": 0
     },
     {
         "studentId": 165,
@@ -2470,9 +2485,9 @@
         "birthDate": "2020-11-13T00:00:00",
         "email": "zfarrans4k@forbes.com",
         "phoneNumber": "814-918-8343",
-        "isActive": 1,
-        "password": "",
-        "userType": 1
+        "active": 1,
+        "password": "1234",
+        "typeOfUser": 0
     },
     {
         "studentId": 166,
@@ -2485,9 +2500,9 @@
         "birthDate": "2020-12-09T00:00:00",
         "email": "bpouton4l@yellowpages.com",
         "phoneNumber": "616-120-6191",
-        "isActive": 1,
-        "password": "",
-        "userType": 1
+        "active": 1,
+        "password": "1234",
+        "typeOfUser": 0
     },
     {
         "studentId": 167,
@@ -2500,9 +2515,9 @@
         "birthDate": "2021-08-18T00:00:00",
         "email": "sgoncaves4m@symantec.com",
         "phoneNumber": "599-511-2518",
-        "isActive": 1,
-        "password": "",
-        "userType": 1
+        "active": 1,
+        "password": "1234",
+        "typeOfUser": 0
     },
     {
         "studentId": 168,
@@ -2515,9 +2530,9 @@
         "birthDate": "2021-08-12T00:00:00",
         "email": "kmcilmorow4n@yandex.ru",
         "phoneNumber": "650-134-2767",
-        "isActive": 1,
-        "password": "",
-        "userType": 1
+        "active": 0,
+        "password": "1234",
+        "typeOfUser": 0
     },
     {
         "studentId": 169,
@@ -2530,9 +2545,9 @@
         "birthDate": "2021-03-23T00:00:00",
         "email": "jcarlens4o@google.ca",
         "phoneNumber": "146-586-2597",
-        "isActive": 1,
-        "password": "",
-        "userType": 1
+        "active": 0,
+        "password": "1234",
+        "typeOfUser": 0
     },
     {
         "studentId": 170,
@@ -2545,9 +2560,9 @@
         "birthDate": "2020-09-27T00:00:00",
         "email": "rairdrie4p@topsy.com",
         "phoneNumber": "770-417-6639",
-        "isActive": 1,
-        "password": "",
-        "userType": 1
+        "active": 0,
+        "password": "1234",
+        "typeOfUser": 0
     },
     {
         "studentId": 171,
@@ -2560,9 +2575,9 @@
         "birthDate": "2021-05-02T00:00:00",
         "email": "anannoni4q@vimeo.com",
         "phoneNumber": "811-955-4367",
-        "isActive": 1,
-        "password": "",
-        "userType": 1
+        "active": 0,
+        "password": "1234",
+        "typeOfUser": 0
     },
     {
         "studentId": 172,
@@ -2575,9 +2590,9 @@
         "birthDate": "2021-04-13T00:00:00",
         "email": "adyas4r@earthlink.net",
         "phoneNumber": "831-473-4363",
-        "isActive": 1,
-        "password": "",
-        "userType": 1
+        "active": 0,
+        "password": "1234",
+        "typeOfUser": 0
     },
     {
         "studentId": 173,
@@ -2590,9 +2605,9 @@
         "birthDate": "2021-05-20T00:00:00",
         "email": "sflindall4s@mediafire.com",
         "phoneNumber": "283-860-7535",
-        "isActive": 1,
-        "password": "",
-        "userType": 1
+        "active": 1,
+        "password": "1234",
+        "typeOfUser": 0
     },
     {
         "studentId": 174,
@@ -2605,9 +2620,9 @@
         "birthDate": "2021-06-15T00:00:00",
         "email": "jtidridge4t@posterous.com",
         "phoneNumber": "176-889-1935",
-        "isActive": 1,
-        "password": "",
-        "userType": 1
+        "active": 1,
+        "password": "1234",
+        "typeOfUser": 0
     },
     {
         "studentId": 175,
@@ -2620,9 +2635,9 @@
         "birthDate": "2021-07-30T00:00:00",
         "email": "sdowglass4u@foxnews.com",
         "phoneNumber": "529-675-9277",
-        "isActive": 1,
-        "password": "",
-        "userType": 1
+        "active": 0,
+        "password": "1234",
+        "typeOfUser": 0
     },
     {
         "studentId": 176,
@@ -2635,9 +2650,9 @@
         "birthDate": "2021-06-10T00:00:00",
         "email": "nbrimelow4v@pagesperso-orange.fr",
         "phoneNumber": "265-863-6907",
-        "isActive": 1,
-        "password": "",
-        "userType": 1
+        "active": 1,
+        "password": "1234",
+        "typeOfUser": 0
     },
     {
         "studentId": 177,
@@ -2650,9 +2665,9 @@
         "birthDate": "2021-09-03T00:00:00",
         "email": "rszymonwicz4w@who.int",
         "phoneNumber": "545-893-1140",
-        "isActive": 1,
-        "password": "",
-        "userType": 1
+        "active": 1,
+        "password": "1234",
+        "typeOfUser": 0
     },
     {
         "studentId": 178,
@@ -2665,9 +2680,9 @@
         "birthDate": "2021-09-13T00:00:00",
         "email": "rrunnacles4x@tripadvisor.com",
         "phoneNumber": "676-627-8556",
-        "isActive": 1,
-        "password": "",
-        "userType": 1
+        "active": 1,
+        "password": "1234",
+        "typeOfUser": 0
     },
     {
         "studentId": 179,
@@ -2680,9 +2695,9 @@
         "birthDate": "2021-01-03T00:00:00",
         "email": "kpiris4y@chicagotribune.com",
         "phoneNumber": "121-697-3551",
-        "isActive": 1,
-        "password": "",
-        "userType": 1
+        "active": 1,
+        "password": "1234",
+        "typeOfUser": 0
     },
     {
         "studentId": 180,
@@ -2695,9 +2710,9 @@
         "birthDate": "2021-05-25T00:00:00",
         "email": "heckery4z@businessweek.com",
         "phoneNumber": "731-857-3248",
-        "isActive": 1,
-        "password": "",
-        "userType": 1
+        "active": 1,
+        "password": "1234",
+        "typeOfUser": 0
     },
     {
         "studentId": 181,
@@ -2710,9 +2725,9 @@
         "birthDate": "2021-03-10T00:00:00",
         "email": "abraiden50@hibu.com",
         "phoneNumber": "177-622-7559",
-        "isActive": 1,
-        "password": "",
-        "userType": 1
+        "active": 0,
+        "password": "1234",
+        "typeOfUser": 0
     },
     {
         "studentId": 182,
@@ -2725,9 +2740,9 @@
         "birthDate": "2020-12-14T00:00:00",
         "email": "sblaisdell51@jiathis.com",
         "phoneNumber": "536-262-5430",
-        "isActive": 1,
-        "password": "",
-        "userType": 1
+        "active": 0,
+        "password": "1234",
+        "typeOfUser": 0
     },
     {
         "studentId": 183,
@@ -2740,9 +2755,9 @@
         "birthDate": "2021-07-09T00:00:00",
         "email": "aevanson52@icq.com",
         "phoneNumber": "427-902-6345",
-        "isActive": 1,
-        "password": "",
-        "userType": 1
+        "active": 1,
+        "password": "1234",
+        "typeOfUser": 0
     },
     {
         "studentId": 184,
@@ -2755,9 +2770,9 @@
         "birthDate": "2021-01-10T00:00:00",
         "email": "rramos53@ucla.edu",
         "phoneNumber": "178-560-0180",
-        "isActive": 1,
-        "password": "",
-        "userType": 1
+        "active": 0,
+        "password": "1234",
+        "typeOfUser": 0
     },
     {
         "studentId": 185,
@@ -2770,9 +2785,9 @@
         "birthDate": "2020-11-19T00:00:00",
         "email": "bantoszczyk54@addthis.com",
         "phoneNumber": "931-894-0632",
-        "isActive": 1,
-        "password": "",
-        "userType": 1
+        "active": 1,
+        "password": "1234",
+        "typeOfUser": 0
     },
     {
         "studentId": 186,
@@ -2785,9 +2800,9 @@
         "birthDate": "2020-10-08T00:00:00",
         "email": "rlangelaan55@printfriendly.com",
         "phoneNumber": "917-763-3318",
-        "isActive": 1,
-        "password": "",
-        "userType": 1
+        "active": 0,
+        "password": "1234",
+        "typeOfUser": 0
     },
     {
         "studentId": 187,
@@ -2800,9 +2815,9 @@
         "birthDate": "2021-09-23T00:00:00",
         "email": "rmitie56@hugedomains.com",
         "phoneNumber": "700-745-1419",
-        "isActive": 1,
-        "password": "",
-        "userType": 1
+        "active": 0,
+        "password": "1234",
+        "typeOfUser": 0
     },
     {
         "studentId": 188,
@@ -2815,9 +2830,9 @@
         "birthDate": "2021-09-09T00:00:00",
         "email": "tstorry57@google.cn",
         "phoneNumber": "595-495-7291",
-        "isActive": 1,
-        "password": "",
-        "userType": 1
+        "active": 0,
+        "password": "1234",
+        "typeOfUser": 0
     },
     {
         "studentId": 189,
@@ -2830,9 +2845,9 @@
         "birthDate": "2021-04-15T00:00:00",
         "email": "fadelsberg58@about.com",
         "phoneNumber": "793-798-5222",
-        "isActive": 1,
-        "password": "",
-        "userType": 1
+        "active": 1,
+        "password": "1234",
+        "typeOfUser": 0
     },
     {
         "studentId": 190,
@@ -2845,9 +2860,9 @@
         "birthDate": "2021-05-04T00:00:00",
         "email": "fdegan59@europa.eu",
         "phoneNumber": "831-536-2866",
-        "isActive": 1,
-        "password": "",
-        "userType": 1
+        "active": 0,
+        "password": "1234",
+        "typeOfUser": 0
     },
     {
         "studentId": 191,
@@ -2860,9 +2875,9 @@
         "birthDate": "2021-07-08T00:00:00",
         "email": "mlangham5a@moonfruit.com",
         "phoneNumber": "654-825-5795",
-        "isActive": 1,
-        "password": "",
-        "userType": 1
+        "active": 1,
+        "password": "1234",
+        "typeOfUser": 0
     },
     {
         "studentId": 192,
@@ -2875,9 +2890,9 @@
         "birthDate": "2021-03-25T00:00:00",
         "email": "egoldsworthy5b@narod.ru",
         "phoneNumber": "518-971-3092",
-        "isActive": 1,
-        "password": "",
-        "userType": 1
+        "active": 0,
+        "password": "1234",
+        "typeOfUser": 0
     },
     {
         "studentId": 193,
@@ -2890,9 +2905,9 @@
         "birthDate": "2021-04-13T00:00:00",
         "email": "pmaleby5c@ucoz.ru",
         "phoneNumber": "253-509-2968",
-        "isActive": 1,
-        "password": "",
-        "userType": 1
+        "active": 1,
+        "password": "1234",
+        "typeOfUser": 0
     },
     {
         "studentId": 194,
@@ -2905,9 +2920,9 @@
         "birthDate": "2021-02-20T00:00:00",
         "email": "savon5d@chicagotribune.com",
         "phoneNumber": "694-533-7844",
-        "isActive": 1,
-        "password": "",
-        "userType": 1
+        "active": 1,
+        "password": "1234",
+        "typeOfUser": 0
     },
     {
         "studentId": 195,
@@ -2920,9 +2935,9 @@
         "birthDate": "2021-02-07T00:00:00",
         "email": "bshorthill5e@blogs.com",
         "phoneNumber": "412-472-8296",
-        "isActive": 1,
-        "password": "",
-        "userType": 1
+        "active": 0,
+        "password": "1234",
+        "typeOfUser": 0
     },
     {
         "studentId": 196,
@@ -2935,9 +2950,9 @@
         "birthDate": "2021-03-29T00:00:00",
         "email": "rgummie5f@xinhuanet.com",
         "phoneNumber": "581-207-7981",
-        "isActive": 1,
-        "password": "",
-        "userType": 1
+        "active": 1,
+        "password": "1234",
+        "typeOfUser": 0
     },
     {
         "studentId": 197,
@@ -2950,9 +2965,9 @@
         "birthDate": "2020-12-11T00:00:00",
         "email": "tnazer5g@google.de",
         "phoneNumber": "535-177-9395",
-        "isActive": 1,
-        "password": "",
-        "userType": 1
+        "active": 0,
+        "password": "1234",
+        "typeOfUser": 0
     },
     {
         "studentId": 198,
@@ -2965,9 +2980,9 @@
         "birthDate": "2020-09-26T00:00:00",
         "email": "bmerle5h@jiathis.com",
         "phoneNumber": "101-915-3491",
-        "isActive": 1,
-        "password": "",
-        "userType": 1
+        "active": 1,
+        "password": "1234",
+        "typeOfUser": 0
     },
     {
         "studentId": 199,
@@ -2980,9 +2995,9 @@
         "birthDate": "2021-06-14T00:00:00",
         "email": "tkitson5i@mashable.com",
         "phoneNumber": "633-303-0830",
-        "isActive": 1,
-        "password": "",
-        "userType": 1
+        "active": 1,
+        "password": "1234",
+        "typeOfUser": 0
     },
     {
         "studentId": 200,
@@ -2995,8 +3010,8 @@
         "birthDate": "2021-04-08T00:00:00",
         "email": "ecordelette5j@umich.edu",
         "phoneNumber": "411-950-1338",
-        "isActive": 1,
-        "password": "",
-        "userType": 1
+        "active": 0,
+        "password": "1234",
+        "typeOfUser": 0
     }
 ]

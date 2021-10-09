@@ -1,42 +1,67 @@
-<?php
+<?php 
+
     namespace Models;
 
-    class Student 
+    class User
     {
-        private $studentId;
+        private $id;
         private $careerId;
+        private $fileNumber;
+        private $password;
+        private $email;
+        private $isActive;
         private $firstName;
         private $lastName;
         private $dni;
-        private $fileNumber;
         private $gender;
         private $birthDate;
-        private $email;
         private $phoneNumber;
-        private $isActive;
-        private $password;
-        private $userType;
+        private $typeOfUser;
 
-        public function getStudentId()
+        public function getId()
         {
-                return $this->studentId;
+                return $this->id;
         }
 
-        public function setStudentId($studentId)
+        public function setId($id)
         {
-                $this->studentId = $studentId;
+                $this->id = $id;
 
                 return $this;
         }
 
-        public function getCareerId()
+        public function getPassword()
         {
-                return $this->careerId;
+                return $this->password;
         }
 
-        public function setCareerId($careerId)
+        public function setPassword($password)
         {
-                $this->careerId = $careerId;
+                $this->password = $password;
+
+                return $this;
+        }
+
+        public function getEmail()
+        {
+                return $this->email;
+        }
+
+        public function setEmail($email)
+        {
+                $this->email = $email;
+
+                return $this;
+        }
+
+        public function getIsActive()
+        {
+                return $this->isActive;
+        }
+
+        public function setIsActive($isActive)
+        {
+                $this->isActive = $isActive;
 
                 return $this;
         }
@@ -77,18 +102,6 @@
                 return $this;
         }
 
-        public function getFileNumber()
-        {
-                return $this->fileNumber;
-        }
-
-        public function setFileNumber($fileNumber)
-        {
-                $this->fileNumber = $fileNumber;
-
-                return $this;
-        }
-
         public function getGender()
         {
                 return $this->gender;
@@ -113,18 +126,6 @@
                 return $this;
         }
 
-        public function getEmail()
-        {
-                return $this->email;
-        }
-
-        public function setEmail($email)
-        {
-                $this->email = $email;
-
-                return $this;
-        }
-
         public function getPhoneNumber()
         {
                 return $this->phoneNumber;
@@ -137,41 +138,42 @@
                 return $this;
         }
 
-        public function getIsActive()
+        public function getCareerId()
         {
-                return $this->isActive;
+                return $this->careerId;
         }
 
-        public function setIsActive($isActive)
+        public function setCareerId($careerId)
         {
-                $this->isActive = $isActive;
+                $this->careerId = $careerId;
 
                 return $this;
         }
 
-        public function getPassword()
+        public function getFileNumber()
         {
-                return $this->password;
+                return $this->fileNumber;
         }
 
-        public function setPassword($password)
+        public function setFileNumber($fileNumber)
         {
-                $this->password = $password;
+                $this->fileNumber = $fileNumber;
 
                 return $this;
         }
 
-        public function getUserType()
+        public function getTypeOfUser()
         {
-                return $this->userType;
+                return $this->typeOfUser;
         }
 
-        public function setUserType($userType)
+        public function setTypeOfUser($typeOfUser)
         {
-                $this->userType = $userType;
+                $this->typeOfUser = $typeOfUser;
 
                 return $this;
         }
     }
-?>
 
+
+?>
