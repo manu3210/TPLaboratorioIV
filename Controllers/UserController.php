@@ -26,6 +26,11 @@
             require_once(VIEWS_PATH."login.php");
         }
 
+        public function ShowUserHome()
+        {
+            require_once(VIEWS_PATH."user-home.php");
+        }
+
         public function ShowListView()
         {
             if(isset($_SESSION["user"]))
@@ -73,7 +78,12 @@
                     else if(strcmp($user->getPassword(), $pass) == 0)
                     {
                         $flag = 1;
-                        header("location:" .FRONT_ROOT . "User/ShowAddView");
+                        if($user->getTypeOfUser() == 1)
+                            header("location:" .FRONT_ROOT . "User/ShowListView");
+                        else
+                        {
+                            header("location:" .FRONT_ROOT . "User/ShowUserHome");
+                        }
                     }
                 }
             }
