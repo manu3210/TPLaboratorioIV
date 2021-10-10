@@ -8,9 +8,19 @@
           </li>
           <li class="nav-item">
                <a class="nav-link" href="<?php echo FRONT_ROOT ?>User/ShowListView">Listar Alumnos</a>
-          </li>  
+          </li>
+     </ul>
+     <ul class="navbar-nav ml-auto">
           <li class="nav-item">
+               <a class="nav-link" href="<?php echo FRONT_ROOT ?>Company/ShowAddCompanyView">Agregar Empresa</a>
+          </li>
+          <li class="nav-item">
+               <a class="nav-link" href="<?php echo FRONT_ROOT ?>Company/ShowListView">Listar Empresas</a>
+          </li>
+     </ul>
+     <ul class="navbar-nav ml-auto">
+           <li class="nav-item">
                <a class="nav-link" href="<?php echo FRONT_ROOT ?>User/Logout">Cerrar sesión</a>
-          </li>          
+          </li>
      </ul>
 </nav>

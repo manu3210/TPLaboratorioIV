@@ -26,12 +26,12 @@
             require_once(VIEWS_PATH."login.php");
         }
 
-        public function ShowUserHome()
+        public function ShowUserHome()//estudiante
         {
             require_once(VIEWS_PATH."user-home.php");
         }
 
-        public function ShowListView()
+        public function ShowListView()//admin
         {
             if(isset($_SESSION["user"]))
             {
@@ -54,7 +54,7 @@
             $user->setFirstName($firstName);
             $user->setLastName($lastName);
 
-            $this->studentDAO->Add($user);
+            $this->userDAO->Add($user);
 
             $this->ShowAddView();
         }
@@ -78,7 +78,7 @@
                     else if(strcmp($user->getPassword(), $pass) == 0)
                     {
                         $flag = 1;
-                        if($user->getTypeOfUser() == 1)
+                        if($user->getTypeOfUser() == 1) //1=admin
                             header("location:" .FRONT_ROOT . "User/ShowListView");
                         else
                         {
@@ -107,5 +107,6 @@
             session_destroy();
             header("location:" .FRONT_ROOT . "User/ShowLoginView");
         }
+
     }
 ?>
