@@ -41,5 +41,21 @@
             $companyList = $this->CompanyDAO->GetAll();
             require_once(VIEWS_PATH."company-list.php");
         }
+
+        public function ShowEditView($companyId)
+        {
+            if(isset($_SESSION["user"]))
+                require_once(VIEWS_PATH."company-edit.php");
+            else
+            header("location:" .FRONT_ROOT . "User/ShowLoginView");
+        }
+
+        public function ShowDeleteView()
+        {
+            if(isset($_SESSION["user"]))
+                require_once(VIEWS_PATH."company-delete.php");
+            else
+            header("location:" .FRONT_ROOT . "User/ShowLoginView");
+        }
     }
 ?>
