@@ -79,6 +79,7 @@
                 $valuesArray["active"] = $user->getIsActive();
                 $valuesArray["password"] = $user->getPassword();
                 $valuesArray["typeOfUser"] = $user->getTypeOfUser();
+                $valuesArray["description"] = $user->getDescription();
 
                 array_push($arrayToEncode, $valuesArray);
             }
@@ -106,6 +107,7 @@
                     $this->LoadInfo($user, $valuesArray);
                     $user->setPassword($valuesArray["password"]);
                     $user->setTypeOfUser($valuesArray["typeOfUser"]);
+                    $user->setDescription($valuesArray["description"]);
 
                     array_push($this->userList, $user);
                 }
@@ -135,6 +137,7 @@
                 $this->LoadInfo($user, $valuesArray);
                 
                 $user->setPassword("1234");
+                $user->setDescription("Ingrese una descripción");
                 $user->setTypeOfUser(0); // 0 = user - 1 = admin
 
                 array_push($this->userList, $user);
