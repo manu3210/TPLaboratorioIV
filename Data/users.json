@@ -16,10 +16,10 @@
         "description": "Ingrese una descripci\u00f3n"
     },
     {
-        "studentId": 1,
-        "careerId": 2,
-        "firstName": "Devlen",
-        "lastName": "Douthwaite",
+        "studentId": "1",
+        "careerId": "2",
+        "firstName": "Mariano",
+        "lastName": "Gomez",
         "dni": "15-992-8607",
         "fileNumber": "33-059-4172",
         "gender": "Genderqueer",
@@ -27,13 +27,13 @@
         "email": "ddouthwaite0@goo.gl",
         "phoneNumber": "849-713-4523",
         "active": 1,
-        "password": "1234",
-        "typeOfUser": 0,
-        "description": "Ingrese una descripci\u00f3n"
+        "password": "mariano",
+        "typeOfUser": "0",
+        "description": "soy mariano"
     },
     {
-        "studentId": 2,
-        "careerId": 5,
+        "studentId": "2",
+        "careerId": "5",
         "firstName": "Wyatan",
         "lastName": "Lorant",
         "dni": "63-025-8112",
@@ -42,14 +42,14 @@
         "birthDate": "2021-02-23T00:00:00",
         "email": "ema3210@hotmail.com",
         "phoneNumber": "4782324",
-        "active": 0,
+        "active": 1,
         "password": "soyema",
-        "typeOfUser": 0,
+        "typeOfUser": "0",
         "description": "Soy un usuario normal no admin intentando actualizar el perfil"
     },
     {
-        "studentId": 3,
-        "careerId": 2,
+        "studentId": "3",
+        "careerId": "2",
         "firstName": "Alanson",
         "lastName": "Seemmonds",
         "dni": "06-684-0100",
@@ -58,9 +58,9 @@
         "birthDate": "2021-07-03T00:00:00",
         "email": "aseemmonds2@upenn.edu",
         "phoneNumber": "961-404-8720",
-        "active": 0,
+        "active": 1,
         "password": "1234",
-        "typeOfUser": 0,
+        "typeOfUser": "0",
         "description": "Ingrese una descripci\u00f3n"
     },
     {

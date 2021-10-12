@@ -159,7 +159,7 @@
             $user->setBirthDate($valuesArray["birthDate"]);
             $user->setEmail($valuesArray["email"]);
             $user->setPhoneNumber($valuesArray["phoneNumber"]);
-            if($valuesArray["active"] == "false")
+            if($valuesArray["active"] == "false" || $valuesArray["active"] == "0")
                 $user->setIsActive(0);
             else
                 $user->setIsActive(1);

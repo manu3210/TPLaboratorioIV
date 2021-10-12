@@ -19,6 +19,7 @@
                          <th>Nombre</th>
                          <th>Email</th>
                          <th>Telefono</th>
+                         <th></th>
                     </thead>
                     <tbody>
                          <?php
@@ -30,7 +31,7 @@
                                              <td><?php echo $company->getName() ?></td>
                                              <td><?php echo $company->getEmail() ?></td>
                                              <td><?php echo $company->getPhoneNumber() ?></td>
-                                             <td><i class="fa-solid fa-pencil"></i></td>
+                                             <td><i class="far fa-edit"></i></td>
                                         </tr>
                                    <?php
                               }

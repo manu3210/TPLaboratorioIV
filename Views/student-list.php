@@ -11,24 +11,26 @@
                          <th>Apellido</th>
                          <th>Nombre</th>
                          <th>Tipo de usuario</th>
+                         <th>Editar usuario</th>
                     </thead>
                     <tbody>
                          <?php
-                              foreach($studentList as $student)
+                              foreach($studentList as $user)
                               {
                                    ?>
                                         <tr>
-                                             <td><?php echo $student->getId() ?></td>
-                                             <td><?php echo $student->getLastName() ?></td>
-                                             <td><?php echo $student->getFirstName() ?></td>
+                                             <td><?php echo $user->getId() ?></td>
+                                             <td><?php echo $user->getLastName() ?></td>
+                                             <td><?php echo $user->getFirstName() ?></td>
                                              <td>
                                                   <?php 
-                                                       if($student->getTypeOfUser() == 1) 
+                                                       if($user->getTypeOfUser() == 1) 
                                                             echo "Administrador";
                                                        else
                                                             echo "Usuario";
                                                   ?>
                                              </td>
+                                             <td style="text-align: center;"><a href="<?php echo FRONT_ROOT ?>User/ShowEditFullView/<?php echo $user->getId(); ?>"><i class="far fa-edit text-dark"></i></a></td>
                                         </tr>
                                    <?php
                               }

@@ -24,9 +24,17 @@
         public function ShowEditView()
         {
             if(isset($_SESSION["user"]))
+            {
                 require_once(VIEWS_PATH."student-edit.php");
+            }
+                
             else
             header("location:" .FRONT_ROOT . "User/ShowLoginView");
+        }
+
+        public function ShowEditFullView($userId)
+        {
+            require_once(VIEWS_PATH."student-edit-complete.php");
         }
 
         public function ShowLoginView()
@@ -77,8 +85,23 @@
 
             $this->userDAO->Update($user);
             $this->ShowUserHome();
-
         }
+
+        public function EditAdmin($id, $careerId, $isActive, $firstName, $lastName, $type)
+        {
+            $user = $this->userDAO->GetById($id);
+            $user->setId($id);
+            $user->setCareerId($careerId);
+            $user->setIsActive($isActive);
+            $user->setFirstName($firstName);
+            $user->setLastName($lastName);
+            $user->setTypeOfUser($type);
+
+            $this->userDAO->Update($user);
+            $this->ShowListView();
+        }
+
+        
 
         public function login($email, $pass)
         {
@@ -96,7 +119,7 @@
                         $flag = 1;
                         header("location:" .FRONT_ROOT . "User/ShowSetPassView");
                     }
-                    else if(strcmp($user->getPassword(), $pass) == 0)
+                    else if(strcmp($user->getPassword(), $pass) == 0 && $user->getIsActive() == 1)
                     {
                         $flag = 1;
                         header("location:" .FRONT_ROOT . "User/ShowUserHome");
