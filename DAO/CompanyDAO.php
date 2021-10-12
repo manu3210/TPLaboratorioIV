@@ -8,10 +8,55 @@
     {
         private $companyList = array();
 
-        public function Add(Company $company)
+        function removeElementWithValue($array, $key, $value){
+            foreach($array as $subKey => $subArray){
+                 if($subArray[$key] == $value){
+                      unset($array[$subKey]);
+                 }
+            }
+            return $array;
+       }
+
+        public function delete(Company $company2)
+        {
+            $i=0;
+            $this->RetrieveData();
+            foreach($this->companyList as $company)
+            {
+                if($company->getCompanyId() == $company2->getCompanyId())
+                {
+                    echo var_dump($company2->getCompanyId());
+                    unset($this->companyList[$i]);
+                }
+                $i++;
+            }
+            $this->SaveData();
+        }
+
+        public function edit(Company $company2)
         {
             $this->RetrieveData();
             
+            foreach($this->companyList as $company)
+            {
+                if($company->getCompanyId() == $company2->getCompanyId())
+                {
+                    echo var_dump($company2->getCompanyId());
+                    $company->setName($company2->getName());
+                    $company->setEmail($company2->getEmail());
+                    $company->setPhoneNumber($company2->getPhoneNumber());
+                    $company->setIsActive($company2->getIsActive());
+                }
+            }
+            array_push($this->companyList, $company);
+            $this->SaveData();
+        }
+        
+        
+        public function Add(Company $company)
+        {
+            $this->RetrieveData();
+
             array_push($this->companyList, $company);
 
             $this->SaveData();

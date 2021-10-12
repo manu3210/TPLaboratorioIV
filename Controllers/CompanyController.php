@@ -28,6 +28,32 @@
             $this->ShowAddCompanyView();
         }
 
+        public function edit($recordId,$name,$email,$phoneNumber)
+        {
+            $company = new Company();
+            
+            $company->setCompanyId($recordId);
+            $company->setName($name);
+            $company->setEmail($email);
+            $company->setPhoneNumber($phoneNumber);
+            $company->setIsActive(1);
+
+            $this->CompanyDAO->edit($company);
+
+            $this->ShowListView();
+        }
+
+        public function delete($recordId)
+        {
+            $company = new Company();
+            
+            $company->setCompanyId($recordId);
+
+            $this->CompanyDAO->delete($company);
+
+            $this->ShowListView();
+        }
+
         public function ShowAddCompanyView()
         {
             if(isset($_SESSION["user"]))
@@ -53,7 +79,7 @@
         public function ShowDeleteView()
         {
             if(isset($_SESSION["user"]))
-                require_once(VIEWS_PATH."company-delete.php");
+                require_once(VIEWS_PATH."company-list.php");
             else
             header("location:" .FRONT_ROOT . "User/ShowLoginView");
         }

@@ -1,58 +1,23 @@
 [
     {
-        "companyId": "77777",
-        "name": "juan perez",
-        "email": "aseemmonds2@upenn.edu",
-        "phoneNumber": "6666666",
+        "companyId": "0",
+        "name": "cero",
+        "email": "cero@cero.com",
+        "phoneNumber": "00",
         "active": 1
     },
     {
-        "companyId": "8888888",
-        "name": "yyyyyyyyyy",
-        "email": "aseemmonds2@upenn.edu",
-        "phoneNumber": "6666666",
+        "companyId": "1",
+        "name": "uno",
+        "email": "uno@uno.com",
+        "phoneNumber": "11",
         "active": 1
     },
     {
-        "companyId": "8888888",
-        "name": "yyyyyyyyyy",
-        "email": "aseemmonds2@upenn.edu",
-        "phoneNumber": "6666666",
-        "active": 1
-    },
-    {
-        "companyId": "8888888",
-        "name": "yyyyyyyyyy",
-        "email": "aseemmonds2@upenn.edu",
-        "phoneNumber": "6666666",
-        "active": 1
-    },
-    {
-        "companyId": "12345",
-        "name": "alejandro",
-        "email": "sar_sebas@gmail.com",
-        "phoneNumber": "225889777",
-        "active": 1
-    },
-    {
-        "companyId": "8888888",
-        "name": "yyyyyyyyyy",
-        "email": "aseemmonds2@upenn.edu",
-        "phoneNumber": "6666666",
-        "active": 1
-    },
-    {
-        "companyId": "65656",
-        "name": "nueva empresa",
-        "email": "dfdfdf@tttt.com",
-        "phoneNumber": "67676767",
-        "active": 1
-    },
-    {
-        "companyId": "565656",
-        "name": "wwwwww",
-        "email": "ffgfg@tttt.es",
-        "phoneNumber": "87878799",
+        "companyId": "2",
+        "name": "dos",
+        "email": "dos@dos.com",
+        "phoneNumber": "22",
         "active": 1
     }
 ]
