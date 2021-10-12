@@ -1,5 +1,5 @@
 <?php
-    require_once('nav.php');
+    require_once('nav-user.php');
     $user = $_SESSION["user"];
 ?>
 <main class="py-5">
