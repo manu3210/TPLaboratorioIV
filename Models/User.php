@@ -17,6 +17,7 @@
         private $birthDate;
         private $phoneNumber;
         private $typeOfUser;
+        private $description;
 
         public function getId()
         {
@@ -170,6 +171,18 @@
         public function setTypeOfUser($typeOfUser)
         {
                 $this->typeOfUser = $typeOfUser;
+
+                return $this;
+        }
+
+        public function getDescription()
+        {
+                return $this->description;
+        }
+        
+        public function setDescription($description)
+        {
+                $this->description = $description;
 
                 return $this;
         }

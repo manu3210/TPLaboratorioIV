@@ -7,12 +7,6 @@
                <a class="nav-link" href="<?php echo FRONT_ROOT ?>User/ShowUserHome">Inicio</a>
           </li>
           <li class="nav-item">
-               <a class="nav-link" href="<?php echo FRONT_ROOT ?>User/ShowListView">Listar Alumnos</a>
-          </li>
-          <li class="nav-item">
-               <a class="nav-link" href="<?php echo FRONT_ROOT ?>Company/ShowAddCompanyView">Agregar Empresa</a>
-          </li>
-          <li class="nav-item">
                <a class="nav-link" href="<?php echo FRONT_ROOT ?>Company/ShowListView">Listar Empresas</a>
           </li>
            <li class="nav-item">
