@@ -48,7 +48,7 @@
                     $company->setIsActive($company2->getIsActive());
                 }
             }
-            array_push($this->companyList, $company);
+            
             $this->SaveData();
         }
         
@@ -58,6 +58,8 @@
             $this->RetrieveData();
 
             array_push($this->companyList, $company);
+
+            array_multisort($this->companyList);
 
             $this->SaveData();
         }
