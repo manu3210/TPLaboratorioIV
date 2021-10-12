@@ -1,6 +1,15 @@
 <?php
-    require_once('nav-user.php');
+    
     $user = $_SESSION["user"];
+    if($user->getTypeOfUser() == 0)
+    {
+          require_once('nav-user.php');
+    }
+    else
+    {
+          require_once('nav.php');
+    }
+       
 ?>
 <main class="py-5">
      <section id="listado" class="mb-5">
@@ -33,7 +42,8 @@
                               </div>
                          </div>
                     </div>
-                    <button type="submit" name="button" class="btn btn-dark ml-auto d-block">Agregar</button>
+                    <a class="btn btn-dark mr-auto" href="<?php echo FRONT_ROOT ?>User/ShowUserHome">Volver</a>
+                    <button type="submit" name="button" class="btn btn-dark ml-auto d-block">Actualizar</button>
                </form>
           </div>
      </section>

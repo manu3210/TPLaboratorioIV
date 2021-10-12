@@ -99,12 +99,7 @@
                     else if(strcmp($user->getPassword(), $pass) == 0)
                     {
                         $flag = 1;
-                        if($user->getTypeOfUser() == 1) //1=admin
-                            header("location:" .FRONT_ROOT . "User/ShowListView");
-                        else
-                        {
-                            header("location:" .FRONT_ROOT . "User/ShowUserHome");
-                        }
+                        header("location:" .FRONT_ROOT . "User/ShowUserHome");
                     }
                 }
             }

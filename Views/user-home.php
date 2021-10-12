@@ -1,8 +1,14 @@
 <?php 
-    require_once('nav-user.php');
-    use Models\User;
 
     $user = $_SESSION["user"];
+    if($user->getTypeOfUser() == 0)
+    {
+          require_once('nav-user.php');
+    }
+    else
+    {
+          require_once('nav.php');
+    }
 
 ?>
 <main class="d-flex align-items-center" >

@@ -1,5 +1,13 @@
 <?php
-    require_once('nav.php');
+    $user = $_SESSION["user"];
+    if($user->getTypeOfUser() == 0)
+    {
+          require_once('nav-user.php');
+    }
+    else
+    {
+          require_once('nav.php');
+    }
 ?>
 <main class="py-5">
      <section id="listado" class="mb-5">
