@@ -22,7 +22,7 @@
                                              <td><?php echo $company->getName() ?></td>
                                              <td><?php echo $company->getEmail() ?></td>
                                              <td><?php echo $company->getPhoneNumber() ?></td>
-                                             <td><a class="btn btn-warning" href="<?php echo FRONT_ROOT ?>Company/ShowEditView/<?php $company->getCompanyId() ?>"  >Editar</a></td>
+                                             <td><a class="btn btn-warning" href="<?php echo FRONT_ROOT ?>Company/ShowEditView/<?php echo $company->getCompanyId() ?>"  >Editar</a></td>
                                              <td><a class="btn btn-danger" href="<?php echo FRONT_ROOT ?>Company/ShowDeleteView">Eliminar</a></td>
                                         </tr>
                                    <?php

@@ -1,5 +1,12 @@
 <?php
+
+     use Models\Company;
+     use DAO\CompanyDAO;
+
     require_once('nav.php');
+
+    $companyDAO = new CompanyDAO();
+    $company = $companyDAO->GetById($companyId);
 ?>
 <main class="py-5">
      <section id="listado" class="mb-5">
