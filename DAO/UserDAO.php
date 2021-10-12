@@ -54,6 +54,7 @@
             $toUpdate->setIsActive($user->getIsActive());
             $toUpdate->setPassword($user->getPassword());
             $toUpdate->setTypeOfUser($user->getTypeOfUser());
+            $toUpdate->setDescription($user->getDescription());
 
             $this->SaveData();
 

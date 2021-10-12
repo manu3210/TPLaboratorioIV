@@ -21,6 +21,14 @@
             header("location:" .FRONT_ROOT . "User/ShowLoginView");
         }
 
+        public function ShowEditView()
+        {
+            if(isset($_SESSION["user"]))
+                require_once(VIEWS_PATH."student-edit.php");
+            else
+            header("location:" .FRONT_ROOT . "User/ShowLoginView");
+        }
+
         public function ShowLoginView()
         {
             require_once(VIEWS_PATH."login.php");
@@ -57,6 +65,19 @@
             $this->userDAO->Add($user);
 
             $this->ShowAddView();
+        }
+
+        public function Edit($email, $password, $phoneNumber, $description)
+        {
+            $user = $_SESSION["user"];
+            $user->setPassword($password);
+            $user->setEmail($email);
+            $user->setPhoneNumber($phoneNumber);
+            $user->setDescription($description);
+
+            $this->userDAO->Update($user);
+            $this->ShowUserHome();
+
         }
 
         public function login($email, $pass)
