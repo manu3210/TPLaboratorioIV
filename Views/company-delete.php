@@ -1,1 +1,0 @@
-<h2> <?php echo "Eliminar perfil de empresa" ?> </h2>
