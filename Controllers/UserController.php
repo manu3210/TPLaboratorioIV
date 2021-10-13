@@ -21,6 +21,22 @@
             header("location:" .FRONT_ROOT . "User/ShowLoginView");
         }
 
+        public function ShowEditView()
+        {
+            if(isset($_SESSION["user"]))
+            {
+                require_once(VIEWS_PATH."student-edit.php");
+            }
+                
+            else
+            header("location:" .FRONT_ROOT . "User/ShowLoginView");
+        }
+
+        public function ShowEditFullView($userId)
+        {
+            require_once(VIEWS_PATH."student-edit-complete.php");
+        }
+
         public function ShowLoginView()
         {
             require_once(VIEWS_PATH."login.php");
@@ -59,6 +75,34 @@
             $this->ShowAddView();
         }
 
+        public function Edit($email, $password, $phoneNumber, $description)
+        {
+            $user = $_SESSION["user"];
+            $user->setPassword($password);
+            $user->setEmail($email);
+            $user->setPhoneNumber($phoneNumber);
+            $user->setDescription($description);
+
+            $this->userDAO->Update($user);
+            $this->ShowUserHome();
+        }
+
+        public function EditAdmin($id, $careerId, $isActive, $firstName, $lastName, $type)
+        {
+            $user = $this->userDAO->GetById($id);
+            $user->setId($id);
+            $user->setCareerId($careerId);
+            $user->setIsActive($isActive);
+            $user->setFirstName($firstName);
+            $user->setLastName($lastName);
+            $user->setTypeOfUser($type);
+
+            $this->userDAO->Update($user);
+            $this->ShowListView();
+        }
+
+        
+
         public function login($email, $pass)
         {
             $userList = $this->userDAO->GetAll();
@@ -75,15 +119,10 @@
                         $flag = 1;
                         header("location:" .FRONT_ROOT . "User/ShowSetPassView");
                     }
-                    else if(strcmp($user->getPassword(), $pass) == 0)
+                    else if(strcmp($user->getPassword(), $pass) == 0 && $user->getIsActive() == 1)
                     {
                         $flag = 1;
-                        if($user->getTypeOfUser() == 1) //1=admin
-                            header("location:" .FRONT_ROOT . "User/ShowListView");
-                        else
-                        {
-                            header("location:" .FRONT_ROOT . "User/ShowUserHome");
-                        }
+                        header("location:" .FRONT_ROOT . "User/ShowUserHome");
                     }
                 }
             }
