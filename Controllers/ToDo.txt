@@ -4,6 +4,8 @@ que no se repitan los alumnos
 
 comprobacion de edad de minimo  a maximo
 
+cuando se selecciona una "carrer id" que sea de una lista y no "cualquiera"
+
 ver empresa por cada una para alumnos
 
 filtrar empresas
