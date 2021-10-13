@@ -31,7 +31,8 @@
                                              <td><?php echo $company->getName() ?></td>
                                              <td><?php echo $company->getEmail() ?></td>
                                              <td><?php echo $company->getPhoneNumber() ?></td>
-                                             <td><i class="far fa-edit"></i></td>
+                                             <td><a class="btn btn-warning" href="<?php echo FRONT_ROOT ?>Company/ShowEditView/<?php echo $company->getCompanyId() ?>"  >Editar</a></td>
+                                             <td><a class="btn btn-danger" href="<?php echo FRONT_ROOT ?>Company/delete/<?php echo $company->getCompanyId() ?>">Eliminar</a></td>
                                         </tr>
                                    <?php
                               }
