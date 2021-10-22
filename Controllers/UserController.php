@@ -87,6 +87,7 @@
             $user->setEmail($email);
             $user->setBirthDate($birthdate);
             $user->setIsActive(1);
+            $user->setPassword("1234");
 
             $this->userDAO->Add($user);
 

@@ -3227,7 +3227,23 @@
         "email": "nico@gmail.com",
         "phoneNumber": "4785656",
         "active": 1,
-        "password": null,
+        "password": "1234",
+        "typeOfUser": "0",
+        "description": ""
+    },
+    {
+        "studentId": "202",
+        "careerId": "1",
+        "firstName": "Emanuel",
+        "lastName": "Rivas",
+        "dni": "38123456",
+        "fileNumber": "12",
+        "gender": "1",
+        "birthDate": "1994-04-21",
+        "email": "ema3210@hotmail.com",
+        "phoneNumber": "4567373",
+        "active": 1,
+        "password": "ema",
         "typeOfUser": "0",
         "description": ""
     }
