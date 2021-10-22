@@ -3214,5 +3214,21 @@
         "password": "1234",
         "typeOfUser": 0,
         "description": "Ingrese una descripci\u00f3n"
+    },
+    {
+        "studentId": "201",
+        "careerId": "1",
+        "firstName": "Nicolas",
+        "lastName": "Gomez",
+        "dni": "38976567",
+        "fileNumber": "20-678-9876",
+        "gender": "1",
+        "birthDate": "1994-10-20",
+        "email": "nico@gmail.com",
+        "phoneNumber": "4785656",
+        "active": 1,
+        "password": null,
+        "typeOfUser": "0",
+        "description": ""
     }
 ]
