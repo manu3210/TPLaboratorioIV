@@ -1,6 +1,6 @@
-<nav class="navbar navbar-expand-lg  navbar-dark bg-dark">
+<nav class="navbar navbar-expand-lg  navbar-dark">
      <span class="navbar-text">
-          <strong>Framework</strong>
+     <img src="<?php echo FRONT_ROOT ?>Views/img/iso-utn-black.png" height="35px" alt="logo">
      </span>
      <ul class="navbar-nav ml-auto">
           <li class="nav-item">
