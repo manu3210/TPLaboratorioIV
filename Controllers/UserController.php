@@ -21,6 +21,14 @@
             header("location:" .FRONT_ROOT . "User/ShowLoginView");
         }
 
+        public function ShowAddUserView()
+        {
+            if(isset($_SESSION["user"]))
+                require_once(VIEWS_PATH."student-add.php");
+            else
+            header("location:" .FRONT_ROOT . "User/ShowLoginView");
+        }
+
         public function ShowEditView()
         {
             if(isset($_SESSION["user"]))
@@ -63,12 +71,22 @@
             require_once(VIEWS_PATH."set-pass.php");
         }
 
-        public function Add($recordId, $firstName, $lastName)
+        public function Add($Id, $careerId, $dni, $phone, $firstName, $fileNumber, $gender, $type, $lastName, $email, $birthdate)
         {
             $user = new User();
-            $user->setId($recordId);
+            $user->setId($Id);
             $user->setFirstName($firstName);
             $user->setLastName($lastName);
+            $user->setCareerId($careerId);
+            $user->setDescription("");
+            $user->setDni($dni);
+            $user->setPhoneNumber($phone);
+            $user->setFileNumber($fileNumber);
+            $user->setGender($gender);
+            $user->setTypeOfUser($type);
+            $user->setEmail($email);
+            $user->setBirthDate($birthdate);
+            $user->setIsActive(1);
 
             $this->userDAO->Add($user);
 
