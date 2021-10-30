@@ -5,6 +5,7 @@
     class User
     {
         private $id;
+        
         private $careerId;
         private $fileNumber;
         private $password;

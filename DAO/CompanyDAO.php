@@ -1,12 +1,16 @@
 <?php
     namespace DAO;
 
+    use \Exception as Exception;
     use DAO\ICompanyDAO as ICompanyDAO;
     use Models\Company as Company;
+    use DAO\Connection as Connection;
 
     class CompanyDAO implements ICompanyDAO
     {
         private $companyList = array();
+        private $connection;
+        private $tableName = "companias";
 
         function removeElementWithValue($array, $key, $value){
             foreach($array as $subKey => $subArray){
@@ -56,6 +60,24 @@
         public function Add(Company $company)
         {
             $this->RetrieveData();
+
+            try
+            {
+                $query = "INSERT INTO ".$this->tableName." (name, email, isActive, phoneNumber) VALUES (:name, :email, :isActive, :phoneNumber);";
+                
+                $parameters["name"] = $company->getName();
+                $parameters["email"] = $company->getEmail();
+                $parameters["isActive"] = $company->getIsActive();
+                $parameters["phoneNumber"] = $company->getPhoneNumber();
+
+                $this->connection = Connection::GetInstance();
+
+                $this->connection->ExecuteNonQuery($query, $parameters);
+            }
+            catch(Exception $ex)
+            {
+                throw $ex;
+            }
 
             array_push($this->companyList, $company);
 
@@ -109,7 +131,7 @@
                 $valuesArray["name"] = $company->getName();
                 $valuesArray["email"] = $company->getEmail();
                 $valuesArray["phoneNumber"] = $company->getPhoneNumber();
-                $valuesArray["active"] = $company->getIsActive();
+                $valuesArray["isActive"] = $company->getIsActive();
 
                 array_push($arrayToEncode, $valuesArray);
             }
@@ -117,6 +139,39 @@
             $jsonContent = json_encode($arrayToEncode, JSON_PRETTY_PRINT);
             
             file_put_contents('Data/companys.json', $jsonContent);
+        }
+
+        public function GetAllBDD()
+        {
+            try
+            {
+                $companyList = array();
+
+                $query = "SELECT * FROM ".$this->tableName;
+
+                $this->connection = Connection::GetInstance();
+
+                $resultSet = $this->connection->Execute($query);
+                
+                foreach ($resultSet as $row)
+                {                
+                    $company = new Company();
+                    $company->setCompanyId($row["companyId"]);
+                    $company->setName($row["name"]);
+                    $company->setIsActive($row["isActive"]);
+                    $company->setPhoneNumber($row["phoneNumber"]);
+                    $company->setEmail($row["email"]);
+
+
+                    array_push($companyList, $company);
+                }
+
+                return $companyList;
+            }
+            catch(Exception $ex)
+            {
+                throw $ex;
+            }
         }
 
         private function RetrieveData()

@@ -64,7 +64,8 @@
 
         public function ShowListView()//admin
         {
-            $companyList = $this->CompanyDAO->GetAll();
+            $companyList = $this->CompanyDAO->GetAllBDD();
+
             require_once(VIEWS_PATH."company-list.php");
         }
 
