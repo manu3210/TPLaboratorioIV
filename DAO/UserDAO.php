@@ -2,12 +2,17 @@
     namespace DAO;
 
     use DAO\IUserDAO as IUserDAO;
+    use Exception;
     use Models\User as User;
+    use DAO\Connection as Connection;
 
     class UserDAO implements IUserDAO
     {
         private $userList = array();
+        private $connection;
+        private $tableName = "usuarios";
 
+        /*
         public function Add(User $user)
         {
             $this->RetrieveData();
@@ -16,15 +21,76 @@
 
             $this->SaveData();
         }
+        */
 
+        
+        public function Add(User $user)
+        {
+            try
+            {
+                $query  = "INSERT INTO " . $this->tableName . "(idApi, email, pass, tipo, descripcion, alreadyAplied) VALUES (:idApi, :email, :pass, :tipo, :descripcion, :alreadyAplied);";
+                $parameters["idApi"] = $user->getIdApi();
+                $parameters["email"] = $user->getEmail();
+                $parameters["pass"] = $user->getPassword();
+                $parameters["tipo"] = $user->getTypeOfUser();
+                $parameters["descripcion"] = $user->getDescription();
+                $parameters["alreadyAplied"] = $user->getAlreadyAplied();
+                
+                $this->connection  = Connection::GetInstance();
+                $this->connection->ExecuteNonQuery($query, $parameters);
+            }
+            catch(Exception $e)
+            {
+                throw $e;
+            }
+        }
+
+        /*
         public function GetAll()
         {
             $this->RetrieveData();
 
             return $this->userList;
         }
+        */
 
-        public function GetById ($id)
+        public function GetAll()
+        {
+            try
+            {
+                $userList = array();
+
+                $query = "SELECT * FROM ".$this->tableName;
+
+                $this->connection = Connection::GetInstance();
+
+                $result = $this->connection->Execute($query);
+                
+                foreach ($result as $row)
+                {                
+                    $user = new User();
+                    $user->setId($row["idUsuario"]);
+                    $user->setEmail($row["email"]);
+                    $user->setTypeOfUser($row["tipo"]);
+                    $user->setDescription($row["descripcion"]);
+                    $user->setAlreadyAplied($row["alreadyAplied"]);
+                    $user->setIdApi($row["idAPI"]);
+                    $user->setPassword($row["pass"]);
+
+                    array_push($userList, $user);
+                }
+
+                return $userList;
+            }
+            catch(Exception $ex)
+            {
+                throw $ex;
+            }
+        }
+
+
+
+        public function GetById ($id) // app id
         {
             $this->RetrieveData();
 
@@ -37,24 +103,38 @@
             }
         }
 
+        public function Fetch ($user)
+        {
+            $data = $this->GetDataFromApi();
+            
+            foreach($data as $student)
+            {
+                if($user->GetIdApi() == $student->getIdApi())
+                {
+                    $user->setidApi($student->getIdApi());
+                    $user->setCareerId($student->getCareerId());
+                    $user->setFirstName($student->getfirstName());
+                    $user->setLastName($student->getLastName());
+                    $user->setDni($student->getDni());
+                    $user->setFileNumber($student->getFileNumber());
+                    $user->setGender($student->getGender());
+                    $user->setBirthDate($student->getBirthDate());
+                    $user->setEmail($student->getEmail());
+                    $user->setPhoneNumber($student->getPhoneNumber());
+                    $user->setIsActive($student->getIsActive());
+                }
+            }
+        }
+
         public function Update($user)
         {
             $toUpdate = $this->GetById($user->getId());
 
-            $toUpdate->setId($user->getId());
-            $toUpdate->setCareerId($user->getCareerId());
-            $toUpdate->setFirstName($user->getfirstName());
-            $toUpdate->setLastName($user->getLastName());
-            $toUpdate->setDni($user->getDni());
-            $toUpdate->setFileNumber($user->getFileNumber());
-            $toUpdate->setGender($user->getGender());
-            $toUpdate->setBirthDate($user->getBirthDate());
             $toUpdate->setEmail($user->getEmail());
-            $toUpdate->setPhoneNumber($user->getPhoneNumber());
-            $toUpdate->setIsActive($user->getIsActive());
             $toUpdate->setPassword($user->getPassword());
             $toUpdate->setTypeOfUser($user->getTypeOfUser());
             $toUpdate->setDescription($user->getDescription());
+            $toUpdate->setAlreadyAplied($user->getAlreadyAplied());
 
             $this->SaveData();
 
@@ -67,20 +147,13 @@
 
             foreach($this->userList as $user)
             {
-                $valuesArray["studentId"] = $user->getId();
-                $valuesArray["careerId"] = $user->getCareerId();
-                $valuesArray["firstName"] = $user->getFirstName();
-                $valuesArray["lastName"] = $user->getLastName();
-                $valuesArray["dni"] = $user->getDni();
-                $valuesArray["fileNumber"] = $user->getFileNumber();
-                $valuesArray["gender"] = $user->getGender();
-                $valuesArray["birthDate"] = $user->getBirthDate();
+                $valuesArray["idApi"] = $user->getIdApi();
                 $valuesArray["email"] = $user->getEmail();
-                $valuesArray["phoneNumber"] = $user->getPhoneNumber();
-                $valuesArray["active"] = $user->getIsActive();
                 $valuesArray["password"] = $user->getPassword();
                 $valuesArray["typeOfUser"] = $user->getTypeOfUser();
                 $valuesArray["description"] = $user->getDescription();
+                $valuesArray["alreadyAplied"] = $user->getAlreadyAplied();
+                $valuesArray["id"] = $user->getId();
 
                 array_push($arrayToEncode, $valuesArray);
             }
@@ -104,26 +177,25 @@
                 foreach($arrayToDecode as $valuesArray)
                 {
                     $user = new User();
-                    
-                    $this->LoadInfo($user, $valuesArray);
+                    $user->setIdApi($valuesArray["idApi"]);
+                    $user->setId($valuesArray["id"]);
+                    $user->setEmail($valuesArray["email"]);
                     $user->setPassword($valuesArray["password"]);
                     $user->setTypeOfUser($valuesArray["typeOfUser"]);
                     $user->setDescription($valuesArray["description"]);
+                    $user->setAlreadyAplied($valuesArray["alreadyAplied"]);
 
                     array_push($this->userList, $user);
                 }
-            }
-            else
-            {
-                $this->GetDataFromApi();
             }
 
             $this->SaveData();
         }
 
-        private function GetDataFromApi()
+        public function GetDataFromApi()
         {
             $ch = curl_init();
+            $array  = array();
 
             curl_setopt($ch, CURLOPT_URL, "https://utn-students-api.herokuapp.com/api/Student");
             curl_setopt($ch, CURLOPT_HTTPHEADER, array("x-api-key: 4f3bceed-50ba-4461-a910-518598664c08"));
@@ -136,20 +208,18 @@
                 $user = new User();
                 
                 $this->LoadInfo($user, $valuesArray);
+                // SI NO FUNCIONA, INTENTAR SETEAR ATRIBUTOS LOCALES EN NULL
                 
-                $user->setPassword("1234");
-                $user->setDescription("Ingrese una descripción");
-                $user->setTypeOfUser(0); // 0 = user - 1 = admin
-
-                array_push($this->userList, $user);
+                array_push($array, $user);
             }
             
             curl_close($ch);
+            return $array;
         }
 
         private function LoadInfo($user, $valuesArray)
         {
-            $user->setId($valuesArray["studentId"]);
+            $user->setIdApi($valuesArray["studentId"]);
             $user->setCareerId($valuesArray["careerId"]);
             $user->setFirstName($valuesArray["firstName"]);
             $user->setLastName($valuesArray["lastName"]);

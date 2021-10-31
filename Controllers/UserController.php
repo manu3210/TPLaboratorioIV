@@ -21,6 +21,14 @@
             header("location:" .FRONT_ROOT . "User/ShowLoginView");
         }
 
+        public function ShowAddBdView()
+        {
+            if(isset($_SESSION["user"]))
+                require_once(VIEWS_PATH."prueba.php");
+            else
+            header("location:" .FRONT_ROOT . "User/ShowLoginView");
+        }
+
         public function ShowAddUserView()
         {
             if(isset($_SESSION["user"]))
@@ -71,6 +79,7 @@
             require_once(VIEWS_PATH."set-pass.php");
         }
 
+        /*
         public function Add($Id, $careerId, $dni, $phone, $firstName, $fileNumber, $gender, $type, $lastName, $email, $birthdate)
         {
             $user = new User();
@@ -88,6 +97,22 @@
             $user->setBirthDate($birthdate);
             $user->setIsActive(1);
             $user->setPassword("1234");
+
+            $this->userDAO->Add($user);
+
+            $this->ShowAddView();
+        }
+        */
+
+        public function Add($idApi, $id, $email, $pass, $tipo, $descripcion, $alreadyaplied) // el $id hay que sacarlo cuando pasemos a bbdd
+        {
+            $user = new User();
+            $user->setIdApi($idApi);
+            $user->setDescription($descripcion);
+            $user->setTypeOfUser($tipo);
+            $user->setEmail($email);
+            $user->setPassword($pass);
+            $user->setAlreadyAplied($alreadyaplied);
 
             $this->userDAO->Add($user);
 
@@ -121,7 +146,7 @@
         }
 
         
-
+        /*
         public function login($email, $pass)
         {
             $userList = $this->userDAO->GetAll();
@@ -133,7 +158,7 @@
                 {
                     $_SESSION["user"] = $user;
 
-                    if(strcmp($user->getPassword(), "1234") == 0)
+                    if(strcmp($user->getPassword(), "") == 0)
                     {
                         $flag = 1;
                         header("location:" .FRONT_ROOT . "User/ShowSetPassView");
@@ -150,13 +175,78 @@
             {
                 header("location:" .FRONT_ROOT . "User/ShowLoginView");
             }
+        }*/
+
+        public function login($email, $pass)
+        {
+            $api = $this->userDAO->GetDataFromApi();
+            $data = $this->userDAO->GetAll();
+
+            $userLogged = new User();
+
+            $flag1 = false;
+            $flag2 = false;
+
+            foreach($api as $student)
+            {
+                if($student->getEmail() == $email)
+                {
+                    $flag1 = true;
+                    $userLogged->setIdApi($student->getIdApi());
+                }                
+            }
+
+            foreach($data as $user)
+            {
+                if($userLogged->getIdApi() == $user->getIdApi())
+                {
+                    $flag2 = true;
+
+                    if($user->getPassword() == $pass)
+                    {
+                        $userLogged = $user;
+                        $this->userDAO->Fetch($userLogged);
+                        $_SESSION["user"] = $userLogged;
+                        header("location:" .FRONT_ROOT . "User/ShowUserHome");
+                    }
+                    else
+                    {
+                        header("location:" .FRONT_ROOT . "User/ShowLoginView");
+                    }
+                    
+                }
+            }
+
+            if($flag1 == false) // significa que el usuario no esta en la api
+            {
+                header("location:" .FRONT_ROOT . "User/ShowLoginView");
+            }
+            else if($flag1 == true && $flag2 == false) // significa que el usuario esta en la api pero no en la aplicacion
+            {
+                header("location:" .FRONT_ROOT . "User/ShowSetPassView");
+            }
         }
 
-        public function SetPass($pass)
+        public function SetPass($email, $pass)
         {
-            $user = $_SESSION["user"];
-            $user->SetPassword($pass);
-            $this->userDAO->Update($user);
+            $api = $this->userDAO->GetDataFromApi();
+            $user = new User();
+
+            foreach($api as $student)
+            {
+                if(strcmp($student->getEmail(), $email) == 0 && $student->getEmail() == $email)
+                {
+                    $user->setEmail($email);
+                    $user->setPassword($pass);
+                    $user->setTypeOfUser(0);
+                    $user->setAlreadyAplied(0);
+                    $user->setDescription(null);
+                    $user->setIdApi($student->getIdApi());
+
+                    $this->userDAO->Add($user);
+                }
+            }
+
             header("location:" .FRONT_ROOT . "User/ShowLoginView");
         }
 
