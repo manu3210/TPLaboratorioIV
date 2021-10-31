@@ -104,7 +104,7 @@
         }
         */
 
-        public function Add($idApi, $email, $pass, $tipo, $descripcion, $alreadyaplied) // el $id hay que sacarlo cuando pasemos a bbdd
+        public function Add($idApi, $id, $email, $pass, $tipo, $descripcion, $alreadyaplied) // el $id hay que sacarlo cuando pasemos a bbdd
         {
             $user = new User();
             $user->setIdApi($idApi);
@@ -119,10 +119,12 @@
             $this->ShowAddView();
         }
 
-        public function Edit($password, $description)
+        public function Edit($email, $password, $phoneNumber, $description)
         {
             $user = $_SESSION["user"];
             $user->setPassword($password);
+            $user->setEmail($email);
+            $user->setPhoneNumber($phoneNumber);
             $user->setDescription($description);
 
             $this->userDAO->Update($user);
@@ -211,6 +213,7 @@
                     {
                         header("location:" .FRONT_ROOT . "User/ShowLoginView");
                     }
+                    
                 }
             }
 

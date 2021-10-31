@@ -126,7 +126,6 @@
             }
         }
 
-        /*
         public function Update($user)
         {
             $toUpdate = $this->GetById($user->getId());
@@ -140,26 +139,6 @@
             $this->SaveData();
 
             return $user;
-        }
-        */
-
-        public function Update($user)
-        {
-            try
-            {
-                $query1  = "UPDATE " . $this->tableName . " SET PASS='" . $user->getPassword() . "' where idUsuario=" . $user->getId();
-                $query2  = "UPDATE " . $this->tableName . " SET descripcion='" . $user->getDescription() . "' where idUsuario=" . $user->getId();
-                $parameters["pass"] = $user->getPassword();
-                $parameters["descripcion"] = $user->getDescription();
-                
-                $this->connection  = Connection::GetInstance();
-                $this->connection->ExecuteNonQuery($query1);
-                $this->connection->ExecuteNonQuery($query2);
-            }
-            catch(Exception $e)
-            {
-                throw $e;
-            }
         }
 
         private function SaveData()
