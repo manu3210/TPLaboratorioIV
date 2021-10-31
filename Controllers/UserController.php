@@ -13,6 +13,7 @@
             $this->userDAO = new UserDAO();
         }
 
+        // ----------------------------------- GET ------------------------------------ //
         public function ShowAddView()
         {
             if(isset($_SESSION["user"]))
@@ -79,32 +80,9 @@
             require_once(VIEWS_PATH."set-pass.php");
         }
 
-        /*
-        public function Add($Id, $careerId, $dni, $phone, $firstName, $fileNumber, $gender, $type, $lastName, $email, $birthdate)
-        {
-            $user = new User();
-            $user->setId($Id);
-            $user->setFirstName($firstName);
-            $user->setLastName($lastName);
-            $user->setCareerId($careerId);
-            $user->setDescription("");
-            $user->setDni($dni);
-            $user->setPhoneNumber($phone);
-            $user->setFileNumber($fileNumber);
-            $user->setGender($gender);
-            $user->setTypeOfUser($type);
-            $user->setEmail($email);
-            $user->setBirthDate($birthdate);
-            $user->setIsActive(1);
-            $user->setPassword("1234");
+        // ---------------------------------- POST -------------------------------------- //
 
-            $this->userDAO->Add($user);
-
-            $this->ShowAddView();
-        }
-        */
-
-        public function Add($idApi, $email, $pass, $tipo, $descripcion, $alreadyaplied) // el $id hay que sacarlo cuando pasemos a bbdd
+        public function Add($idApi, $email, $pass, $tipo, $descripcion, $alreadyaplied)
         {
             $user = new User();
             $user->setIdApi($idApi);
@@ -143,38 +121,6 @@
             $this->ShowListView();
         }
 
-        
-        /*
-        public function login($email, $pass)
-        {
-            $userList = $this->userDAO->GetAll();
-            $flag = 0;
-            
-            foreach($userList as $user)
-            {
-                if(strcmp($user->getEmail(), $email) == 0)
-                {
-                    $_SESSION["user"] = $user;
-
-                    if(strcmp($user->getPassword(), "") == 0)
-                    {
-                        $flag = 1;
-                        header("location:" .FRONT_ROOT . "User/ShowSetPassView");
-                    }
-                    else if(strcmp($user->getPassword(), $pass) == 0 && $user->getIsActive() == 1)
-                    {
-                        $flag = 1;
-                        header("location:" .FRONT_ROOT . "User/ShowUserHome");
-                    }
-                }
-            }
-
-            if($flag == 0)
-            {
-                header("location:" .FRONT_ROOT . "User/ShowLoginView");
-            }
-        }*/
-
         public function login($email, $pass)
         {
             $api = $this->userDAO->GetDataFromApi();
@@ -184,6 +130,7 @@
 
             $flag1 = false;
             $flag2 = false;
+
 
             foreach($api as $student)
             {

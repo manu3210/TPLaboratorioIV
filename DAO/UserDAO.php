@@ -8,22 +8,10 @@
 
     class UserDAO implements IUserDAO
     {
-        private $userList = array();
+        //private $userList = array();
         private $connection;
         private $tableName = "usuarios";
 
-        /*
-        public function Add(User $user)
-        {
-            $this->RetrieveData();
-            
-            array_push($this->userList, $user);
-
-            $this->SaveData();
-        }
-        */
-
-        
         public function Add(User $user)
         {
             try
@@ -44,15 +32,6 @@
                 throw $e;
             }
         }
-
-        /*
-        public function GetAll()
-        {
-            $this->RetrieveData();
-
-            return $this->userList;
-        }
-        */
 
         public function GetAll()
         {
@@ -88,18 +67,31 @@
             }
         }
 
-
-
         public function GetById ($id) // app id
         {
-            $this->RetrieveData();
-
-            foreach($this->userList as $user)
+            try
             {
-                if($user->getId() == $id)
-                {
-                    return $user;
-                }
+                $user = new User();
+
+                $query = "SELECT * FROM ".$this->tableName . "WHERE idUsuario=" . $id;
+
+                $this->connection = Connection::GetInstance();
+
+                $result = $this->connection->Execute($query);
+
+                $user->setId($result["idUsuario"]);
+                $user->setEmail($result["email"]);
+                $user->setTypeOfUser($result["tipo"]);
+                $user->setDescription($result["descripcion"]);
+                $user->setAlreadyAplied($result["alreadyAplied"]);
+                $user->setIdApi($result["idAPI"]);
+                $user->setPassword($result["pass"]);
+
+                return $user;
+            }
+            catch(Exception $ex)
+            {
+                throw $ex;
             }
         }
 
@@ -126,6 +118,102 @@
             }
         }
 
+        public function Update($user)
+        {
+            try
+            {
+                $query1  = "UPDATE " . $this->tableName . " SET PASS='" . $user->getPassword() . "' where idUsuario=" . $user->getId();
+                $query2  = "UPDATE " . $this->tableName . " SET descripcion='" . $user->getDescription() . "' where idUsuario=" . $user->getId();
+                
+                $this->connection  = Connection::GetInstance();
+                $this->connection->ExecuteNonQuery($query1);
+                $this->connection->ExecuteNonQuery($query2);
+            }
+            catch(Exception $e)
+            {
+                throw $e;
+            }
+        }
+
+        public function GetDataFromApi()
+        {
+            $ch = curl_init();
+            $studentList = array();
+
+            curl_setopt($ch, CURLOPT_URL, "https://utn-students-api.herokuapp.com/api/Student");
+            curl_setopt($ch, CURLOPT_HTTPHEADER, array("x-api-key:4f3bceed-50ba-4461-a910-518598664c08"));
+            curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+            
+            $arrayToDecode = json_decode(curl_exec($ch), true);
+
+            foreach($arrayToDecode as $valuesArray)
+            {
+                $user = new User();
+                
+                $this->LoadInfo($user, $valuesArray);
+                
+                array_push($this->studentList, $user);
+            }
+            
+            curl_close($ch);
+            return $studentList;
+        }
+
+        private function LoadInfo($user, $valuesArray)
+        {
+            $user->setIdApi($valuesArray["studentId"]);
+            $user->setCareerId($valuesArray["careerId"]);
+            $user->setFirstName($valuesArray["firstName"]);
+            $user->setLastName($valuesArray["lastName"]);
+            $user->setDni($valuesArray["dni"]);
+            $user->setFileNumber($valuesArray["fileNumber"]);
+            $user->setGender($valuesArray["gender"]);
+            $user->setBirthDate($valuesArray["birthDate"]);
+            $user->setEmail($valuesArray["email"]);
+            $user->setPhoneNumber($valuesArray["phoneNumber"]);
+            if($valuesArray["active"] == "false" || $valuesArray["active"] == "0")
+                $user->setIsActive(0);
+            else
+                $user->setIsActive(1);
+        }
+
+        // --------------------------------------------- JSON -------------------------------------------- //
+
+         /*
+        public function Add(User $user)
+        {
+            $this->RetrieveData();
+            
+            array_push($this->userList, $user);
+
+            $this->SaveData();
+        }
+        */
+
+        /*
+        public function GetAll()
+        {
+            $this->RetrieveData();
+
+            return $this->userList;
+        }
+        */
+
+        /*
+        public function GetById ($id) // app id
+        {
+            $this->RetrieveData();
+
+            foreach($this->userList as $user)
+            {
+                if($user->getId() == $id)
+                {
+                    return $user;
+                }
+            }
+        }
+        */
+
         /*
         public function Update($user)
         {
@@ -143,25 +231,7 @@
         }
         */
 
-        public function Update($user)
-        {
-            try
-            {
-                $query1  = "UPDATE " . $this->tableName . " SET PASS='" . $user->getPassword() . "' where idUsuario=" . $user->getId();
-                $query2  = "UPDATE " . $this->tableName . " SET descripcion='" . $user->getDescription() . "' where idUsuario=" . $user->getId();
-                $parameters["pass"] = $user->getPassword();
-                $parameters["descripcion"] = $user->getDescription();
-                
-                $this->connection  = Connection::GetInstance();
-                $this->connection->ExecuteNonQuery($query1);
-                $this->connection->ExecuteNonQuery($query2);
-            }
-            catch(Exception $e)
-            {
-                throw $e;
-            }
-        }
-
+        /*
         private function SaveData()
         {
             $arrayToEncode = array();
@@ -183,7 +253,9 @@
             
             file_put_contents('Data/users.json', $jsonContent);
         }
+        */
 
+        /*
         private function RetrieveData()
         {
             $this->userList = array();
@@ -212,48 +284,6 @@
 
             $this->SaveData();
         }
-
-        public function GetDataFromApi()
-        {
-            $ch = curl_init();
-            $array  = array();
-
-            curl_setopt($ch, CURLOPT_URL, "https://utn-students-api.herokuapp.com/api/Student");
-            curl_setopt($ch, CURLOPT_HTTPHEADER, array("x-api-key: 4f3bceed-50ba-4461-a910-518598664c08"));
-            curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-            
-            $arrayToDecode = json_decode(curl_exec($ch), true);
-
-            foreach($arrayToDecode as $valuesArray)
-            {
-                $user = new User();
-                
-                $this->LoadInfo($user, $valuesArray);
-                // SI NO FUNCIONA, INTENTAR SETEAR ATRIBUTOS LOCALES EN NULL
-                
-                array_push($array, $user);
-            }
-            
-            curl_close($ch);
-            return $array;
-        }
-
-        private function LoadInfo($user, $valuesArray)
-        {
-            $user->setIdApi($valuesArray["studentId"]);
-            $user->setCareerId($valuesArray["careerId"]);
-            $user->setFirstName($valuesArray["firstName"]);
-            $user->setLastName($valuesArray["lastName"]);
-            $user->setDni($valuesArray["dni"]);
-            $user->setFileNumber($valuesArray["fileNumber"]);
-            $user->setGender($valuesArray["gender"]);
-            $user->setBirthDate($valuesArray["birthDate"]);
-            $user->setEmail($valuesArray["email"]);
-            $user->setPhoneNumber($valuesArray["phoneNumber"]);
-            if($valuesArray["active"] == "false" || $valuesArray["active"] == "0")
-                $user->setIsActive(0);
-            else
-                $user->setIsActive(1);
-        }
+        */
     }
 ?>
