@@ -152,7 +152,7 @@
                 
                 $this->LoadInfo($user, $valuesArray);
                 
-                array_push($this->studentList, $user);
+                array_push($studentList, $user);
             }
             
             curl_close($ch);

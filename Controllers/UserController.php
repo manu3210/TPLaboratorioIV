@@ -80,6 +80,11 @@
             require_once(VIEWS_PATH."set-pass.php");
         }
 
+        public function ShowLoginAdmin()
+        {
+            require_once(VIEWS_PATH."loginAdmin.php");
+        }
+
         // ---------------------------------- POST -------------------------------------- //
 
         public function Add($idApi, $email, $pass, $tipo, $descripcion, $alreadyaplied)
@@ -91,6 +96,21 @@
             $user->setEmail($email);
             $user->setPassword($pass);
             $user->setAlreadyAplied($alreadyaplied);
+
+            $this->userDAO->Add($user);
+
+            $this->ShowAddView();
+        }
+
+        public function AddAdmin($email)
+        {
+            $user = new User();
+            $user->setIdApi(null);
+            $user->setDescription(null);
+            $user->setTypeOfUser(1);
+            $user->setEmail($email);
+            $user->setPassword("");
+            $user->setAlreadyAplied(1);
 
             $this->userDAO->Add($user);
 
@@ -168,6 +188,31 @@
             else if($flag1 == true && $flag2 == false) // significa que el usuario esta en la api pero no en la aplicacion
             {
                 header("location:" .FRONT_ROOT . "User/ShowSetPassView");
+            }
+        }
+
+        public function LoginAdmin($email, $pass)
+        {
+            $data = $this->userDAO->GetAll();
+
+            foreach($data as $user)
+            {
+                if($email == $user->getEmail())
+                {
+                    if($user->getPassword() == "")
+                    {
+                        header("location:" .FRONT_ROOT . "User/ShowSetPassView");
+                    }
+                    else if($user->getPassword() == $pass && $user->getTypeOfUser() == 1)
+                    {
+                        $_SESSION["user"] = $user;
+                        header("location:" .FRONT_ROOT . "User/ShowUserHome");
+                    }
+                    else
+                    {
+                        header("location:" .FRONT_ROOT . "User/ShowLoginAdmin");
+                    }
+                }
             }
         }
 
