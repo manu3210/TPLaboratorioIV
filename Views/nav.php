@@ -10,7 +10,7 @@
                <a class="nav-link" href="<?php echo FRONT_ROOT ?>User/ShowAddUserView">Agregar Administrador</a>
           </li>
           <li class="nav-item">
-               <a class="nav-link" href="<?php echo FRONT_ROOT ?>User/ShowListView">Listar Alumnos</a>
+               <a class="nav-link" href="<?php echo FRONT_ROOT ?>User/ShowListView">Listar Usuarios</a>
           </li>
           <li class="nav-item">
                <a class="nav-link" href="<?php echo FRONT_ROOT ?>Company/ShowAddCompanyView">Agregar Empresa</a>

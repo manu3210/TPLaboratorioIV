@@ -75,7 +75,7 @@
                 header("location:" .FRONT_ROOT . "User/ShowLoginView");
         }
 
-        public function ShowSetPassView()
+        public function ShowSetPassView($idApi)
         {
             require_once(VIEWS_PATH."set-pass.php");
         }
@@ -84,6 +84,7 @@
         {
             require_once(VIEWS_PATH."loginAdmin.php");
         }
+
 
         // ---------------------------------- POST -------------------------------------- //
 
@@ -187,7 +188,7 @@
             }
             else if($flag1 == true && $flag2 == false) // significa que el usuario esta en la api pero no en la aplicacion
             {
-                header("location:" .FRONT_ROOT . "User/ShowSetPassView");
+                header("location:" .FRONT_ROOT . "User/ShowSetPassView/" . $userLogged->getIdApi());
             }
         }
 
@@ -201,7 +202,8 @@
                 {
                     if($user->getPassword() == "")
                     {
-                        header("location:" .FRONT_ROOT . "User/ShowSetPassView");
+                        $_SESSION["user"] = $user;
+                        header("location:" .FRONT_ROOT . "User/ShowEditView");
                     }
                     else if($user->getPassword() == $pass && $user->getTypeOfUser() == 1)
                     {
@@ -216,26 +218,19 @@
             }
         }
 
-        public function SetPass($email, $pass)
+        public function SetPass($idApi, $email, $pass)
         {
-            $api = $this->userDAO->GetDataFromApi();
             $user = new User();
+            
+            $user->setEmail($email);
+            $user->setPassword($pass);
+            $user->setTypeOfUser(0);
+            $user->setAlreadyAplied(0);
+            $user->setDescription(null);
+            $user->setIdApi($idApi);
 
-            foreach($api as $student)
-            {
-                if(strcmp($student->getEmail(), $email) == 0 && $student->getEmail() == $email)
-                {
-                    $user->setEmail($email);
-                    $user->setPassword($pass);
-                    $user->setTypeOfUser(0);
-                    $user->setAlreadyAplied(0);
-                    $user->setDescription(null);
-                    $user->setIdApi($student->getIdApi());
-
-                    $this->userDAO->Add($user);
-                }
-            }
-
+            $this->userDAO->Add($user);
+                
             header("location:" .FRONT_ROOT . "User/ShowLoginView");
         }
 
