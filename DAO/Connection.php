@@ -31,7 +31,7 @@
 
             return self::$instance;
         }
-
+        //ejecuta una query de sql y  retorna una matriz de resultados
         public function Execute($query, $parameters = array(), $queryType = QueryType::Query)
 	    {
             try

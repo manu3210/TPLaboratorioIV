@@ -1,0 +1,27 @@
+[
+    {
+        "jobPositionId": "1",
+        "careerId": "1",
+        "description": "Jr developer with Java Springboot, git"
+    },
+    {
+        "jobPositionId": "2",
+        "careerId": "2",
+        "description": "Se busca diseñador de base de datos"
+    },
+    {
+        "jobPositionId": "3",
+        "careerId": "3",
+        "description": "Se busca especialista en seguridad informatica"
+    },
+    {
+        "jobPositionId": "4",
+        "careerId": "4",
+        "description": "Se busca ingeniero en informatica"
+    },
+    {
+        "jobPositionId": "5",
+        "careerId": "5",
+        "description": "Se busca ingeniero en computacion"
+    }
+]

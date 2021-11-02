@@ -6,20 +6,20 @@
     require_once('nav.php');
 
     $companyDAO = new CompanyDAO();
-    $company = $companyDAO->GetById($companyId);
+    $company = $companyDAO->GetByIdBDD($companyId);
 ?>
 <main class="py-5">
      <section id="listado" class="mb-5">
           <div class="container">
                <h2 class="mb-4">Editar <?php echo $company->getName(); ?></h2>
-               <form action="<?php echo FRONT_ROOT ?>Company/Edit" method="post" class="bg-dark-alpha p-5">
-                    <div class="row">                         
+               <form action="<?php echo FRONT_ROOT ?>Company/EditBDD" method="post" class="bg-dark-alpha p-5">
+                    <div class="row">  
                          <div class="col-lg-4">
                               <div class="form-group">
                                    <label for="">Id</label>
-                                   <input type="text" name="recordId" value="<?php echo $company->getCompanyId(); ?>" class="form-control" readonly>
+                                   <input type="text" name="recordId" value="<?php echo $company->getCompanyId(); ?>" readonly class="form-control">
                               </div>
-                         </div>
+                         </div>                       
                          <div class="col-lg-4">
                               <div class="form-group">
                                    <label for="">Nombre</label>
