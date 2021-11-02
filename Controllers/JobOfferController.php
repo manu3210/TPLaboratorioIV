@@ -1,12 +1,19 @@
 <?php  
     namespace Controllers;
 
-    use DAO\CompanyDAO as CompanyDAO;
-    use Models\Company as Company;
+    use DAO\JobOfferDAO as JobOfferDAO;
+    use Models\JobOffer as JobOffer;
+    
+    //usar JobPositionDAO  y  CarrerDAO
+    //agregar boton en la lista individual de empresas para crear jobOffer
 
-    class CompanyController
+    //me traigo el id de la empresa, le muestro los jobPosition, 
+    //escoje uno y lo crea con su id de EMPRESA y JOBOFFER en la BDD
+
+    class JobOfferController
     {
-        private $CompanyDAO;
+        private $JobPositionDAO;
+        private $CareerDAO;
 
         public function __construct()
         {
@@ -28,21 +35,6 @@
             $this->ShowAddCompanyView();
         }
 
-        public function edit($recordId,$name,$email,$phoneNumber)
-        {
-            $company = new Company();
-            
-            $company->setCompanyId($recordId);
-            $company->setName($name);
-            $company->setEmail($email);
-            $company->setPhoneNumber($phoneNumber);
-            $company->setIsActive(1);
-
-            $this->CompanyDAO->editJSON($company);
-
-            $this->ShowListView();
-        }
-
         public function editBDD($recordId,$name,$email,$phoneNumber)
         {
             $company = new Company();
@@ -58,34 +50,12 @@
             $this->ShowListView();
         }
 
-        public function deleteFromBDD($recordId)
-        {
-            $company = new Company();
-            
-            $company->setCompanyId($recordId);
-
-            $this->CompanyDAO->deleteFromBDD($company);
-
-            $this->ShowListView();
-        }
-
-        public function delete($recordId)
-        {
-            $company = new Company();
-            
-            $company->setCompanyId($recordId);
-
-            $this->CompanyDAO->delete($company);
-
-            $this->ShowListView();
-        }
-
-        public function ShowAddCompanyView()
+        public function ShowAddJobOffer()
         {
             if(isset($_SESSION["user"]))
-                require_once(VIEWS_PATH."company-add.php");
+                require_once(VIEWS_PATH."jobOffer-add.php");
             else
-            header("location:" .FRONT_ROOT . "User/ShowLoginView");
+            header("location:" .FRONT_ROOT . "User/company-list.php");
         }
 
         public function ShowListView()//admin

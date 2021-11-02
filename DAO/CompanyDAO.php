@@ -21,6 +21,23 @@
             return $array;
        }
 
+       //! implementar
+       public function deleteFromBDD($company)
+        {
+            try
+            {
+                $query1  = "DELETE FROM " . $this->tableName . " where companyId=" . $company->getCompanyId();
+                
+                $this->connection  = Connection::GetInstance();
+                $this->connection->ExecuteNonQuery($query1);
+            }
+            catch(Exception $e)
+            {
+                throw $e;
+            }
+        }
+
+        //!comentar json
         public function delete(Company $company2)
         {
             $i=0;
@@ -37,7 +54,26 @@
             $this->SaveData();
         }
 
-        public function edit(Company $company2)
+        public function editBDD(Company $company)
+        {
+            try
+            {
+                $query1  = "UPDATE " . $this->tableName . " SET name='" . $company->getName() . "' where companyId = " . $company->getCompanyId();
+                $query2  = "UPDATE " . $this->tableName . " SET email ='" . $company->getEmail() . "' where companyId =" . $company->getCompanyId();
+                $query3  = "UPDATE " . $this->tableName . " SET phoneNumber ='" . $company->getPhoneNumber() . "' where companyId =" . $company->getCompanyId();
+                
+                $this->connection  = Connection::GetInstance();
+                $this->connection->ExecuteNonQuery($query1);
+                $this->connection->ExecuteNonQuery($query2);
+                $this->connection->ExecuteNonQuery($query3);
+            }
+            catch(Exception $e)
+            {
+                throw $e;
+            }
+        }
+
+        public function editJSON(Company $company2)
         {
             $this->RetrieveData();
             
@@ -55,7 +91,6 @@
             
             $this->SaveData();
         }
-        
         
         public function Add(Company $company)
         {
@@ -93,6 +128,41 @@
             return $this->companyList;
         }
 
+        //funciona
+        public function GetByIdBDD($id)
+        {
+
+            try
+            {
+                echo var_dump($id);
+                $query = "SELECT * FROM ". $this->tableName ." WHERE companyId = " .$id." ; ";
+
+                $this->connection = Connection::GetInstance();
+
+                $resultSet = $this->connection->Execute($query);
+                
+                foreach ($resultSet as $row)
+                {
+                    $company = new Company();
+                    $company->setCompanyId($row["companyId"]);
+                    $company->setName($row["name"]);
+                    $company->setEmail($row["email"]);
+                    $company->setIsActive($row["isActive"]);
+                    $company->setPhoneNumber($row["phoneNumber"]);
+
+                    return $company;
+                }
+            }
+            catch(Exception $ex)
+            {
+                throw $ex;
+            }
+
+            
+        }
+
+        
+
         public function GetById ($id)
         {
             $this->RetrieveData();
@@ -106,6 +176,7 @@
             }
         }
 
+        //!comentar
         public function Update($company)
         {
             $toUpdate = $this->GetById($company->getCompanyId());
@@ -120,6 +191,7 @@
 
             return $company;
         }
+        
 
         private function SaveData()
         {
@@ -203,7 +275,7 @@
             $company->setName($valuesArray["name"]);
             $company->setEmail($valuesArray["email"]);
             $company->setPhoneNumber($valuesArray["phoneNumber"]);
-            $company->setIsActive($valuesArray["active"]);
+            $company->setIsActive($valuesArray["isActive"]);
             
         }
     }

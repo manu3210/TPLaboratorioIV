@@ -4,41 +4,69 @@
         "name": "uno uno",
         "email": "uno@uno.com",
         "phoneNumber": "1111",
-        "isActive": 1
+        "isActive": null
     },
     {
         "companyId": "2",
         "name": "dos dos dos",
         "email": "dos@dos.com",
         "phoneNumber": "2222",
-        "isActive": 1
+        "isActive": null
     },
     {
         "companyId": "3",
         "name": "tres",
         "email": "tres@tres.com",
         "phoneNumber": "3333",
-        "isActive": 1
+        "isActive": null
     },
     {
         "companyId": "4",
         "name": "cuatro",
         "email": "cuatro@cuatro.com",
         "phoneNumber": "4444",
-        "isActive": 1
+        "isActive": null
     },
     {
         "companyId": "5",
         "name": "cinco",
         "email": "cinco@cinco.com",
         "phoneNumber": "5555",
-        "isActive": 1
+        "isActive": null
     },
     {
         "companyId": "6",
         "name": "seis",
         "email": "seis@seis.com",
         "phoneNumber": "6666",
+        "isActive": null
+    },
+    {
+        "companyId": "7",
+        "name": "ocho",
+        "email": "ocho@ocho.com",
+        "phoneNumber": "8888",
+        "isActive": 1
+    },
+    {
+        "companyId": "7",
+        "name": "siete",
+        "email": "siete@siete.com",
+        "phoneNumber": "7777",
+        "isActive": 1
+    },
+    {
+        "companyId": "8",
+        "name": "ocho",
+        "email": "ocho@ocho.com",
+        "phoneNumber": "8888",
+        "isActive": 1
+    },
+    {
+        "companyId": "9",
+        "name": "nueve",
+        "email": "nueve@nueve.com",
+        "phoneNumber": "9999",
         "isActive": 1
     }
 ]

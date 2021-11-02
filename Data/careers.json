@@ -1,0 +1,27 @@
+[
+    {
+        "careerId": "1",
+        "description": "Analista de sistemas",
+        "active": "true"
+    },
+    {
+        "careerId": "2",
+        "description": "Analista de base de datos",
+        "active": "true"
+    },
+    {
+        "careerId": "3",
+        "description": "Analista de seguridad",
+        "active": "true"
+    },
+    {
+        "careerId": "4",
+        "description": "Ingenieria en informatica",
+        "active": "true"
+    },
+    {
+        "careerId": "5",
+        "description": "ingenieria en computacion",
+        "active": "true"
+    }
+]

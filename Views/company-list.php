@@ -21,6 +21,7 @@
                          <th>Telefono</th>
                          <th></th>
                          <th></th>
+                         <th></th>
                     </thead>
                     <tbody>
                          <?php
@@ -33,7 +34,8 @@
                                              <td><?php echo $company->getEmail() ?></td>
                                              <td><?php echo $company->getPhoneNumber() ?></td>
                                              <td style="text-align: center;"><a href="<?php echo FRONT_ROOT ?>Company/ShowEditView/<?php echo $company->getCompanyId(); ?>"><i class="far fa-edit text-dark"></i></a></td>
-                                             <td style="text-align: center;"><a href="<?php echo FRONT_ROOT ?>Company/delete/<?php echo $company->getCompanyId(); ?>"><i class="fas fa-trash-alt"></i></a></td>
+                                             <td style="text-align: center;"><a href="<?php echo FRONT_ROOT ?>Company/DeleteFromBDD/<?php echo $company->getCompanyId(); ?>"><i class="fas fa-trash-alt"></i></a></td>
+                                             <td style="text-align: center;"><a href="<?php echo FRONT_ROOT ?>Company/ShowCompanyDetails/<?php echo $company->getCompanyId(); ?>"><i class="fas fa-search"></i></a></td>
                                         </tr>
                                    <?php
                               }
