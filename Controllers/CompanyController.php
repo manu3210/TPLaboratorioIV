@@ -13,11 +13,10 @@
             $this->CompanyDAO = new CompanyDAO();
         }
 
-        public function add($recordId,$name,$email,$phoneNumber)
+        public function add($name,$email,$phoneNumber)
         {
             $company = new Company();
             
-            $company->setCompanyId($recordId);
             $company->setName($name);
             $company->setEmail($email);
             $company->setPhoneNumber($phoneNumber);
@@ -118,5 +117,7 @@
             else
             header("location:" .FRONT_ROOT . "User/ShowLoginView");
         }
+
+        
     }
 ?>

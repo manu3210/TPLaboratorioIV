@@ -34,19 +34,18 @@
             $this->ShowCompanyDetails($companyId);
         }
 
-        public function editBDD($recordId,$name,$email,$phoneNumber)
+        public function editBDD($offerId,$companyId ,$JobId,$fechaCaducidad)
         {
-            $company = new Company();
+            $jobOffer = new JobOffer();
             
-            $company->setCompanyId($recordId);
-            $company->setName($name);
-            $company->setEmail($email);
-            $company->setPhoneNumber($phoneNumber);
-            $company->setIsActive(1);
+            $jobOffer->setCompanyId($companyId);
+            $jobOffer->setIdJobOffer($offerId);
+            $jobOffer->setJobPosition($JobId);
+            $jobOffer->setFechaCaducidad($fechaCaducidad);
 
-            $this->CompanyDAO->editBDD($company);
+            $this->JobOfferDAO->editBDD($jobOffer);
 
-            $this->ShowListView();
+            $this->ShowListOffer($companyId);
         }
 
         public function ShowAddJobOffer($companyId)
@@ -57,17 +56,18 @@
             header("location:" .FRONT_ROOT . "User/company-list.php");
         }
 
-        public function ShowListView()//admin
-        {
-            $companyList = $this->CompanyDAO->GetAllBDD();
-
-            require_once(VIEWS_PATH."company-list.php");
-        }
-
-        public function ShowEditView($companyId)
+        public function ShowListOffer($companyId)
         {
             if(isset($_SESSION["user"]))
-                require_once(VIEWS_PATH."company-edit.php");
+                require_once(VIEWS_PATH."company-list-offer.php");
+            else
+            header("location:" .FRONT_ROOT . "User/ShowLoginView");
+        }
+
+        public function ShowEditView($offerId)
+        {
+            if(isset($_SESSION["user"]))
+                require_once(VIEWS_PATH."jobOffer-edit.php");
             else
             header("location:" .FRONT_ROOT . "User/ShowLoginView");
         }

@@ -30,6 +30,7 @@
                     </ul>
                     <div class="card-body">
                         <a href="<?php echo FRONT_ROOT ?>Company/ShowEditView/<?php echo $company->getCompanyId(); ?>" class="card-link">Editar datos</a>
+                        <a href="<?php echo FRONT_ROOT ?>JobOffer/ShowListOffer/<?php echo $company->getCompanyId(); ?>" class="card-link">Ver lista de ofertas</a>
                         <?php
                             if($user->getTypeOfUser() == 1)
                             {
@@ -38,6 +39,7 @@
                         <?php
                             }
                         ?>
+
                     </div>
                 </div>
             </div>
