@@ -14,6 +14,7 @@
                                    <label for="">Email</label>
                                    <input type="text" name="email" value="" class="form-control">
                               </div>
+                              
                          </div>
                     </div>
                     <button type="submit" name="button" class="btn btn-dark ml-auto d-block">Agregar</button>
