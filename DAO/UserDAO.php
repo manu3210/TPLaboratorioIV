@@ -73,19 +73,22 @@
             {
                 $user = new User();
 
-                $query = "SELECT * FROM ".$this->tableName . "WHERE idUsuario=" . $id;
+                $query = "SELECT * FROM ".$this->tableName . " WHERE idUsuario=" . $id;
 
                 $this->connection = Connection::GetInstance();
 
                 $result = $this->connection->Execute($query);
 
-                $user->setId($result["idUsuario"]);
-                $user->setEmail($result["email"]);
-                $user->setTypeOfUser($result["tipo"]);
-                $user->setDescription($result["descripcion"]);
-                $user->setAlreadyAplied($result["alreadyAplied"]);
-                $user->setIdApi($result["idAPI"]);
-                $user->setPassword($result["pass"]);
+                foreach ($result as $row)
+                {                
+                    $user->setId($row["idUsuario"]);
+                    $user->setEmail($row["email"]);
+                    $user->setTypeOfUser($row["tipo"]);
+                    $user->setDescription($row["descripcion"]);
+                    $user->setAlreadyAplied($row["alreadyAplied"]);
+                    $user->setIdApi($row["idAPI"]);
+                    $user->setPassword($row["pass"]);
+                }
 
                 return $user;
             }
@@ -124,6 +127,7 @@
             {
                 $query1  = "UPDATE " . $this->tableName . " SET PASS='" . $user->getPassword() . "' where idUsuario=" . $user->getId();
                 $query2  = "UPDATE " . $this->tableName . " SET descripcion='" . $user->getDescription() . "' where idUsuario=" . $user->getId();
+                $query2  = "UPDATE " . $this->tableName . " SET tipo='" . $user->getTypeOfUser() . "' where idUsuario=" . $user->getId();
                 
                 $this->connection  = Connection::GetInstance();
                 $this->connection->ExecuteNonQuery($query1);

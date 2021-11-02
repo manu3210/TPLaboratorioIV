@@ -128,14 +128,9 @@
             $this->ShowUserHome();
         }
 
-        public function EditAdmin($id, $careerId, $isActive, $firstName, $lastName, $type)
+        public function EditAdmin($id, $type)
         {
             $user = $this->userDAO->GetById($id);
-            $user->setId($id);
-            $user->setCareerId($careerId);
-            $user->setIsActive($isActive);
-            $user->setFirstName($firstName);
-            $user->setLastName($lastName);
             $user->setTypeOfUser($type);
 
             $this->userDAO->Update($user);
