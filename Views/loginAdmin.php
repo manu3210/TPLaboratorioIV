@@ -13,7 +13,7 @@
                <button class="btn btn-dark btn-block btn-lg" type="submit">Iniciar Sesión</button>
                <br>
                <div>
-               <a href="<?php echo FRONT_ROOT ?>User/ShowLoginView" class="btn btn-dark btn-block btn-lg">Ingreso Usuario</a>
+               <a href="<?php echo FRONT_ROOT ?>User/ShowLoginView" >Click aca para ingresar como Usuario</a>
                </div>
           </form>
           

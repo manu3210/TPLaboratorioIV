@@ -13,7 +13,7 @@
                <button class="btn btn-dark btn-block btn-lg" type="submit">Iniciar Sesión</button>
                <br>
                <div>
-               <a href="<?php echo FRONT_ROOT ?>User/ShowLoginAdmin" class="btn btn-dark btn-block btn-lg">Ingreso Administrador</a>
+               <a href="<?php echo FRONT_ROOT ?>User/ShowLoginAdmin" >Click aca para ingresar como Administrador</a>
                </div>
           </form>
           
