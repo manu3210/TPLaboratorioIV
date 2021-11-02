@@ -134,7 +134,6 @@
 
             try
             {
-                echo var_dump($id);
                 $query = "SELECT * FROM ". $this->tableName ." WHERE companyId = " .$id." ; ";
 
                 $this->connection = Connection::GetInstance();

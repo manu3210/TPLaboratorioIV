@@ -5,6 +5,7 @@
      <section id="listado" class="mb-5">
           <div class="container">
                <h2 class="mb-4">Agregar empresa</h2>
+               <hr>
                <form action="<?php echo FRONT_ROOT ?>Company/Add" method="post" class="bg-dark-alpha p-5">
                     <div class="row">
                          <div class="col-lg-4">
@@ -26,7 +27,14 @@
                               </div>
                          </div>
                     </div>
-                    <button type="submit" class="btn btn-dark ml-auto d-block">Agregar</button>
+                    <div class="row justify-content-between">
+                         <div class="col-3">
+                              <a href="<?php echo FRONT_ROOT ?>User/ShowUserHome/"class="btn btn-dark me-md-2" type="button">Volver</a>
+                         </div>
+                         <div class="col-3">
+                              <button type="submit" class="btn btn-primary ml-auto d-block">Agregar</button>
+                         </div>
+                    </div>
                </form>
           </div>
      </section>

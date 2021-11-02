@@ -5,6 +5,7 @@
      <section id="listado" class="mb-5">
           <div class="container">
                <h2 class="mb-4">Agregar Administrador</h2>
+               <hr>
                <form action="<?php echo FRONT_ROOT ?>User/AddAdmin" method="post" class="bg-dark-alpha p-5">
                     <div class="row">                         
                          <div class="col-lg-4">
@@ -12,7 +13,7 @@
                          <div class="col-lg-4">
                               <div class="form-group">
                                    <label for="">Email</label>
-                                   <input type="text" name="email" value="" class="form-control">
+                                   <input type="text" name="email" value="" class="form-control" required>
                               </div>
                          </div>
                     </div>

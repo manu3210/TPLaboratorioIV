@@ -5,6 +5,7 @@
      <section id="listado" class="mb-5">
           <div class="container">
                <h2 class="mb-4">Listado de Usuarios</h2>
+               <hr>
                <table class="table bg-dark-alpha">
                     <thead>
                          <th>Legajo</th>
@@ -36,6 +37,9 @@
                          </tr>
                     </tbody>
                </table>
+               <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+                    <a href="<?php echo FRONT_ROOT ?>User/ShowUserHome/"class="btn btn-primary me-md-2" type="button">Volver</a>
+               </div>
           </div>
      </section>
 </main>

@@ -2,7 +2,8 @@
     namespace Controllers;
 
     use DAO\UserDAO as UserDAO;
-    use Models\User as User;
+use Exception;
+use Models\User as User;
 
     class UserController
     {
@@ -113,7 +114,14 @@
             $user->setPassword("");
             $user->setAlreadyAplied(1);
 
-            $this->userDAO->Add($user);
+            try
+            {
+                $this->userDAO->Add($user);
+            }
+            catch (Exception $e)
+            {
+                echo "Error, el usuario ya existe!";
+            }            
 
             $this->ShowAddView();
         }

@@ -31,7 +31,7 @@
 
             $this->JobOfferDAO->add($jobOffer);
 
-            $this->ShowCompanyDetails($companyId);
+            $this->ShowListOffer($companyId);
         }
 
         public function editBDD($offerId,$companyId ,$JobId,$fechaCaducidad)

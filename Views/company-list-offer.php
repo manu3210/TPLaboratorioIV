@@ -74,9 +74,10 @@
 
                                              <td><?php echo $career->getDescription(); ?></td>
                                              <td><?php echo $offer->getFechaCaducidad(); ?></td>
+                                             <?php if($user->getTypeOfUser() == 1) {?>
                                              <td style="text-align: center;"><a href="<?php echo FRONT_ROOT ?>JobOffer/ShowEditView/<?php echo $offer->getIdJobOffer(); ?>"><i class="far fa-edit text-dark"></i></a></td>
                                              <td style="text-align: center;"><a href="<?php echo FRONT_ROOT ?>JobOffer/DeleteFromBDD/<?php echo $offer->getIdJobOffer(); ?>"><i class="fas fa-trash-alt"></i></a></td>
-                                             
+                                             <?php } ?>
                                         </tr>
                                    <?php
                                    }
@@ -85,6 +86,14 @@
                          </tr>
                     </tbody>
                </table>
+               <div class="row justify-content-between">
+                    <div class="col-3">
+                         <a href="<?php echo FRONT_ROOT ?>Company/ShowCompanyDetails/<?php echo $companyId; ?>"class="btn btn-dark me-md-2" type="button">Volver</a>
+                    </div>
+                    <div class="col-3">
+                         <a href="<?php echo FRONT_ROOT ?>JobOffer/ShowAddJobOffer/<?php echo $companyId; ?>" class="btn btn-primary me-md-2" type="button">Agregar puesto Laboral</a>
+                    </div>
+               </div>
           </div>
      </section>
 </main>

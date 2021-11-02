@@ -39,7 +39,15 @@
                               </div>
                          </div>
                     </div>
-                    <button type="submit" class="btn btn-dark ml-auto d-block">Editar</button>
+                    <br>
+                    <div class="row justify-content-between">
+                         <div class="col-3">
+                              <a href="<?php echo FRONT_ROOT ?>Company/ShowCompanyDetails/<?php echo $companyId; ?>"class="btn btn-dark me-md-2" type="button">Volver</a>
+                         </div>
+                         <div class="col-3">
+                              <button type="submit" class="btn btn-primary ml-auto d-block">Editar</button>
+                         </div>
+                    </div>
                </form>
           </div>
      </section>

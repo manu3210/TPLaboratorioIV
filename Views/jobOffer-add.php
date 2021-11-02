@@ -20,7 +20,7 @@
 <main class="py-5">
      <section id="listado" class="mb-5">
           <div class="container">
-               <h2 class="mb-4">Agregar JobOffer</h2>
+               <h2 class="mb-4">Agregar oferta laboral</h2>
                <form action="<?php echo FRONT_ROOT ?>JobOffer/Add" method="post" class="bg-dark-alpha p-5">
                     <div class="row">                         
                          
@@ -50,7 +50,14 @@
                          </div>
                          
                     </div>
-                    <button type="submit" class="btn btn-dark ml-auto d-block">Agregar</button>
+                    <div class="row justify-content-between">
+                         <div class="col-3">
+                              <a href="<?php echo FRONT_ROOT ?>JobOffer/ShowListOffer/<?php echo $companyId; ?>"class="btn btn-dark me-md-2" type="button">Volver</a>
+                         </div>
+                         <div class="col-3">
+                              <button type="submit" class="btn btn-primary ml-auto d-block">Agregar</button>
+                         </div>
+                    </div>
                </form>
           </div>
      </section>
