@@ -3,6 +3,7 @@
 
     use DAO\JobOfferDAO as JobOfferDAO;
     use Models\JobOffer as JobOffer;
+    use Models\Company as Company;
     
     //usar JobPositionDAO  y  CarrerDAO
     //agregar boton en la lista individual de empresas para crear jobOffer
