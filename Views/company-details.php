@@ -34,7 +34,7 @@
                             if($user->getTypeOfUser() == 1)
                             {
                         ?>
-                                <a href="<?php echo FRONT_ROOT ?>JobOffer/CrearPuestoLaboral/<?php echo $company->getCompanyId(); ?>" class="card-link">Crear Puesto Laboral</a>
+                                <a href="<?php echo FRONT_ROOT ?>JobOffer/ShowAddJobOffer/<?php echo $company->getCompanyId(); ?>" class="card-link">Crear Puesto Laboral</a>
                         <?php
                             }
                         ?>

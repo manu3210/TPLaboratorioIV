@@ -5,6 +5,8 @@
     use DAO\IJobOfferDAO as IJobOfferyDAO;
     use Models\JobOffer as JobOffer;
     use DAO\Connection as Connection;
+    use Models\Career as Career;
+    use Models\JobPosition as JobPosition;
 
     class JobOfferDAO implements IJobOfferDAO
     {
@@ -54,6 +56,58 @@
             }
         }
         
+        public function GetJobPositionFromApi()
+        {
+            $ch = curl_init();
+            $jobPositionList = array();
+
+            curl_setopt($ch, CURLOPT_URL, "https://utn-students-api.herokuapp.com/api/JobPosition");
+            curl_setopt($ch, CURLOPT_HTTPHEADER, array("x-api-key:4f3bceed-50ba-4461-a910-518598664c08"));
+            curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+            
+            $arrayToDecode = json_decode(curl_exec($ch), true);
+
+            foreach($arrayToDecode as $valuesArray)
+            {
+                $jobPosition = new JobPosition();
+                
+                $jobPosition->setJobPositionId($valuesArray["jobPositionId"]);
+                $jobPosition->setCareerId($valuesArray["careerId"]);
+                $jobPosition->setDescription($valuesArray["description"]);
+                
+                array_push($jobPositionList, $jobPosition);
+            }
+            
+            curl_close($ch);
+            return $jobPositionList;
+        }
+
+        public function GetCareerFromApi()
+        {
+            $ch = curl_init();
+            $careerList = array();
+
+            curl_setopt($ch, CURLOPT_URL, "https://utn-students-api.herokuapp.com/api/Career");
+            curl_setopt($ch, CURLOPT_HTTPHEADER, array("x-api-key:4f3bceed-50ba-4461-a910-518598664c08"));
+            curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+            
+            $arrayToDecode = json_decode(curl_exec($ch), true);
+
+            foreach($arrayToDecode as $valuesArray)
+            {
+                $career = new Career();
+                
+                $career->setCareerId($valuesArray["careerId"]);
+                $career->setDescription($valuesArray["description"]);
+                $career->setActive($valuesArray["active"]);
+                
+                array_push($careerList, $career);
+            }
+            
+            curl_close($ch);
+            return $careerList;
+        }
+
         public function Add(JobOffer $jobOffer)
         {
             try

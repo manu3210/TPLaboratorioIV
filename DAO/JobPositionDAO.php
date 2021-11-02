@@ -20,7 +20,7 @@
         public function GetAll()
         {
             $this->RetrieveData();
-            return $this->jobPositionist;
+            return $this->jobPositionList;
         }
 
         public function GetById ($id)

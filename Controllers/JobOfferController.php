@@ -12,27 +12,25 @@
 
     class JobOfferController
     {
-        private $JobPositionDAO;
-        private $CareerDAO;
+        private $JobOfferDAO;
 
         public function __construct()
         {
-            $this->CompanyDAO = new CompanyDAO();
+
+            $this->JobOfferDAO = new JobOfferDAO();
         }
 
-        public function add($recordId,$name,$email,$phoneNumber)
+        public function add($companyId,$JobId,$fechaCaducidad)
         {
-            $company = new Company();
+            $jobOffer = new JobOffer();
             
-            $company->setCompanyId($recordId);
-            $company->setName($name);
-            $company->setEmail($email);
-            $company->setPhoneNumber($phoneNumber);
-            $company->setIsActive(1);
+            $jobOffer->setCompanyId($companyId);
+            $jobOffer->setJobPosition($JobId);
+            $jobOffer->setFechaCaducidad($fechaCaducidad);
 
-            $this->CompanyDAO->add($company);
+            $this->JobOfferDAO->add($jobOffer);
 
-            $this->ShowAddCompanyView();
+            $this->ShowCompanyDetails($companyId);
         }
 
         public function editBDD($recordId,$name,$email,$phoneNumber)
@@ -50,7 +48,7 @@
             $this->ShowListView();
         }
 
-        public function ShowAddJobOffer()
+        public function ShowAddJobOffer($companyId)
         {
             if(isset($_SESSION["user"]))
                 require_once(VIEWS_PATH."jobOffer-add.php");
