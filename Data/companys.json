@@ -1,5 +1,26 @@
 [
     {
+        "companyId": null,
+        "name": "Accenture",
+        "email": "acc@mail.com",
+        "phoneNumber": "4567865",
+        "isActive": 1
+    },
+    {
+        "companyId": null,
+        "name": "Globant",
+        "email": "globant@mail.com",
+        "phoneNumber": "4568787",
+        "isActive": 1
+    },
+    {
+        "companyId": null,
+        "name": "Globant",
+        "email": "globant@mail.com",
+        "phoneNumber": "4578787",
+        "isActive": 1
+    },
+    {
         "companyId": "1",
         "name": "uno uno",
         "email": "uno@uno.com",

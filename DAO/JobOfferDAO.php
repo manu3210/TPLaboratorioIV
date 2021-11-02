@@ -24,7 +24,6 @@
             return $array;
        }
 
-       //!no se usaria creo...
        public function deleteFromBDD($jobOffer)
         {
             try
@@ -45,10 +44,12 @@
         {
             try
             {
-                $query  = "UPDATE " . $this->tableName . " SET fechaCaducidad='" . $jobOffer->getFechaCaducidad() . "' where idJobOffer = " . $jobOffer->getIdJobOffer();
+                $query1  = "UPDATE " . $this->tableName . " SET fechaCaducidad='" . $jobOffer->getFechaCaducidad() . "' where idJobOffer = " . $jobOffer->getIdJobOffer();
+                $query2  = "UPDATE " . $this->tableName . " SET jobPosition='" . $jobOffer->getJobPosition() . "' where idJobOffer = " . $jobOffer->getIdJobOffer();
                 
                 $this->connection  = Connection::GetInstance();
-                $this->connection->ExecuteNonQuery($query);
+                $this->connection->ExecuteNonQuery($query1);
+                $this->connection->ExecuteNonQuery($query2);
             }
             catch(Exception $e)
             {
