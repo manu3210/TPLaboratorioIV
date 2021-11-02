@@ -48,6 +48,16 @@
             $this->ShowListOffer($companyId);
         }
 
+        public function DeleteFromBDD($offerId)
+        {
+            $jobOffer = new JobOffer();
+            $jobOffer = $this->JobOfferDAO->GetByIdBDD($offerId);
+            $this->JobOfferDAO->DeleteFromBDD($jobOffer);
+
+            $this->ShowListOffer($jobOffer->getCompanyId());
+            
+        }
+
         public function ShowAddJobOffer($companyId)
         {
             if(isset($_SESSION["user"]))

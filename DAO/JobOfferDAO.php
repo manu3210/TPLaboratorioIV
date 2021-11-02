@@ -24,7 +24,6 @@
             return $array;
        }
 
-       //!no se usaria creo...
        public function deleteFromBDD($jobOffer)
         {
             try

@@ -68,8 +68,6 @@
                                                             }
                                                             echo $position->getDescription();
                                                        }
-                                                         
-                                                        
                                                   }
                                                 ?>
                                              </td>
