@@ -22,14 +22,19 @@
                         <p class="card-text"><?php echo $user->getDescription(); ?></p>
                     </div>
                     <ul class="list-group list-group-flush">
-                        <li class="list-group-item"><?php echo $user->getFirstName(); ?></li>
-                        <li class="list-group-item"><?php echo $user->getLastName(); ?></li>
-                        <li class="list-group-item"><?php echo $user->getDni(); ?></li>
                         <li class="list-group-item"><?php echo $user->getEmail(); ?></li>
-                        <li class="list-group-item"><?php echo $user->getGender(); ?></li>
-                        <li class="list-group-item"><?php echo $user->getBirthDate(); ?></li>
-                        <li class="list-group-item"><?php echo $user->getPhoneNumber(); ?></li>
-                        <li class="list-group-item"><?php echo $user->getCareerId(); ?></li>
+                        <?php 
+                            if($user->getTypeOfUser() == 0)
+                            {
+                        ?>
+                            <li class="list-group-item"><?php echo $user->getFirstName(); ?></li>
+                            <li class="list-group-item"><?php echo $user->getLastName(); ?></li>
+                            <li class="list-group-item"><?php echo $user->getDni(); ?></li>
+                            <li class="list-group-item"><?php echo $user->getGender(); ?></li>
+                            <li class="list-group-item"><?php echo $user->getBirthDate(); ?></li>
+                            <li class="list-group-item"><?php echo $user->getPhoneNumber(); ?></li>
+                            <li class="list-group-item"><?php echo $user->getCareerId(); ?></li>
+                        <?php } ?>
                     </ul>
                     <div class="card-body">
                         <a href="<?php echo FRONT_ROOT ?>Company/ShowListView" class="card-link">Ver empresas</a>

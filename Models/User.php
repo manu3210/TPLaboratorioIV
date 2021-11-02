@@ -4,21 +4,25 @@
 
     class User
     {
-        private $id;
         
         private $careerId;
         private $fileNumber;
-        private $password;
-        private $email;
-        private $isActive;
         private $firstName;
         private $lastName;
         private $dni;
         private $gender;
         private $birthDate;
         private $phoneNumber;
+        private $isActive;
+        
+        private $idApi;
+        private $id;
+        private $password;
+        private $email;
         private $typeOfUser;
         private $description;
+        private $alreadyAplied;
+        
 
         public function getId()
         {
@@ -184,6 +188,46 @@
         public function setDescription($description)
         {
                 $this->description = $description;
+
+                return $this;
+        }
+
+        /**
+         * Get the value of idApi
+         */ 
+        public function getIdApi()
+        {
+                return $this->idApi;
+        }
+
+        /**
+         * Set the value of idApi
+         *
+         * @return  self
+         */ 
+        public function setIdApi($idApi)
+        {
+                $this->idApi = $idApi;
+
+                return $this;
+        }
+
+        /**
+         * Get the value of alreadyApplied
+         */ 
+        public function getAlreadyAplied()
+        {
+                return $this->alreadyApplied;
+        }
+
+        /**
+         * Set the value of alreadyApplied
+         *
+         * @return  self
+         */ 
+        public function setAlreadyAplied($alreadyApplied)
+        {
+                $this->alreadyApplied = $alreadyApplied;
 
                 return $this;
         }

@@ -8,8 +8,7 @@
                <table class="table bg-dark-alpha">
                     <thead>
                          <th>Legajo</th>
-                         <th>Apellido</th>
-                         <th>Nombre</th>
+                         <th>Email</th>
                          <th>Tipo de usuario</th>
                          <th>Editar usuario</th>
                     </thead>
@@ -20,8 +19,7 @@
                                    ?>
                                         <tr>
                                              <td><?php echo $user->getId() ?></td>
-                                             <td><?php echo $user->getLastName() ?></td>
-                                             <td><?php echo $user->getFirstName() ?></td>
+                                             <td><?php echo $user->getEmail() ?></td>
                                              <td>
                                                   <?php 
                                                        if($user->getTypeOfUser() == 1) 

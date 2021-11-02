@@ -1,6 +1,13 @@
 <main class="d-flex align-items-center justify-content-center height-100">
      <div class="content">
           <form action="<?php echo FRONT_ROOT ?>User/SetPass" method="post" class="login-form bg-dark-alpha p-5 text-white">
+               <div>
+                    <input type="hidden" name="idApi" value="<?php echo $idApi; ?>">
+               </div>
+               <div class="form-group">
+                    <label for="">Email </label>
+                    <input type="email" name="email" class="form-control form-control-lg" placeholder="Ingresar constraseña">
+               </div>
                <div class="form-group">
                     <label for="">Contraseña nueva: </label>
                     <input type="text" name="pass" class="form-control form-control-lg" placeholder="Ingresar constraseña">
