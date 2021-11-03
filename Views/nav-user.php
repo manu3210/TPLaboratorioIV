@@ -7,6 +7,9 @@
                <a class="nav-link" href="<?php echo FRONT_ROOT ?>User/ShowUserHome">Inicio</a>
           </li>
           <li class="nav-item">
+               <a class="nav-link" href="<?php echo FRONT_ROOT ?>JobOffer/ShowListApplied">Mis postulaciones</a>
+          </li>
+          <li class="nav-item">
                <a class="nav-link" href="<?php echo FRONT_ROOT ?>Company/ShowListView">Listar Empresas</a>
           </li>
            <li class="nav-item">

@@ -83,7 +83,7 @@
         {
             try
             {
-                $jobOfferList = array();
+                $offerXUserList = array();
 
                 $query = "SELECT * FROM ".$this->tableName;
 

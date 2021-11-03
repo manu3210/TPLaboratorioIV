@@ -37,8 +37,10 @@
                          <th>posicion</th>
                          <th>carrera</th>
                          <th>fecha de caducidad</th>
+                         <?php if($user->getTypeOfUser() == 1) {?>
                          <th></th>
                          <th></th>
+                         <?php } ?>
                          <th></th>
                     </thead>
                     <tbody>
@@ -78,6 +80,7 @@
                                              <td style="text-align: center;"><a href="<?php echo FRONT_ROOT ?>JobOffer/ShowEditView/<?php echo $offer->getIdJobOffer(); ?>"><i class="far fa-edit text-dark"></i></a></td>
                                              <td style="text-align: center;"><a href="<?php echo FRONT_ROOT ?>JobOffer/DeleteFromBDD/<?php echo $offer->getIdJobOffer(); ?>"><i class="fas fa-trash-alt"></i></a></td>
                                              <?php } ?>
+                                             <td style="text-align: center;"><a href="<?php echo FRONT_ROOT ?>JobOffer/AddJobOfferToUser/<?php echo $offer->getIdJobOffer();  ?>/<?php echo $user->getId(); ?>"><i class="fas fa-plus text-dark"></i></a></td>
                                         </tr>
                                    <?php
                                    }
