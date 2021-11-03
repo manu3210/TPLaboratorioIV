@@ -33,8 +33,8 @@
                <h2 class="mb-4">Listado de ofertas</h2>
                <table class="table bg-dark-alpha">
                     <thead>
-                         <th>Compania</th>
                          <th>Id</th>
+                         <th>Compania</th>
                          <th>posicion</th>
                          <th>carrera</th>
                          <th>fecha de caducidad</th>
@@ -43,51 +43,53 @@
                     </thead>
                     <tbody>
                          <?php
-                            foreach($companyList as $company)
+                            foreach($offerList as $offer)
                             { ?>
                                 <tr>
-                                <td><?php echo $company->getName() ?></td>
+                                <td><?php echo $offer->getIdJobOffer(); ?></td>
                                 
                                     <?php
-                                    foreach($offerList as $offer)
+
+                                    foreach($companyList as $company)
                                     {
                                         if($offer->getCompanyId() == $company->getCompanyId())
                                         {
                                         ?>
-                                            <tr>
-                                            <td>
-                                            <td><?php echo $offer->getIdJobOffer(); ?></td>
-
-                                            <td>
-                                             <?php 
-                                                foreach($jobPositionList as $jobPosition)
-                                                {
-                                                                
-                                                    if($jobPosition->getJobPositionId() == $offer->getJobPosition())
-                                                    {
-                                                        $position = $jobPosition;
-                                                        foreach($careerList as $c)
-                                                        {
-                                                            if($position->getCareerId() == $c->getCareerId())
-                                                            {
-                                                                $career = $c;
-                                                            }
-                                                        }
-                                                        echo $position->getDescription();
-                                                    }
-                                                }
-                                            ?>
-                                            </td>
-
-                                            <td><?php echo $career->getDescription(); ?></td>
-                                            <td><?php echo $offer->getFechaCaducidad(); ?></td>
-                                            <td style="text-align: center;"><a href="<?php echo FRONT_ROOT ?>JobOffer/AddJobOfferToUser/<?php echo $offer->getIdJobOffer();  ?>/<?php echo $user->getId(); ?>"><i class="fas fa-plus text-dark"></i></a></td>
-                                            </td>       
-                                            </tr>       
-                                                
-                                        <?php
+                                            <td><?php echo $company->getName(); ?></td>
+                                    <?php
                                         }
                                     } ?>
+
+                                    <td>
+                                        <?php 
+                                        foreach($jobPositionList as $jobPosition)
+                                        {
+                                                
+                                            if($jobPosition->getJobPositionId() == $offer->getJobPosition())
+                                            {
+                                                $position = $jobPosition;
+                                                foreach($careerList as $c)
+                                                {
+                                                if($position->getCareerId() == $c->getCareerId())
+                                                {
+                                                        $career = $c;
+                                                }
+                                                }
+                                                echo $position->getDescription();
+                                            }
+                                        }
+                                        ?>
+                                    </td>
+                                        
+                                            
+
+                                    <td><?php echo $career->getDescription(); ?></td>
+                                    <td><?php echo $offer->getFechaCaducidad(); ?></td>
+                                    <td style="text-align: center;"><a href="<?php echo FRONT_ROOT ?>JobOffer/AddJobOfferToUser/<?php echo $offer->getIdJobOffer();  ?>/<?php echo $user->getId(); ?>"><i class="fas fa-plus text-dark"></i></a></td>
+                                    </td>       
+                                    </tr>       
+                                                
+                                        
                                 </tr>
                       <?php }
                          ?>
