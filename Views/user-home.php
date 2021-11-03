@@ -39,6 +39,7 @@
                     <div class="card-body">
                         <a href="<?php echo FRONT_ROOT ?>Company/ShowListView" class="card-link">Ver empresas</a>
                         <a href="<?php echo FRONT_ROOT ?>User/ShowEditView" class="card-link">Editar perfil</a>
+                        <a href="<?php echo FRONT_ROOT ?>JobOffer/ShowJobOfferByCompany/<?php echo $user->getId(); ?>" class="card-link">Ver Ofertas Laborales</a>
                     </div>
                 </div>
             </div>

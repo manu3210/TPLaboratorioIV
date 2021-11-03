@@ -4,7 +4,11 @@
     use DAO\JobOfferDAO as JobOfferDAO;
     use Models\JobOffer as JobOffer;
     use Models\Company as Company;
-    
+    use Models\OfferXUser as OfferXUser;
+    use DAO\OfferXUserDAO as OfferXUserDAO;
+    use DAO\UserDAO as UserDAO;
+    use Models\User as User;
+
     //usar JobPositionDAO  y  CarrerDAO
     //agregar boton en la lista individual de empresas para crear jobOffer
 
@@ -14,11 +18,16 @@
     class JobOfferController
     {
         private $JobOfferDAO;
+        private $offerXUserDAO;
+        private $userDAO;
+
+
 
         public function __construct()
         {
-
+            $this->userDAO = new UserDAO();
             $this->JobOfferDAO = new JobOfferDAO();
+            $this->offerXUserDAO = new OfferXUserDAO();
         }
 
         public function add($companyId,$JobId,$fechaCaducidad)
@@ -88,6 +97,36 @@
                 require_once(VIEWS_PATH."company-details.php");
             else
             header("location:" .FRONT_ROOT . "User/ShowLoginView");
+        }
+        
+        
+        public function AddJobOfferToUser($jobOfferId , $id)//estudiante
+        {
+            $offerXUser = new OfferXUser();
+            $user = new User();
+            $user = $this->userDAO->GetById($id);
+            if($user->getAlreadyAplied()==0)
+            {
+                $offerXUser->setIdJobOffer($jobOfferId);
+                $offerXUser->setIdUsuario($id);
+                $user->setAlreadyAplied(1);
+                $this->userDAO->Update($user);
+
+                $this->offerXUserDAO->Add($offerXUser);
+            }else{
+                //!msg no puede
+            }
+            
+
+            require_once(VIEWS_PATH."user-home.php");
+        }
+
+        public function ShowJobOfferByCompany($id)
+        {
+            if(isset($_SESSION["user"]))
+                require_once(VIEWS_PATH."jobOfferByCompany.php");
+            else
+            header("location:" .FRONT_ROOT . "User/User-home");
         }
 
         public function ShowDeleteView()
