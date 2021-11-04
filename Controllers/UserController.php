@@ -126,11 +126,11 @@ use Models\User as User;
             $this->ShowAddView();
         }
 
-        public function Edit($password, $description)
+        public function Edit($password, $Descripcion)
         {
             $user = $_SESSION["user"];
             $user->setPassword($password);
-            $user->setDescription($description);
+            $user->setDescription($Descripcion);
 
             $this->userDAO->Update($user);
             $this->ShowUserHome();

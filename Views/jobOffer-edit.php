@@ -43,7 +43,7 @@
                          </div>
                     </div>
                     <a class="btn btn-dark mr-auto" href="<?php echo FRONT_ROOT ?>JobOffer/ShowOfferList">Volver</a>
-                    <button type="submit" name="button" class="btn btn-dark ml-auto d-block">Actualizar</button>
+                    <button type="submit" class="btn btn-dark ml-auto d-block">Actualizar</button>
                </form>
           </div>
      </section>

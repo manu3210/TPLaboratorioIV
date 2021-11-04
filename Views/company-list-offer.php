@@ -93,9 +93,16 @@
                     <div class="col-3">
                          <a href="<?php echo FRONT_ROOT ?>Company/ShowCompanyDetails/<?php echo $companyId; ?>"class="btn btn-dark me-md-2" type="button">Volver</a>
                     </div>
-                    <div class="col-3">
+                    <?php
+                    if($user->getTypeOfUser() == 1)
+                    { ?>
+                         <div class="col-3">
                          <a href="<?php echo FRONT_ROOT ?>JobOffer/ShowAddJobOffer/<?php echo $companyId; ?>" class="btn btn-primary me-md-2" type="button">Agregar puesto Laboral</a>
-                    </div>
+                         </div>
+                    <?php }
+                    else
+                    {}?>
+                    
                </div>
           </div>
      </section>

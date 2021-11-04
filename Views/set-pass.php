@@ -8,7 +8,7 @@
                </div>
                <div class="form-group">
                     <label for="">Email </label>
-                    <input type="email" name="email" class="form-control form-control-lg" placeholder="Ingresar constraseña">
+                    <input type="email" name="email" class="form-control form-control-lg" placeholder="Ingresar email">
                </div>
                <div class="form-group">
                     <label for="">Contraseña nueva: </label>
