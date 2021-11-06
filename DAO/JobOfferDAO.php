@@ -6,13 +6,21 @@
     use Models\JobOffer as JobOffer;
     use DAO\Connection as Connection;
     use Models\Career as Career;
+    use DAO\CareerDAO as CareerDAO;
     use Models\JobPosition as JobPosition;
+    use DAO\JobPositionDAO as JobPositionDAO;
 
     class JobOfferDAO implements IJobOfferDAO
     {
         private $jobOfferList = array();
         private $connection;
         private $tableName = "ofertasLaborales";
+
+        public function __construct()
+        {
+            $this->JobPositionDAO = new JobPositionDAO();
+            $this->CareerDAO = new CareerDAO();
+        }
 
         //!hace falta??
         function removeElementWithValue($array, $key, $value){
@@ -39,7 +47,7 @@
             }
         }
 
-        //!tampoco se usaria creo... pero puede ser para "estirar" un poco la fecha de cacucidad
+        //!tampoco se usaria creo... pero puede ser para "estirar" un poco la fecha de caducidad
         public function editBDD(JobOffer $jobOffer)
         {
             try
@@ -57,6 +65,8 @@
             }
         }
         
+        
+
         public function GetJobPositionFromApi()
         {
             $ch = curl_init();
@@ -75,6 +85,8 @@
                 $jobPosition->setJobPositionId($valuesArray["jobPositionId"]);
                 $jobPosition->setCareerId($valuesArray["careerId"]);
                 $jobPosition->setDescription($valuesArray["description"]);
+                
+                $this->JobPositionDAO->AddBDD($jobPosition);
                 
                 array_push($jobPositionList, $jobPosition);
             }
@@ -102,6 +114,8 @@
                 $career->setDescription($valuesArray["description"]);
                 $career->setActive($valuesArray["active"]);
                 
+                $this->CareerDAO->AddBDD($career);
+
                 array_push($careerList, $career);
             }
             
