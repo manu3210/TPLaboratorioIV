@@ -1,16 +1,23 @@
 <?php
     namespace DAO;
 
-    use DAO\IUserDAO as IUserDAO;
     use Exception;
-    use Models\User as User;
     use DAO\Connection as Connection;
+    use DAO\IUserDAO as IUserDAO;
+    use Models\User as User;
+    use DAO\StudentAPIDAO as StudentAPIDAO;
+    use Models\StudentAPI as StudentAPI;
 
     class UserDAO implements IUserDAO
     {
         //private $userList = array();
         private $connection;
         private $tableName = "usuarios";
+
+        public function __construct()
+        {
+            $this->studentAPIDAO = new StudentAPIDAO();
+        }
 
         public function Add(User $user)
         {
@@ -37,6 +44,8 @@
         {
             try
             {
+                $this->studentAPIDAO->GetDataFromApi();
+
                 $userList = array();
 
                 $query = "SELECT * FROM ".$this->tableName;

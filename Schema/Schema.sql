@@ -88,3 +88,6 @@ CREATE TABLE IF NOT EXISTS student(
     
 	constraint studentIdAPI primary key(studentIdAPI)
 )ENGINE=INNODB;
+
+alter table companias add pass varchar(10);
+## agregar "1234" de pass a todas

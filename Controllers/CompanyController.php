@@ -4,6 +4,8 @@
     use DAO\CompanyDAO as CompanyDAO;
     use Models\Company as Company;
 
+    use DAO\JobOfferDAO as JobOfferDAO;
+
     class CompanyController
     {
         private $CompanyDAO;
@@ -11,6 +13,21 @@
         public function __construct()
         {
             $this->CompanyDAO = new CompanyDAO();
+            $this->JobOfferDAO = new JobOfferDAO();
+        }
+
+        public function deleteFromBDD($recordId)
+        {
+            $company = new Company();
+            
+            $company->setCompanyId($recordId);
+
+            if( $this->JobOfferDAO->countJobOffers($recordId ) == 0 )
+                $this->CompanyDAO->deleteFromBDD($company);
+            
+                //no se pudo borrar porque tiene al menos un JobOffer creado
+
+            $this->ShowListView();
         }
 
         public function add($name,$email,$phoneNumber)
@@ -57,13 +74,13 @@
             $this->ShowListView();
         }
 
-        public function deleteFromBDD($recordId)
+        public function activateCompany($recordId)
         {
             $company = new Company();
             
             $company->setCompanyId($recordId);
 
-            $this->CompanyDAO->deleteFromBDD($company);
+            $this->CompanyDAO->activateFromBDD($company);
 
             $this->ShowListView();
         }

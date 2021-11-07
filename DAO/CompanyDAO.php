@@ -21,15 +21,29 @@
             return $array;
        }
 
-       //! implementar
+       public function activateFromBDD($company)
+        {
+            try
+            {
+                $query  = "UPDATE " . $this->tableName . " SET isActive ='" . 1 . "' where companyId =" . $company->getCompanyId();
+                
+                $this->connection  = Connection::GetInstance();
+                $this->connection->ExecuteNonQuery($query);
+            }
+            catch(Exception $e)
+            {
+                throw $e;
+            }
+        }
+
        public function deleteFromBDD($company)
         {
             try
             {
-                $query1  = "DELETE FROM " . $this->tableName . " where companyId=" . $company->getCompanyId();
+                $query  = "UPDATE " . $this->tableName . " SET isActive ='" . 0 . "' where companyId =" . $company->getCompanyId();
                 
                 $this->connection  = Connection::GetInstance();
-                $this->connection->ExecuteNonQuery($query1);
+                $this->connection->ExecuteNonQuery($query);
             }
             catch(Exception $e)
             {
@@ -61,11 +75,13 @@
                 $query1  = "UPDATE " . $this->tableName . " SET name='" . $company->getName() . "' where companyId = " . $company->getCompanyId();
                 $query2  = "UPDATE " . $this->tableName . " SET email ='" . $company->getEmail() . "' where companyId =" . $company->getCompanyId();
                 $query3  = "UPDATE " . $this->tableName . " SET phoneNumber ='" . $company->getPhoneNumber() . "' where companyId =" . $company->getCompanyId();
+                $query4  = "UPDATE " . $this->tableName . " SET pass ='" . $company->getPass() . "' where companyId =" . $company->getCompanyId();
                 
                 $this->connection  = Connection::GetInstance();
                 $this->connection->ExecuteNonQuery($query1);
                 $this->connection->ExecuteNonQuery($query2);
                 $this->connection->ExecuteNonQuery($query3);
+                $this->connection->ExecuteNonQuery($query4);
             }
             catch(Exception $e)
             {
@@ -98,12 +114,13 @@
 
             try
             {
-                $query = "INSERT INTO ".$this->tableName." (name, email, isActive, phoneNumber) VALUES (:name, :email, :isActive, :phoneNumber);";
+                $query = "INSERT INTO ".$this->tableName." (name, email, isActive, phoneNumber, pass) VALUES (:name, :email, :isActive, :phoneNumber, :pass);";
                 
                 $parameters["name"] = $company->getName();
                 $parameters["email"] = $company->getEmail();
                 $parameters["isActive"] = $company->getIsActive();
                 $parameters["phoneNumber"] = $company->getPhoneNumber();
+                $parameters["pass"] = $company->getPass();
 
                 $this->connection = Connection::GetInstance();
 
@@ -148,6 +165,7 @@
                     $company->setEmail($row["email"]);
                     $company->setIsActive($row["isActive"]);
                     $company->setPhoneNumber($row["phoneNumber"]);
+                    $company->setPass($row["pass"]);
 
                     return $company;
                 }

@@ -27,6 +27,7 @@
                     <ul class="list-group list-group-flush">
                         <li class="list-group-item"><?php echo $company->getEmail(); ?></li>
                         <li class="list-group-item"><?php echo $company->getPhoneNumber(); ?></li>
+                        <li class="list-group-item"><?php echo $company->showIsActive() ?></li>
                     </ul>
                     <div class="card-body">
                         <?php if($user->getTypeOfUser() == 1) {?>

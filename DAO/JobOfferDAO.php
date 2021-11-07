@@ -22,16 +22,6 @@
             $this->CareerDAO = new CareerDAO();
         }
 
-        //!hace falta??
-        function removeElementWithValue($array, $key, $value){
-            foreach($array as $subKey => $subArray){
-                 if($subArray[$key] == $value){
-                      unset($array[$subKey]);
-                 }
-            }
-            return $array;
-       }
-
        public function deleteFromBDD($jobOffer)
         {
             try
@@ -47,7 +37,31 @@
             }
         }
 
-        //!tampoco se usaria creo... pero puede ser para "estirar" un poco la fecha de caducidad
+        public function countJobOffers($id)
+        {
+            try
+            {
+                $query = "SELECT * FROM ". $this->tableName ." WHERE companyId = " .$id;
+
+                $this->connection = Connection::GetInstance();
+
+                $resultSet = $this->connection->Execute($query);
+                
+                $rta=0;
+                foreach ($resultSet as $row)
+                {
+                    $rta++;                    
+                }
+                echo var_dump($rta);
+                return $rta;
+            }
+            catch(Exception $ex)
+            {
+                throw $ex;
+            }   
+        }
+
+        //!no se usaria creo... pero puede ser para "estirar" un poco la fecha de caducidad
         public function editBDD(JobOffer $jobOffer)
         {
             try
@@ -168,9 +182,7 @@
             catch(Exception $ex)
             {
                 throw $ex;
-            }
-
-            
+            }   
         }
 
         public function GetAllBDD()
