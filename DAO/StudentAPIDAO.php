@@ -129,7 +129,8 @@
                 
                 $this->LoadInfo($studentAPI, $valuesArray);
 
-                $this->AddBDD($studentAPI);
+                //ya se cargaron los datos
+                //$this->AddBDD($studentAPI);
             }
             
             curl_close($ch);

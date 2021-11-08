@@ -138,20 +138,47 @@
             $this->SaveData();
         }
 
-        public function GetAll()
+        public function GetAllBDD()
         {
-            $this->RetrieveData();
+            try
+            {
+                $companyList = array();
 
-            return $this->companyList;
+                $query = "SELECT * FROM ".$this->tableName;
+
+                $this->connection = Connection::GetInstance();
+
+                $resultSet = $this->connection->Execute($query);
+                
+                foreach ($resultSet as $row)
+                {                
+                    $company = new Company();
+                    $company->setCompanyId($row["companyId"]);
+                    $company->setName($row["name"]);
+                    $company->setEmail($row["email"]);
+                    $company->setIsActive($row["isActive"]);
+                    $company->setPhoneNumber($row["phoneNumber"]);
+                    $company->setPass($row["pass"]);
+                    $company->setTipo($row["tipo"]);
+
+
+                    array_push($companyList, $company);
+                }
+
+                return $companyList;
+            }
+            catch(Exception $ex)
+            {
+                throw $ex;
+            }
         }
 
-        //funciona
         public function GetByIdBDD($id)
         {
 
             try
             {
-                $query = "SELECT * FROM ". $this->tableName ." WHERE companyId = " .$id." ; ";
+                $query = "SELECT * FROM ". $this->tableName ." WHERE companyId = " .$id;
 
                 $this->connection = Connection::GetInstance();
 
@@ -166,6 +193,7 @@
                     $company->setIsActive($row["isActive"]);
                     $company->setPhoneNumber($row["phoneNumber"]);
                     $company->setPass($row["pass"]);
+                    $company->setTipo($row["tipo"]);
 
                     return $company;
                 }
@@ -177,8 +205,13 @@
 
             
         }
-
         
+        public function GetAll()
+        {
+            $this->RetrieveData();
+
+            return $this->companyList;
+        }
 
         public function GetById ($id)
         {
@@ -228,39 +261,6 @@
             $jsonContent = json_encode($arrayToEncode, JSON_PRETTY_PRINT);
             
             file_put_contents('Data/companys.json', $jsonContent);
-        }
-
-        public function GetAllBDD()
-        {
-            try
-            {
-                $companyList = array();
-
-                $query = "SELECT * FROM ".$this->tableName;
-
-                $this->connection = Connection::GetInstance();
-
-                $resultSet = $this->connection->Execute($query);
-                
-                foreach ($resultSet as $row)
-                {                
-                    $company = new Company();
-                    $company->setCompanyId($row["companyId"]);
-                    $company->setName($row["name"]);
-                    $company->setIsActive($row["isActive"]);
-                    $company->setPhoneNumber($row["phoneNumber"]);
-                    $company->setEmail($row["email"]);
-
-
-                    array_push($companyList, $company);
-                }
-
-                return $companyList;
-            }
-            catch(Exception $ex)
-            {
-                throw $ex;
-            }
         }
 
         private function RetrieveData()

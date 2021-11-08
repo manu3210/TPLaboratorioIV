@@ -100,7 +100,8 @@
                 $jobPosition->setCareerId($valuesArray["careerId"]);
                 $jobPosition->setDescription($valuesArray["description"]);
                 
-                $this->JobPositionDAO->AddBDD($jobPosition);
+                //ya se cargaron los datos
+                //$this->JobPositionDAO->AddBDD($jobPosition);
                 
                 array_push($jobPositionList, $jobPosition);
             }
@@ -128,7 +129,8 @@
                 $career->setDescription($valuesArray["description"]);
                 $career->setActive($valuesArray["active"]);
                 
-                $this->CareerDAO->AddBDD($career);
+                //ya se cargaron los datos
+                //$this->CareerDAO->AddBDD($career);
 
                 array_push($careerList, $career);
             }

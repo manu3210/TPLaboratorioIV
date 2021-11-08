@@ -91,3 +91,5 @@ CREATE TABLE IF NOT EXISTS student(
 
 alter table companias add pass varchar(10);
 ## agregar "1234" de pass a todas
+alter table companias add tipo smallint;
+## setearlas todas en "2" para proteger con este campo las vistas

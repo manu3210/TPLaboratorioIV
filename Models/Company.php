@@ -10,6 +10,7 @@
         private $name;
         private $phoneNumber;
         private $pass;
+        private $tipo;
         
         public function getCompanyId()
         {
@@ -82,6 +83,17 @@
         public function setPass($pass)
         {
                 $this->pass = $pass;
+                return $this;
+        }
+
+        public function getTipo()
+        {
+                return $this->tipo;
+        }
+ 
+        public function setTipo($tipo)
+        {
+                $this->tipo = $tipo;
                 return $this;
         }
     }

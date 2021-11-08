@@ -5,7 +5,7 @@
     use DAO\Connection as Connection;
     use DAO\IUserDAO as IUserDAO;
     use Models\User as User;
-    use DAO\StudentAPIDAO as StudentAPIDAO;
+    use Models\Student as Student;
     use Models\StudentAPI as StudentAPI;
 
     class UserDAO implements IUserDAO
@@ -107,6 +107,38 @@
             }
         }
 
+        public function GetByEmail ($email) // app id
+        {
+            try
+            {
+                $user = new User();
+                
+                $query = "SELECT * FROM ".$this->tableName . ' WHERE email like "'.$email.'%"';
+
+                $this->connection = Connection::GetInstance();
+
+                $result = $this->connection->Execute($query);
+
+                foreach ($result as $row)
+                {                
+                    $user->setId($row["idUsuario"]);
+                    $user->setEmail($row["email"]);
+                    $user->setPassword($row["pass"]);
+                    $user->setTypeOfUser($row["tipo"]);
+                    $user->setDescription($row["descripcion"]);
+                    $user->setAlreadyAplied($row["alreadyAplied"]);
+                    $user->setIdApi($row["idAPI"]);
+                    
+                }
+
+                return $user;
+            }
+            catch(Exception $ex)
+            {
+                throw $ex;
+            }
+        }
+
         public function Fetch ($user)
         {
             $data = $this->GetDataFromApi();
@@ -194,6 +226,47 @@
                 $user->setIsActive(1);
         }
 
+        //copiar de lo otro
+        public function  checkUser($email)
+        {
+            $user = new User();
+            
+            //en caso de caerse la API cambiamos la funcion 
+            //por la de traer la lista de la BDD(al toque)
+            $studentAPIList = $this->GetDataFromApi();
+
+            foreach($studentAPIList as $student)
+            {
+                if($email == $student->getEmail())
+                {
+                    if($student->getIsActive() == 1 )
+                    {
+                        $this->setUser($student, $user);
+                        return $user;
+                    }else{
+                        return $user->setFirstName("1");
+                    }
+                }
+            }
+            //en este punto se recorrio toda la lista
+            //y no se encontro el email
+            return $user->setFirstName("0");
+        }
+        
+        private function setUser($student, $user)
+        {
+            $user->setidApi($student->getIdApi());
+            $user->setCareerId($student->getCareerId());
+            $user->setFirstName($student->getfirstName());
+            $user->setLastName($student->getLastName());
+            $user->setDni($student->getDni());
+            $user->setFileNumber($student->getFileNumber());
+            $user->setGender($student->getGender());
+            $user->setBirthDate($student->getBirthDate());
+            $user->setEmail($student->getEmail());
+            $user->setPhoneNumber($student->getPhoneNumber());
+            $user->setIsActive($student->getIsActive());
+        }
         // --------------------------------------------- JSON -------------------------------------------- //
 
          /*
