@@ -225,33 +225,6 @@
             else
                 $user->setIsActive(1);
         }
-
-        //copiar de lo otro
-        public function  checkUser($email)
-        {
-            $user = new User();
-            
-            //en caso de caerse la API cambiamos la funcion 
-            //por la de traer la lista de la BDD(al toque)
-            $studentAPIList = $this->GetDataFromApi();
-
-            foreach($studentAPIList as $student)
-            {
-                if($email == $student->getEmail())
-                {
-                    if($student->getIsActive() == 1 )
-                    {
-                        $this->setUser($student, $user);
-                        return $user;
-                    }else{
-                        return $user->setFirstName("1");
-                    }
-                }
-            }
-            //en este punto se recorrio toda la lista
-            //y no se encontro el email
-            return $user->setFirstName("0");
-        }
         
         private function setUser($student, $user)
         {

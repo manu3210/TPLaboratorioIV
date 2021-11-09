@@ -59,7 +59,7 @@
             $this->ShowListView();
         }
 
-        public function editBDD($recordId,$name,$email,$phoneNumber)
+        public function editBDD($recordId,$name,$email,$phoneNumber,$pass)
         {
             $company = new Company();
             
@@ -68,6 +68,7 @@
             $company->setEmail($email);
             $company->setPhoneNumber($phoneNumber);
             $company->setIsActive(1);
+            $company->setPass($pass);
 
             $this->CompanyDAO->editBDD($company);
 
@@ -135,6 +136,41 @@
             header("location:" .FRONT_ROOT . "User/ShowLoginView");
         }
 
-        
+        public function LoginCompany($email, $pass)
+        {
+            $data = $this->CompanyDAO->GetAllBDD();
+
+            foreach($data as $company)
+            {
+                if($email == $company->getEmail())
+                {
+                    if($company->getPass() == "")
+                    {
+                        $_SESSION["user"] = $company;
+                        header("location:" .FRONT_ROOT . "User/ShowEditView");
+                    }
+                    else if($company->getPass() == $pass)
+                    {
+                        $_SESSION["user"] = $company;
+                        header("location:" .FRONT_ROOT . "Company/ShowCompanyHome");
+                    }
+                    else
+                    {
+                        header("location:" .FRONT_ROOT . "Company/ShowLoginCompany");
+                    }
+                }
+            }
+        }
+
+        public function ShowCompanyHome()//estudiante
+        {
+            require_once(VIEWS_PATH."company-home.php");
+            //require_once(VIEWS_PATH."company-home.php");
+        }
+
+        public function ShowLoginCompany()
+        {
+            require_once(VIEWS_PATH."loginCompany.php");
+        }
     }
 ?>

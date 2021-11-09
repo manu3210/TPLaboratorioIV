@@ -17,6 +17,8 @@
                <br>
                <div>
                <a href="<?php echo FRONT_ROOT ?>User/ShowLoginAdmin" >Click aca para ingresar como Administrador</a>
+               <br>
+               <a href="<?php echo FRONT_ROOT ?>Company/ShowLoginCompany" >Click aca para ingresar como Empresa</a>
                </div>
           </form>
           

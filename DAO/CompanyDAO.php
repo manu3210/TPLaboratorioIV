@@ -114,13 +114,14 @@
 
             try
             {
-                $query = "INSERT INTO ".$this->tableName." (name, email, isActive, phoneNumber, pass) VALUES (:name, :email, :isActive, :phoneNumber, :pass);";
+                $query = "INSERT INTO ".$this->tableName." (name, email, isActive, phoneNumber, pass, tipo) VALUES (:name, :email, :isActive, :phoneNumber, :pass, :tipo);";
                 
                 $parameters["name"] = $company->getName();
                 $parameters["email"] = $company->getEmail();
                 $parameters["isActive"] = $company->getIsActive();
                 $parameters["phoneNumber"] = $company->getPhoneNumber();
                 $parameters["pass"] = $company->getPass();
+                $parameters["tipo"] = $company->getTipo();
 
                 $this->connection = Connection::GetInstance();
 

@@ -2,11 +2,13 @@
     $user = $_SESSION["user"];
     if($user->getTypeOfUser() == 0)
     {
-          require_once('nav-user.php');
-    }
-    else
+        require_once('nav-user.php');
+    }else if($user->getTypeOfUser() == 1)
     {
-          require_once('nav.php');
+        require_once('nav.php');
+    }else 
+    {
+        require_once('nav.php');
     }
 ?>
 <main class="py-5">

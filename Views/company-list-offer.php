@@ -1,29 +1,36 @@
 <?php
-    $user = $_SESSION["user"];
-    if($user->getTypeOfUser() == 0)
-    {
-          require_once('nav-user.php');
-    }
-    else
-    {
-          require_once('nav.php');
-    }
 
-    use DAO\CompanyDAO;
-    use DAO\JobOfferDAO;
-    use Models\Career;
-    use Models\JobPosition;
+     use DAO\CompanyDAO;
+     use DAO\JobOfferDAO;
+     use Models\Career;
+     use Models\JobPosition;
 
      $jobOffer = new JobOfferDAO();
-    $companyDAO = new CompanyDAO();
+     $companyDAO = new CompanyDAO();
 
-    $position = new JobPosition();
-    $career = new Career();
+     $position = new JobPosition();
+     $career = new Career();
 
-    $company = $companyDAO->GetByIdBDD($companyId);
+    
     $offerList = $jobOffer->GetAllBDD();
     $jobPositionList = $jobOffer->GetJobPositionFromApi();
     $careerList = $jobOffer->GetCareerFromApi();
+
+    $user = $_SESSION["user"];
+    if($user->getTypeOfUser() == 0)
+    {
+        $company = $companyDAO->GetByIdBDD($companyId);
+        require_once('nav-user.php');
+    }else if($user->getTypeOfUser() == 1)
+    {
+        $company = $companyDAO->GetByIdBDD($companyId);
+        require_once('nav.php');
+    }else 
+    {
+          $company = $companyDAO->GetByIdBDD($user->getCompanyId());
+          
+          require_once('nav.php');
+    }
 
 
 ?>
@@ -37,7 +44,7 @@
                          <th>posicion</th>
                          <th>carrera</th>
                          <th>fecha de caducidad</th>
-                         <?php if($user->getTypeOfUser() == 1) {?>
+                         <?php if($user->getTypeOfUser() == 1 || $user->getTypeOfUser() == 2) {?>
                          <th></th>
                          <th></th>
                          <?php } ?>
@@ -47,6 +54,7 @@
                          <?php
                               foreach($offerList as $offer)
                               {
+                                   //var_dump($offerList);
                                    if($offer->getCompanyId() == $company->getCompanyId())
                                    {
                                    ?>
@@ -70,17 +78,19 @@
                                                             }
                                                             echo $position->getDescription();
                                                        }
-                                                  }
+                                                    }
                                                 ?>
                                              </td>
 
                                              <td><?php echo $career->getDescription(); ?></td>
                                              <td><?php echo $offer->getFechaCaducidad(); ?></td>
-                                             <?php if($user->getTypeOfUser() == 1) {?>
+                                             <?php if($user->getTypeOfUser() == 1 || $user->getTypeOfUser() == 2) {?>
                                              <td style="text-align: center;"><a href="<?php echo FRONT_ROOT ?>JobOffer/ShowEditView/<?php echo $offer->getIdJobOffer(); ?>"><i class="far fa-edit text-dark"></i></a></td>
                                              <td style="text-align: center;"><a href="<?php echo FRONT_ROOT ?>JobOffer/DeleteFromBDD/<?php echo $offer->getIdJobOffer(); ?>"><i class="fas fa-trash-alt"></i></a></td>
                                              <?php } ?>
-                                             <td style="text-align: center;"><a href="<?php echo FRONT_ROOT ?>JobOffer/AddJobOfferToUser/<?php echo $offer->getIdJobOffer();  ?>/<?php echo $user->getId(); ?>"><i class="fas fa-plus text-dark"></i></a></td>
+                                             <?php if($user->getTypeOfUser() == 0) {?>
+                                             <td style="text-align: center;"><a href="<?php echo FRONT_ROOT ?>JobOffer/AddJobOfferToUser/ <?php echo $offer->getIdJobOffer();  ?>/<?php echo $user->getId(); ?>"><i class="fas fa-plus text-dark"></i></a></td>
+                                             <?php } ?>
                                         </tr>
                                    <?php
                                    }
@@ -94,7 +104,7 @@
                          <a href="<?php echo FRONT_ROOT ?>Company/ShowCompanyDetails/<?php echo $companyId; ?>"class="btn btn-dark me-md-2" type="button">Volver</a>
                     </div>
                     <?php
-                    if($user->getTypeOfUser() == 1)
+                    if($user->getTypeOfUser() == 1 || $user->getTypeOfUser() == 2)
                     { ?>
                          <div class="col-3">
                          <a href="<?php echo FRONT_ROOT ?>JobOffer/ShowAddJobOffer/<?php echo $companyId; ?>" class="btn btn-primary me-md-2" type="button">Agregar puesto Laboral</a>

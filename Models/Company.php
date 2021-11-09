@@ -90,8 +90,19 @@
         {
                 return $this->tipo;
         }
- 
+
+        public function getTypeOfUser()
+        {
+                return $this->tipo;
+        }
+
         public function setTipo($tipo)
+        {
+                $this->tipo = $tipo;
+                return $this;
+        }
+
+        public function setTypeOfUser($tipo)
         {
                 $this->tipo = $tipo;
                 return $this;

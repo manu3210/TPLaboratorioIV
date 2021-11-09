@@ -2,8 +2,8 @@
     namespace Controllers;
 
     use DAO\UserDAO as UserDAO;
-use Exception;
-use Models\User as User;
+    use Exception;
+    use Models\User as User;
 
     class UserController
     {
@@ -147,15 +147,15 @@ use Models\User as User;
 
         public function login($email, $pass)
         {
-            $api = $this->userDAO->GetDataFromApi();
-            $data = $this->userDAO->GetAll();
+            $api = $this->userDAO->GetDataFromApi(); //se trae todo de la API
+            $data = $this->userDAO->GetAll();  //se trae todo de la BDD(los estudiantes)
 
             $userLogged = new User();
 
             $flag1 = false;
             $flag2 = false;
 
-
+            //con este primer foreach verifico si esta en la API(o sea si es estudiante)
             foreach($api as $student)
             {
                 if($student->getEmail() == $email)
