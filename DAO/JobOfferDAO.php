@@ -26,7 +26,22 @@
         {
             try
             {
-                $query1  = "DELETE FROM " . $this->tableName . " where idJobOffer=" . $jobOffer->getIdJobOffer();
+                $query1  = "UPDATE " . $this->tableName . " SET isActive='" . 0 . "' where idJobOffer = " . $jobOffer->getIdJobOffer();
+                
+                $this->connection  = Connection::GetInstance();
+                $this->connection->ExecuteNonQuery($query1);
+            }
+            catch(Exception $e)
+            {
+                throw $e;
+            }
+        }
+
+        public function ActivateFromBDD($jobOffer)
+        {
+            try
+            {
+                $query1  = "UPDATE " . $this->tableName . " SET isActive='" . 1 . "' where idJobOffer = " . $jobOffer->getIdJobOffer();
                 
                 $this->connection  = Connection::GetInstance();
                 $this->connection->ExecuteNonQuery($query1);
@@ -177,6 +192,7 @@
                     $jobOffer->setCompanyId($row["companyId"]);
                     $jobOffer->setJobPosition($row["jobPosition"]);
                     $jobOffer->setFechaCaducidad($row["fechaCaducidad"]);
+                    $jobOffer->setIsActive($row["isActive"]);
 
                     return $jobOffer;
                 }
@@ -206,6 +222,7 @@
                     $jobOffer->setCompanyId($row["companyId"]);
                     $jobOffer->setJobPosition($row["jobPosition"]);
                     $jobOffer->setFechaCaducidad($row["fechaCaducidad"]);
+                    $jobOffer->setIsActive($row["isActive"]);
                     
                     array_push($jobOfferList, $jobOffer);
                 }

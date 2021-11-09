@@ -63,8 +63,16 @@
             $jobOffer = $this->JobOfferDAO->GetByIdBDD($offerId);
             $this->JobOfferDAO->DeleteFromBDD($jobOffer);
 
-            $this->ShowListOffer($jobOffer->getCompanyId());
-            
+            $this->ShowListOffer($jobOffer->getCompanyId()); 
+        }
+
+        public function ActivateFromBDD($offerId)
+        {
+            $jobOffer = new JobOffer();
+            $jobOffer = $this->JobOfferDAO->GetByIdBDD($offerId);
+            $this->JobOfferDAO->ActivateFromBDD($jobOffer);
+
+            $this->ShowListOffer($jobOffer->getCompanyId()); 
         }
 
         public function ShowAddJobOffer($companyId)
