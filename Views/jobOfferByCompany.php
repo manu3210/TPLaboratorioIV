@@ -2,11 +2,13 @@
     $user = $_SESSION["user"];
     if($user->getTypeOfUser() == 0)
     {
-          require_once('nav-user.php');
-    }
-    else
+        require_once('nav-user.php');
+    }else if($user->getTypeOfUser() == 1)
     {
-          require_once('nav.php');
+        require_once('nav.php');
+    }else 
+    {
+        require_once('nav.php');
     }
 
     use DAO\CompanyDAO;
@@ -24,9 +26,8 @@
     $offerList = $jobOffer->GetAllBDD();
     $jobPositionList = $jobOffer->GetJobPositionFromApi();
     $careerList = $jobOffer->GetCareerFromApi();
-
-
 ?>
+
 <main class="py-5">
      <section id="listado" class="mb-5">
           <div class="container">
@@ -38,7 +39,12 @@
                          <th>posicion</th>
                          <th>carrera</th>
                          <th>fecha de caducidad</th>
+                         <?php if($user->getTypeOfUser() == 0) { ?>
                          <th>agregar</th>
+                         <?php  } else {
+                                    if($user->getTypeOfUser() == 1 || $user->getTypeOfUser() == 2) ?>
+                                        <th>Ver</th>
+                         <?php } ?>
                          
                     </thead>
                     <tbody>
@@ -85,7 +91,12 @@
 
                                     <td><?php echo $career->getDescription(); ?></td>
                                     <td><?php echo $offer->getFechaCaducidad(); ?></td>
-                                    <td style="text-align: center;"><a href="<?php echo FRONT_ROOT ?>JobOffer/AddJobOfferToUser/<?php echo $offer->getIdJobOffer();  ?>/<?php echo $user->getId(); ?>"><i class="fas fa-plus text-dark"></i></a></td>
+                                    <?php if($user->getTypeOfUser() == 0) { ?>
+                                        <td style="text-align: center;"><a href="<?php echo FRONT_ROOT ?>JobOffer/AddJobOfferToUser/<?php echo $offer->getIdJobOffer();  ?>/<?php echo $user->getId(); ?>"><i class="fas fa-plus text-dark"></i></a></td>
+                                    <?php  }else{
+                                                if($user->getTypeOfUser() == 1 || $user->getTypeOfUser() == 2) ?>
+                                                    <td style="text-align: center;"><a href="<?php echo FRONT_ROOT ?>JobOffer/ShowUsersByJobOffer/<?php echo $offer->getIdJobOffer() ?>"><i class="fas fa-search"></i></a></td>
+                                                <?php } ?>
                                     </td>       
                                     </tr>       
                                                 

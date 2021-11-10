@@ -30,8 +30,8 @@ agregar filtro de empresas por nombre
 
 //////////  ver estudiantes por postulaciones para la empresa y admin y poder borrarlos
 
-y ver los nav para empresa( inicio que lleve a vista inicial --
-                            listar job offer como abajo 
-                            cerrar sesion )
+y ver los nav para empresa(   inicio que lleve a vista inicial --
+                              listar job offer como abajo 
+                              cerrar sesion )
 
                             ver que onda con el email (solo con ""gmail"" protocolo smtp)

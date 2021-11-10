@@ -1,12 +1,15 @@
 <?php
     namespace DAO;
 
+    use \Exception as Exception;
     use DAO\ICareerDAO as ICareerDAO;
     use Models\Career as Career;
 
     class CareerDAO implements ICareerDAO
     {
         private $careerList = array();
+        private $connection;
+        private $tableName = "career";
 
         public function Add(Career $career)
         {
@@ -33,6 +36,25 @@
                 {
                     return $carrer;
                 }
+            }
+        }
+
+        public function AddBDD(Career $career)
+        {
+            try
+            {
+                $query = "INSERT INTO ".$this->tableName." (description, active) VALUES (:description, :active);";
+                
+                $parameters["description"] = $career->getDescription();
+                $parameters["active"] = $career->getActive();
+
+                $this->connection = Connection::GetInstance();
+
+                $this->connection->ExecuteNonQuery($query, $parameters);
+            }
+            catch(Exception $ex)
+            {
+                throw $ex;
             }
         }
 

@@ -1,16 +1,23 @@
 <?php
     namespace DAO;
 
-    use DAO\IUserDAO as IUserDAO;
     use Exception;
-    use Models\User as User;
     use DAO\Connection as Connection;
+    use DAO\IUserDAO as IUserDAO;
+    use Models\User as User;
+    use Models\Student as Student;
+    use Models\StudentAPI as StudentAPI;
 
     class UserDAO implements IUserDAO
     {
         //private $userList = array();
         private $connection;
         private $tableName = "usuarios";
+
+        public function __construct()
+        {
+            $this->studentAPIDAO = new StudentAPIDAO();
+        }
 
         public function Add(User $user)
         {
@@ -37,6 +44,8 @@
         {
             try
             {
+                $this->studentAPIDAO->GetDataFromApi();
+
                 $userList = array();
 
                 $query = "SELECT * FROM ".$this->tableName;
@@ -88,6 +97,38 @@
                     $user->setAlreadyAplied($row["alreadyAplied"]);
                     $user->setIdApi($row["idAPI"]);
                     $user->setPassword($row["pass"]);
+                }
+
+                return $user;
+            }
+            catch(Exception $ex)
+            {
+                throw $ex;
+            }
+        }
+
+        public function GetByEmail ($email) // app id
+        {
+            try
+            {
+                $user = new User();
+                
+                $query = "SELECT * FROM ".$this->tableName . ' WHERE email like "'.$email.'%"';
+
+                $this->connection = Connection::GetInstance();
+
+                $result = $this->connection->Execute($query);
+
+                foreach ($result as $row)
+                {                
+                    $user->setId($row["idUsuario"]);
+                    $user->setEmail($row["email"]);
+                    $user->setPassword($row["pass"]);
+                    $user->setTypeOfUser($row["tipo"]);
+                    $user->setDescription($row["descripcion"]);
+                    $user->setAlreadyAplied($row["alreadyAplied"]);
+                    $user->setIdApi($row["idAPI"]);
+                    
                 }
 
                 return $user;
@@ -184,7 +225,21 @@
             else
                 $user->setIsActive(1);
         }
-
+        
+        private function setUser($student, $user)
+        {
+            $user->setidApi($student->getIdApi());
+            $user->setCareerId($student->getCareerId());
+            $user->setFirstName($student->getfirstName());
+            $user->setLastName($student->getLastName());
+            $user->setDni($student->getDni());
+            $user->setFileNumber($student->getFileNumber());
+            $user->setGender($student->getGender());
+            $user->setBirthDate($student->getBirthDate());
+            $user->setEmail($student->getEmail());
+            $user->setPhoneNumber($student->getPhoneNumber());
+            $user->setIsActive($student->getIsActive());
+        }
         // --------------------------------------------- JSON -------------------------------------------- //
 
          /*

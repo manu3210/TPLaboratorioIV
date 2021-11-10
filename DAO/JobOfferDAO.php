@@ -6,7 +6,9 @@
     use Models\JobOffer as JobOffer;
     use DAO\Connection as Connection;
     use Models\Career as Career;
+    use DAO\CareerDAO as CareerDAO;
     use Models\JobPosition as JobPosition;
+    use DAO\JobPositionDAO as JobPositionDAO;
 
     class JobOfferDAO implements IJobOfferDAO
     {
@@ -14,21 +16,17 @@
         private $connection;
         private $tableName = "ofertasLaborales";
 
-        //!hace falta??
-        function removeElementWithValue($array, $key, $value){
-            foreach($array as $subKey => $subArray){
-                 if($subArray[$key] == $value){
-                      unset($array[$subKey]);
-                 }
-            }
-            return $array;
-       }
+        public function __construct()
+        {
+            $this->JobPositionDAO = new JobPositionDAO();
+            $this->CareerDAO = new CareerDAO();
+        }
 
        public function deleteFromBDD($jobOffer)
         {
             try
             {
-                $query1  = "DELETE FROM " . $this->tableName . " where idJobOffer=" . $jobOffer->getIdJobOffer();
+                $query1  = "UPDATE " . $this->tableName . " SET isActive='" . 0 . "' where idJobOffer = " . $jobOffer->getIdJobOffer();
                 
                 $this->connection  = Connection::GetInstance();
                 $this->connection->ExecuteNonQuery($query1);
@@ -39,7 +37,46 @@
             }
         }
 
-        //!tampoco se usaria creo... pero puede ser para "estirar" un poco la fecha de cacucidad
+        public function ActivateFromBDD($jobOffer)
+        {
+            try
+            {
+                $query1  = "UPDATE " . $this->tableName . " SET isActive='" . 1 . "' where idJobOffer = " . $jobOffer->getIdJobOffer();
+                
+                $this->connection  = Connection::GetInstance();
+                $this->connection->ExecuteNonQuery($query1);
+            }
+            catch(Exception $e)
+            {
+                throw $e;
+            }
+        }
+
+        public function countJobOffers($id)
+        {
+            try
+            {
+                $query = "SELECT * FROM ". $this->tableName ." WHERE companyId = " .$id;
+
+                $this->connection = Connection::GetInstance();
+
+                $resultSet = $this->connection->Execute($query);
+                
+                $rta=0;
+                foreach ($resultSet as $row)
+                {
+                    $rta++;                    
+                }
+                echo var_dump($rta);
+                return $rta;
+            }
+            catch(Exception $ex)
+            {
+                throw $ex;
+            }   
+        }
+
+        //!no se usaria creo... pero puede ser para "estirar" un poco la fecha de caducidad
         public function editBDD(JobOffer $jobOffer)
         {
             try
@@ -57,6 +94,8 @@
             }
         }
         
+        
+
         public function GetJobPositionFromApi()
         {
             $ch = curl_init();
@@ -75,6 +114,9 @@
                 $jobPosition->setJobPositionId($valuesArray["jobPositionId"]);
                 $jobPosition->setCareerId($valuesArray["careerId"]);
                 $jobPosition->setDescription($valuesArray["description"]);
+                
+                //ya se cargaron los datos
+                //$this->JobPositionDAO->AddBDD($jobPosition);
                 
                 array_push($jobPositionList, $jobPosition);
             }
@@ -102,6 +144,9 @@
                 $career->setDescription($valuesArray["description"]);
                 $career->setActive($valuesArray["active"]);
                 
+                //ya se cargaron los datos
+                //$this->CareerDAO->AddBDD($career);
+
                 array_push($careerList, $career);
             }
             
@@ -147,6 +192,7 @@
                     $jobOffer->setCompanyId($row["companyId"]);
                     $jobOffer->setJobPosition($row["jobPosition"]);
                     $jobOffer->setFechaCaducidad($row["fechaCaducidad"]);
+                    $jobOffer->setIsActive($row["isActive"]);
 
                     return $jobOffer;
                 }
@@ -154,9 +200,7 @@
             catch(Exception $ex)
             {
                 throw $ex;
-            }
-
-            
+            }   
         }
 
         public function GetAllBDD()
@@ -178,6 +222,7 @@
                     $jobOffer->setCompanyId($row["companyId"]);
                     $jobOffer->setJobPosition($row["jobPosition"]);
                     $jobOffer->setFechaCaducidad($row["fechaCaducidad"]);
+                    $jobOffer->setIsActive($row["isActive"]);
                     
                     array_push($jobOfferList, $jobOffer);
                 }

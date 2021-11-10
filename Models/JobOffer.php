@@ -8,6 +8,7 @@
         private $companyId;
         private $jobPosition;
         private $fechaCaducidad;
+        private $isActive;
 
         public function getIdJobOffer()
         {
@@ -50,6 +51,17 @@
         public function setFechaCaducidad($fechaCaducidad)
         {
                 $this->fechaCaducidad = $fechaCaducidad;
+                return $this;
+        }
+
+        public function getIsActive()
+        {
+                return $this->isActive;
+        }
+
+        public function setIsActive($isActive)
+        {
+                $this->isActive = $isActive;
                 return $this;
         }
     }

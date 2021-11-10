@@ -21,15 +21,29 @@
             return $array;
        }
 
-       //! implementar
+       public function activateFromBDD($company)
+        {
+            try
+            {
+                $query  = "UPDATE " . $this->tableName . " SET isActive ='" . 1 . "' where companyId =" . $company->getCompanyId();
+                
+                $this->connection  = Connection::GetInstance();
+                $this->connection->ExecuteNonQuery($query);
+            }
+            catch(Exception $e)
+            {
+                throw $e;
+            }
+        }
+
        public function deleteFromBDD($company)
         {
             try
             {
-                $query1  = "DELETE FROM " . $this->tableName . " where companyId=" . $company->getCompanyId();
+                $query  = "UPDATE " . $this->tableName . " SET isActive ='" . 0 . "' where companyId =" . $company->getCompanyId();
                 
                 $this->connection  = Connection::GetInstance();
-                $this->connection->ExecuteNonQuery($query1);
+                $this->connection->ExecuteNonQuery($query);
             }
             catch(Exception $e)
             {
@@ -61,11 +75,13 @@
                 $query1  = "UPDATE " . $this->tableName . " SET name='" . $company->getName() . "' where companyId = " . $company->getCompanyId();
                 $query2  = "UPDATE " . $this->tableName . " SET email ='" . $company->getEmail() . "' where companyId =" . $company->getCompanyId();
                 $query3  = "UPDATE " . $this->tableName . " SET phoneNumber ='" . $company->getPhoneNumber() . "' where companyId =" . $company->getCompanyId();
+                $query4  = "UPDATE " . $this->tableName . " SET pass ='" . $company->getPass() . "' where companyId =" . $company->getCompanyId();
                 
                 $this->connection  = Connection::GetInstance();
                 $this->connection->ExecuteNonQuery($query1);
                 $this->connection->ExecuteNonQuery($query2);
                 $this->connection->ExecuteNonQuery($query3);
+                $this->connection->ExecuteNonQuery($query4);
             }
             catch(Exception $e)
             {
@@ -98,12 +114,14 @@
 
             try
             {
-                $query = "INSERT INTO ".$this->tableName." (name, email, isActive, phoneNumber) VALUES (:name, :email, :isActive, :phoneNumber);";
+                $query = "INSERT INTO ".$this->tableName." (name, email, isActive, phoneNumber, pass, tipo) VALUES (:name, :email, :isActive, :phoneNumber, :pass, :tipo);";
                 
                 $parameters["name"] = $company->getName();
                 $parameters["email"] = $company->getEmail();
                 $parameters["isActive"] = $company->getIsActive();
                 $parameters["phoneNumber"] = $company->getPhoneNumber();
+                $parameters["pass"] = $company->getPass();
+                $parameters["tipo"] = $company->getTipo();
 
                 $this->connection = Connection::GetInstance();
 
@@ -121,20 +139,47 @@
             $this->SaveData();
         }
 
-        public function GetAll()
+        public function GetAllBDD()
         {
-            $this->RetrieveData();
+            try
+            {
+                $companyList = array();
 
-            return $this->companyList;
+                $query = "SELECT * FROM ".$this->tableName;
+
+                $this->connection = Connection::GetInstance();
+
+                $resultSet = $this->connection->Execute($query);
+                
+                foreach ($resultSet as $row)
+                {                
+                    $company = new Company();
+                    $company->setCompanyId($row["companyId"]);
+                    $company->setName($row["name"]);
+                    $company->setEmail($row["email"]);
+                    $company->setIsActive($row["isActive"]);
+                    $company->setPhoneNumber($row["phoneNumber"]);
+                    $company->setPass($row["pass"]);
+                    $company->setTipo($row["tipo"]);
+
+
+                    array_push($companyList, $company);
+                }
+
+                return $companyList;
+            }
+            catch(Exception $ex)
+            {
+                throw $ex;
+            }
         }
 
-        //funciona
         public function GetByIdBDD($id)
         {
 
             try
             {
-                $query = "SELECT * FROM ". $this->tableName ." WHERE companyId = " .$id." ; ";
+                $query = "SELECT * FROM ". $this->tableName ." WHERE companyId = " .$id;
 
                 $this->connection = Connection::GetInstance();
 
@@ -148,6 +193,8 @@
                     $company->setEmail($row["email"]);
                     $company->setIsActive($row["isActive"]);
                     $company->setPhoneNumber($row["phoneNumber"]);
+                    $company->setPass($row["pass"]);
+                    $company->setTipo($row["tipo"]);
 
                     return $company;
                 }
@@ -159,8 +206,13 @@
 
             
         }
-
         
+        public function GetAll()
+        {
+            $this->RetrieveData();
+
+            return $this->companyList;
+        }
 
         public function GetById ($id)
         {
@@ -210,39 +262,6 @@
             $jsonContent = json_encode($arrayToEncode, JSON_PRETTY_PRINT);
             
             file_put_contents('Data/companys.json', $jsonContent);
-        }
-
-        public function GetAllBDD()
-        {
-            try
-            {
-                $companyList = array();
-
-                $query = "SELECT * FROM ".$this->tableName;
-
-                $this->connection = Connection::GetInstance();
-
-                $resultSet = $this->connection->Execute($query);
-                
-                foreach ($resultSet as $row)
-                {                
-                    $company = new Company();
-                    $company->setCompanyId($row["companyId"]);
-                    $company->setName($row["name"]);
-                    $company->setIsActive($row["isActive"]);
-                    $company->setPhoneNumber($row["phoneNumber"]);
-                    $company->setEmail($row["email"]);
-
-
-                    array_push($companyList, $company);
-                }
-
-                return $companyList;
-            }
-            catch(Exception $ex)
-            {
-                throw $ex;
-            }
         }
 
         private function RetrieveData()

@@ -1,20 +1,42 @@
 <?php
     namespace DAO;
 
+    use \Exception as Exception;
     use DAO\IJobPositionDAO as IJobPositionDAO;
     use Models\JobPosition as JobPosition;
 
     class JobPositionDAO implements IJobPositionDAO
     {
-        private $jobPositionist = array();
+        private $jobPositionList = array();
+        private $connection;
+        private $tableName = "jobPosition";
 
         public function Add(JobPosition $jobPosition)
         {
             $this->RetrieveData();
             
-            array_push($this->jobPositionist, $jobPosition);
+            array_push($this->jobPositionList, $jobPosition);
 
             $this->SaveData();
+        }
+        
+        public function AddBDD(JobPosition $jobPosition)
+        {
+            try
+            {
+                $query = "INSERT INTO ".$this->tableName." (careerId, description) VALUES (:careerId, :description);";
+                
+                $parameters["careerId"] = $jobPosition->getCareerId();
+                $parameters["description"] = $jobPosition->getDescription();
+
+                $this->connection = Connection::GetInstance();
+
+                $this->connection->ExecuteNonQuery($query, $parameters);
+            }
+            catch(Exception $ex)
+            {
+                throw $ex;
+            }
         }
 
         public function GetAll()
@@ -27,7 +49,7 @@
         {
             $this->RetrieveData();
 
-            foreach($this->jobPositionist as $jobPosition)
+            foreach($this->jobPositionList as $jobPosition)
             {
                 if($jobPosition->getJobPositionId() == $id)
                 {
@@ -53,7 +75,7 @@
         {
             $arrayToEncode = array();
 
-            foreach($this->jobPositionist as $jobPosition)
+            foreach($this->jobPositionList as $jobPosition)
             {
                 $valuesArray["jobPositionId"] = $jobPosition->getJobPositionId();
                 $valuesArray["careerId"] = $jobPosition->getCareerId();
@@ -69,7 +91,7 @@
 
         private function RetrieveData()
         {
-            $this->jobPositionist = array();
+            $this->jobPositionList = array();
             $arrayToDecode = array();
 
             if(file_exists('Data/jobPosition.json'))

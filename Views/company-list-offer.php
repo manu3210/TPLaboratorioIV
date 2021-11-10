@@ -1,43 +1,50 @@
 <?php
-    $user = $_SESSION["user"];
-    if($user->getTypeOfUser() == 0)
-    {
-          require_once('nav-user.php');
-    }
-    else
-    {
-          require_once('nav.php');
-    }
 
-    use DAO\CompanyDAO;
-    use DAO\JobOfferDAO;
-    use Models\Career;
-    use Models\JobPosition;
+     use DAO\CompanyDAO;
+     use DAO\JobOfferDAO;
+     use Models\Career;
+     use Models\JobPosition;
 
      $jobOffer = new JobOfferDAO();
-    $companyDAO = new CompanyDAO();
+     $companyDAO = new CompanyDAO();
 
-    $position = new JobPosition();
-    $career = new Career();
+     $position = new JobPosition();
+     $career = new Career();
 
-    $company = $companyDAO->GetByIdBDD($companyId);
+    
     $offerList = $jobOffer->GetAllBDD();
     $jobPositionList = $jobOffer->GetJobPositionFromApi();
     $careerList = $jobOffer->GetCareerFromApi();
+
+    $user = $_SESSION["user"];
+    if($user->getTypeOfUser() == 0)
+    {
+        $company = $companyDAO->GetByIdBDD($companyId);
+        require_once('nav-user.php');
+    }else if($user->getTypeOfUser() == 1)
+    {
+        $company = $companyDAO->GetByIdBDD($companyId);
+        require_once('nav.php');
+    }else 
+    {
+          $company = $companyDAO->GetByIdBDD($user->getCompanyId());
+          
+          require_once('nav.php');
+    }
 
 
 ?>
 <main class="py-5">
      <section id="listado" class="mb-5">
           <div class="container">
-               <h2 class="mb-4">Listado de ofertas</h2>
+               <h2 class="mb-4">Listado de ofertas activas</h2>
                <table class="table bg-dark-alpha">
                     <thead>
                          <th>Id</th>
                          <th>posicion</th>
                          <th>carrera</th>
                          <th>fecha de caducidad</th>
-                         <?php if($user->getTypeOfUser() == 1) {?>
+                         <?php if($user->getTypeOfUser() == 1 || $user->getTypeOfUser() == 2) {?>
                          <th></th>
                          <th></th>
                          <?php } ?>
@@ -47,7 +54,7 @@
                          <?php
                               foreach($offerList as $offer)
                               {
-                                   if($offer->getCompanyId() == $company->getCompanyId())
+                                   if($offer->getCompanyId() == $company->getCompanyId() && $offer->getIsActive() == 1  )
                                    {
                                    ?>
                                         <tr>
@@ -70,17 +77,19 @@
                                                             }
                                                             echo $position->getDescription();
                                                        }
-                                                  }
+                                                    }
                                                 ?>
                                              </td>
 
                                              <td><?php echo $career->getDescription(); ?></td>
                                              <td><?php echo $offer->getFechaCaducidad(); ?></td>
-                                             <?php if($user->getTypeOfUser() == 1) {?>
+                                             <?php if($user->getTypeOfUser() == 1 || $user->getTypeOfUser() == 2) {?>
                                              <td style="text-align: center;"><a href="<?php echo FRONT_ROOT ?>JobOffer/ShowEditView/<?php echo $offer->getIdJobOffer(); ?>"><i class="far fa-edit text-dark"></i></a></td>
                                              <td style="text-align: center;"><a href="<?php echo FRONT_ROOT ?>JobOffer/DeleteFromBDD/<?php echo $offer->getIdJobOffer(); ?>"><i class="fas fa-trash-alt"></i></a></td>
                                              <?php } ?>
-                                             <td style="text-align: center;"><a href="<?php echo FRONT_ROOT ?>JobOffer/AddJobOfferToUser/<?php echo $offer->getIdJobOffer();  ?>/<?php echo $user->getId(); ?>"><i class="fas fa-plus text-dark"></i></a></td>
+                                             <?php if($user->getTypeOfUser() == 0) {?>
+                                             <td style="text-align: center;"><a href="<?php echo FRONT_ROOT ?>JobOffer/AddJobOfferToUser/ <?php echo $offer->getIdJobOffer();  ?>/<?php echo $user->getId(); ?>"><i class="fas fa-plus text-dark"></i></a></td>
+                                             <?php } ?>
                                         </tr>
                                    <?php
                                    }

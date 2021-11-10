@@ -9,6 +9,8 @@
         private $isActive;
         private $name;
         private $phoneNumber;
+        private $pass;
+        private $tipo;
         
         public function getCompanyId()
         {
@@ -43,6 +45,14 @@
                 return $this;
         }
 
+        public function showIsActive()
+        {
+                if( $this->isActive == 0)
+                        return "Empresa Inactiva";
+                else 
+                        return "Empresa Activa";
+        }
+
         public function getName()
         {
                 return $this->name;
@@ -62,6 +72,39 @@
         public function setPhoneNumber($phoneNumber)
         {
                 $this->phoneNumber = $phoneNumber;
+                return $this;
+        }
+
+        public function getPass()
+        {
+                return $this->pass;
+        }
+
+        public function setPass($pass)
+        {
+                $this->pass = $pass;
+                return $this;
+        }
+
+        public function getTipo()
+        {
+                return $this->tipo;
+        }
+
+        public function getTypeOfUser()
+        {
+                return $this->tipo;
+        }
+
+        public function setTipo($tipo)
+        {
+                $this->tipo = $tipo;
+                return $this;
+        }
+
+        public function setTypeOfUser($tipo)
+        {
+                $this->tipo = $tipo;
                 return $this;
         }
     }

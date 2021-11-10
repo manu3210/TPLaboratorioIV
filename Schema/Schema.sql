@@ -54,3 +54,42 @@ create table if not exists postulacionesXUsuarios(
 #insert into companias (`nombre` ,`email`,`isActive`,`phoneNumber` ) values("Coto","coto@coto.com",1,"223-5481457");
 #insert into companias (`nombre` ,`email`,`isActive`,`phoneNumber` ) values("Phillips","phillips@phillips.com",1,"223-5846597");
 #insert into companias (`nombre` ,`email`,`isActive`,`phoneNumber` ) values("Sanyo","sanyo@sanyo.com",1,"223-5848648");
+
+                  ###  NUEVO  ####
+
+CREATE TABLE IF NOT EXISTS career(
+	careerId INT NOT NULL auto_increment ,
+    description varchar(150),
+    active smallint,
+    
+     constraint careerId primary key(careerId)
+)ENGINE=INNODB;
+
+CREATE TABLE IF NOT EXISTS jobPosition(
+	jobPositionId INT NOT NULL auto_increment,
+    careerId int NOT NULL,
+    description VARCHAR(150),
+    
+	constraint jobPositionId primary key(jobPositionId)
+)ENGINE=INNODB;
+
+CREATE TABLE IF NOT EXISTS student(
+	studentIdAPI INT NOT NULL auto_increment ,
+    careerId int NOT NULL,
+    firstName VARCHAR(30),
+    lastName VARCHAR(30),
+    dni int,
+    fileNumber VARCHAR(30),
+    gender VARCHAR(30),
+    birthDate date,
+    email VARCHAR(35),
+    phoneNumber VARCHAR(30),
+    active smallint,
+    
+	constraint studentIdAPI primary key(studentIdAPI)
+)ENGINE=INNODB;
+
+alter table companias add pass varchar(10);
+## agregar "1234" de pass a todas
+alter table companias add tipo smallint;
+## setearlas todas en "2" para proteger con este campo las vistas

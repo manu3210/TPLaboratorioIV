@@ -38,6 +38,12 @@
                                    <input type="text" name="phoneNumber" value="<?php echo $company->getPhoneNumber(); ?>" class="form-control">
                               </div>
                          </div>
+                         <div class="col-lg-4">
+                              <div class="form-group">
+                                   <label for="">Pass</label>
+                                   <input type="text" name="pass" value="<?php echo $company->getPass(); ?>" class="form-control">
+                              </div>
+                         </div>
                     </div>
                     <br>
                     <div class="row justify-content-between">

@@ -1,14 +1,21 @@
 <?php 
 
     $user = $_SESSION["user"];
+    
     if($user->getTypeOfUser() == 0)
     {
-          require_once('nav-user.php');
-    }
-    else
+        require_once('nav-user.php');
+    }else if($user->getTypeOfUser() == 1)
     {
-          require_once('nav.php');
+        require_once('nav.php');
+    }else 
+    {
+        require_once('nav.php');
     }
+        
+    
+
+    
     use Models\Company;
     use DAO\CompanyDAO;
     $companyDAO = new CompanyDAO();
@@ -27,14 +34,15 @@
                     <ul class="list-group list-group-flush">
                         <li class="list-group-item"><?php echo $company->getEmail(); ?></li>
                         <li class="list-group-item"><?php echo $company->getPhoneNumber(); ?></li>
+                        <li class="list-group-item"><?php echo $company->showIsActive() ?></li>
                     </ul>
                     <div class="card-body">
-                        <?php if($user->getTypeOfUser() == 1) {?>
+                        <?php if($user->getTypeOfUser() == 1 || $user->getTypeOfUser() == 2) {?>
                         <a href="<?php echo FRONT_ROOT ?>Company/ShowEditView/<?php echo $company->getCompanyId(); ?>" class="card-link">Editar datos </a>
                         <?php } ?>
                         <a href="<?php echo FRONT_ROOT ?>JobOffer/ShowListOffer/<?php echo $company->getCompanyId(); ?>" class="card-link">Ver lista de ofertas </a>
                         <?php
-                            if($user->getTypeOfUser() == 1)
+                            if($user->getTypeOfUser() == 1 || $user->getTypeOfUser() == 2)
                             {
                         ?>
                                 <a href="<?php echo FRONT_ROOT ?>JobOffer/ShowAddJobOffer/<?php echo $company->getCompanyId(); ?>" class="card-link">Crear Puesto Laboral </a>

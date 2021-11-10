@@ -63,8 +63,16 @@
             $jobOffer = $this->JobOfferDAO->GetByIdBDD($offerId);
             $this->JobOfferDAO->DeleteFromBDD($jobOffer);
 
-            $this->ShowListOffer($jobOffer->getCompanyId());
-            
+            $this->ShowListOffer($jobOffer->getCompanyId()); 
+        }
+
+        public function ActivateFromBDD($offerId)
+        {
+            $jobOffer = new JobOffer();
+            $jobOffer = $this->JobOfferDAO->GetByIdBDD($offerId);
+            $this->JobOfferDAO->ActivateFromBDD($jobOffer);
+
+            $this->ShowListOffer($jobOffer->getCompanyId()); 
         }
 
         public function ShowAddJobOffer($companyId)
@@ -116,6 +124,14 @@
             
 
             require_once(VIEWS_PATH."user-home.php");
+        }
+
+        public function ShowUsersByJobOffer($idJobOffer)
+        {
+            if(isset($_SESSION["user"]))
+                require_once(VIEWS_PATH."UsersByJobOffers.php");
+            else
+            header("location:" .FRONT_ROOT . "User/User-home");
         }
 
         public function ShowJobOfferByCompany($id)
