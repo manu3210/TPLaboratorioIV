@@ -129,6 +129,14 @@
             require_once(VIEWS_PATH."user-home.php");
         }
 
+        public function ShowUsersByJobOffer($idJobOffer)
+        {
+            if(isset($_SESSION["user"]))
+                require_once(VIEWS_PATH."UsersByJobOffers.php");
+            else
+            header("location:" .FRONT_ROOT . "User/User-home");
+        }
+
         public function ShowJobOfferByCompany($id)
         {
             if(isset($_SESSION["user"]))
