@@ -1,3 +1,16 @@
+<?php 
+     $email = "hola";
+     $studentList = $this->userDAO->GetDataFromApi();
+     foreach($studentList as $student)
+     {
+          if($student->getIdApi() == $idApi)
+          {
+               $email = $student->getEmail();
+          }
+     }
+
+?>
+
 <main class="d-flex align-items-center justify-content-center height-100">
 
      <div class="content">
@@ -8,7 +21,7 @@
                </div>
                <div class="form-group">
                     <label for="">Email </label>
-                    <input type="email" name="email" class="form-control form-control-lg" placeholder="Ingresar constraseña">
+                    <input type="email" name="email" class="form-control form-control-lg" placeholder="<?php echo $email; ?>" readonly>
                </div>
                <div class="form-group">
                     <label for="">Contraseña nueva: </label>

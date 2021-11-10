@@ -16,3 +16,22 @@ que no se repítan las empresas con el nombre
 
 y ver todo.
 
+
+$$$$$$$$$$$$$$$$$$
+
+usuarios que no esten bien cargados a la BDD
+
+agregar usuarios desde el admin tipo estudiante - listo!
+
+msg de error
+
+agregar filtro de empresas por nombre
+
+
+//////////  ver estudiantes por postulaciones para la empresa y admin y poder borrarlos
+
+y ver los nav para empresa( inicio que lleve a vista inicial --
+                            listar job offer como abajo 
+                            cerrar sesion )
+
+                            ver que onda con el email (solo con ""gmail"" protocolo smtp)

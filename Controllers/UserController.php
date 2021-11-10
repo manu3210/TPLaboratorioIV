@@ -78,6 +78,7 @@ use Models\User as User;
 
         public function ShowSetPassView($idApi)
         {
+
             require_once(VIEWS_PATH."set-pass.php");
         }
 
@@ -104,15 +105,18 @@ use Models\User as User;
             $this->ShowAddView();
         }
 
-        public function AddAdmin($email)
+        public function AddUser($type, $email, $pass, $description)
         {
             $user = new User();
             $user->setIdApi(null);
-            $user->setDescription(null);
-            $user->setTypeOfUser(1);
+            $user->setDescription($description);
             $user->setEmail($email);
-            $user->setPassword("");
-            $user->setAlreadyAplied(1);
+            $user->setPassword($pass);
+            $user->setAlreadyAplied(0);
+            if($type == "admin")
+                $user->setTypeOfUser(1);
+            else
+                $user->setTypeOfUser(0);
 
             try
             {
@@ -189,7 +193,7 @@ use Models\User as User;
             {
                 header("location:" .FRONT_ROOT . "User/ShowLoginView");
             }
-            else if($flag1 == true && $flag2 == false) // significa que el usuario esta en la api pero no en la aplicacion
+            else if($flag2 == false) // significa que el usuario esta en la api pero no en la aplicacion
             {
                 header("location:" .FRONT_ROOT . "User/ShowSetPassView/" . $userLogged->getIdApi());
             }
