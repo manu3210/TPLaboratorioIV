@@ -112,6 +112,21 @@
             require_once(VIEWS_PATH."company-list.php");
         }
 
+        public function ShowListfilteredView($name)//admin
+        {
+            if(isset($_SESSION["user"]))
+            {
+                $companyList = array();
+                $company = $this->CompanyDAO->GetByName($name);
+                if($company)
+                    array_push($companyList, $company);
+                    
+                require_once(VIEWS_PATH."company-list.php");
+            }
+            else
+                header("location:" .FRONT_ROOT . "User/ShowLoginView");
+        }
+
         public function ShowEditView($companyId)
         {
             if(isset($_SESSION["user"]))
@@ -139,11 +154,13 @@
         public function LoginCompany($email, $pass)
         {
             $data = $this->CompanyDAO->GetAllBDD();
+            $flag = 0;
 
             foreach($data as $company)
             {
                 if($email == $company->getEmail())
                 {
+                    $flag = 1;
                     if($company->getPass() == "")
                     {
                         $_SESSION["user"] = $company;
@@ -156,9 +173,16 @@
                     }
                     else
                     {
+                        $_SESSION["msj"] = "Contraseña incorrecta";
                         header("location:" .FRONT_ROOT . "Company/ShowLoginCompany");
                     }
                 }
+            }
+
+            if($flag == 0)
+            {
+                $_SESSION["msj"] = "Error de ingreso";
+                header("location:" .FRONT_ROOT . "User/ShowLoginAdmin");
             }
         }
 

@@ -19,9 +19,9 @@ y ver todo.
 
 $$$$$$$$$$$$$$$$$$
 
-usuarios que no esten bien cargados a la BDD
+usuarios que no esten bien cargados a la BDD - listo!
 
-agregar usuarios desde el admin tipo estudiante
+agregar usuarios desde el admin tipo estudiante - listo!
 
 msg de error
 

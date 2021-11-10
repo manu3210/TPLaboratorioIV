@@ -4,7 +4,17 @@
 <main class="py-5">
      <section id="listado" class="mb-5">
           <div class="container">
-               <h2 class="mb-4">Listado de Usuarios</h2>
+               <div class="row justify-content-between">
+                    <div class="col-6">
+                         <h2 class="mb-4">Listado de Usuarios</h2>
+                    </div>
+                    <div class="col-4">
+                         <form class="d-flex" action="<?php echo FRONT_ROOT?>User/ShowListfilteredView" method="post">
+                              <input class="form-control me-2" type="search" name="email" placeholder="email del usuario" aria-label="Search">
+                              <button class="btn btn-outline-success" type="submit">Buscar</button>
+                         </form>
+                    </div>
+               </div>
                <hr>
                <table class="table bg-dark-alpha">
                     <thead>

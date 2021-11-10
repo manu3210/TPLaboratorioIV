@@ -7,7 +7,7 @@
                <a class="nav-link" href="<?php echo FRONT_ROOT ?>User/ShowUserHome">Inicio</a>
           </li>
           <li class="nav-item">
-               <a class="nav-link" href="<?php echo FRONT_ROOT ?>User/ShowAddUserView">Agregar Administrador</a>
+               <a class="nav-link" href="<?php echo FRONT_ROOT ?>User/ShowAddUserView">Agregar Usuarios</a>
           </li>
           <li class="nav-item">
                <a class="nav-link" href="<?php echo FRONT_ROOT ?>User/ShowListView">Listar Usuarios</a>

@@ -113,17 +113,14 @@
             $offerXUser = new OfferXUser();
             $user = new User();
             $user = $this->userDAO->GetById($id);
-            if($user->getAlreadyAplied()==0)
-            {
-                $offerXUser->setIdJobOffer($jobOfferId);
-                $offerXUser->setIdUsuario($id);
-                $user->setAlreadyAplied(1);
-                $this->userDAO->Update($user);
+            
+            $offerXUser->setIdJobOffer($jobOfferId);
+            $offerXUser->setIdUsuario($id);
+            $user->setAlreadyAplied(1);
+            $this->userDAO->Update($user);
 
-                $this->offerXUserDAO->Add($offerXUser);
-            }else{
-                //!msg no puede
-            }
+            $this->offerXUserDAO->Add($offerXUser);
+            
             
 
             require_once(VIEWS_PATH."user-home.php");
