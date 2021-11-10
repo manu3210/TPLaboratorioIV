@@ -65,6 +65,21 @@
             require_once(VIEWS_PATH."user-home.php");
         }
 
+        public function ShowListfilteredView($email)//admin
+        {
+            if(isset($_SESSION["user"]))
+            {
+                $studentList = array();
+                $user = $this->userDAO->GetByEmail($email);
+                if($user)
+                    array_push($studentList, $user);
+                    
+                require_once(VIEWS_PATH."student-list.php");
+            }
+            else
+                header("location:" .FRONT_ROOT . "User/ShowLoginView");
+        }
+
         public function ShowListView()//admin
         {
             if(isset($_SESSION["user"]))
@@ -184,6 +199,7 @@
                     }
                     else
                     {
+                        $_SESSION["msj"] = "Contraseña incorrecta";
                         header("location:" .FRONT_ROOT . "User/ShowLoginView");
                     }
                 }
@@ -191,6 +207,7 @@
 
             if($flag1 == false) // significa que el usuario no esta en la api
             {
+                $_SESSION["msj"] = "Este Email no esta habilitado para usar la aplicación";
                 header("location:" .FRONT_ROOT . "User/ShowLoginView");
             }
             else if($flag2 == false) // significa que el usuario esta en la api pero no en la aplicacion
@@ -202,11 +219,13 @@
         public function LoginAdmin($email, $pass)
         {
             $data = $this->userDAO->GetAll();
+            $flag = 0;
 
             foreach($data as $user)
             {
                 if($email == $user->getEmail())
                 {
+                    $flag = 1;
                     if($user->getPassword() == "")
                     {
                         $_SESSION["user"] = $user;
@@ -219,9 +238,16 @@
                     }
                     else
                     {
+                        $_SESSION["msj"] = "Contraseña incorrecta";
                         header("location:" .FRONT_ROOT . "User/ShowLoginAdmin");
                     }
                 }
+                
+            }
+            if($flag == 0)
+            {
+                $_SESSION["msj"] = "Error de ingreso";
+                header("location:" .FRONT_ROOT . "User/ShowLoginAdmin");
             }
         }
 

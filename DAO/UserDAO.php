@@ -107,7 +107,7 @@
             }
         }
 
-        public function GetByEmail ($email) // app id
+        public function GetByEmail($email) // app id
         {
             try
             {

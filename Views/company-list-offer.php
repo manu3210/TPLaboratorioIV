@@ -99,9 +99,7 @@
                     </tbody>
                </table>
                <div class="row justify-content-between">
-                    <div class="col-3">
-                         <a href="<?php echo FRONT_ROOT ?>Company/ShowCompanyDetails/<?php echo $companyId; ?>"class="btn btn-dark me-md-2" type="button">Volver</a>
-                    </div>
+                    
                     <?php
                     if($user->getTypeOfUser() == 1 || $user->getTypeOfUser() == 2)
                     { ?>
@@ -118,7 +116,7 @@
      <?php if($user->getTypeOfUser() == 1 || $user->getTypeOfUser() == 2) { ?>
           <section id="listado" class="mb-5">
                <div class="container">
-                    <h2 class="mb-4">Listado de ofertas</h2>
+                    <h2 class="mb-4">Listado de ofertas inactivas</h2>
                     <table class="table bg-dark-alpha">
                          <thead>
                               <th>Id</th>
@@ -186,9 +184,7 @@
                          <?php
                          if($user->getTypeOfUser() == 1 || $user->getTypeOfUser() == 2)
                          { ?>
-                              <div class="col-3">
-                              <a href="<?php echo FRONT_ROOT ?>JobOffer/ShowAddJobOffer/<?php echo $companyId; ?>" class="btn btn-primary me-md-2" type="button">Agregar puesto Laboral</a>
-                              </div>
+                              
                          <?php }
                          else
                          {}?>

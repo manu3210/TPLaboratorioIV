@@ -86,8 +86,6 @@
                                         }
                                         ?>
                                     </td>
-                                        
-                                            
 
                                     <td><?php echo $career->getDescription(); ?></td>
                                     <td><?php echo $offer->getFechaCaducidad(); ?></td>

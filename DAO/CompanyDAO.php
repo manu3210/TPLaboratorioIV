@@ -206,6 +206,37 @@
 
             
         }
+
+        public function GetByName($name) // app id
+        {
+            try
+            {
+                $query = "SELECT * FROM ".$this->tableName . ' WHERE name like "'.$name.'%"';
+
+                $this->connection = Connection::GetInstance();
+
+                $result = $this->connection->Execute($query);
+
+                foreach ($result as $row)
+                {                
+                    $company = new Company();
+                    $company->setCompanyId($row["companyId"]);
+                    $company->setName($row["name"]);
+                    $company->setEmail($row["email"]);
+                    $company->setIsActive($row["isActive"]);
+                    $company->setPhoneNumber($row["phoneNumber"]);
+                    $company->setPass($row["pass"]);
+                    $company->setTipo($row["tipo"]);
+                    
+                }
+
+                return $company;
+            }
+            catch(Exception $ex)
+            {
+                throw $ex;
+            }
+        }
         
         public function GetAll()
         {

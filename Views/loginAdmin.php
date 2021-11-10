@@ -13,7 +13,12 @@
                <button class="btn btn-dark btn-block btn-lg" type="submit">Iniciar Sesión</button>
                <br>
                <div>
-               <a href="<?php echo FRONT_ROOT ?>User/ShowLoginView" >Click aca para ingresar como Usuario</a>
+               <a href="<?php echo FRONT_ROOT ?>User/ShowLoginAdmin" >Click aca para ingresar como Usuario</a>
+               <br>
+               <a href="<?php echo FRONT_ROOT ?>Company/ShowLoginCompany" >Click aca para ingresar como Empresa</a>
+               </div>
+               <div style="color: red; text-align:center;">
+                    <?php if(isset($_SESSION["msj"])){echo $_SESSION["msj"];session_destroy();} ?>
                </div>
           </form>
           

@@ -17,6 +17,7 @@
                <br>               
                <a href="<?php echo FRONT_ROOT ?>User/ShowLoginAdmin" >Click aca para ingresar como Administrador</a>
                </div>
+               
           </form>
           
      </div>

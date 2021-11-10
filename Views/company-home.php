@@ -33,9 +33,6 @@
                         
                         <a href="<?php echo FRONT_ROOT ?>JobOffer/ShowAddJobOffer/<?php echo $user->getCompanyId(); ?>" class="card-link">Crear Puesto Laboral </a>
                         
-                        <div class="d-inline d-md-flex justify-content-md-end">
-                            <a href="<?php echo FRONT_ROOT ?>Company/ShowListView/" > Volver</a>
-                        </div>
 
                     </div>
                 </div>
