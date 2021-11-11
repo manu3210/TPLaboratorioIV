@@ -120,10 +120,10 @@
             $this->ShowAddView();
         }
 
-        public function AddUser($type, $email, $pass, $description)
+        public function AddUser($type, $email, $pass, $idApi, $description)
         {
             $user = new User();
-            $user->setIdApi(null);
+            $user->setIdApi($idApi);
             $user->setDescription($description);
             $user->setEmail($email);
             $user->setPassword($pass);

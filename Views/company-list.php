@@ -25,6 +25,9 @@
                          </form>
                     </div>
                </div>
+               <div style="color: red; text-align:center;">
+                    <?php if(isset($_SESSION["msj"])){echo $_SESSION["msj"]; $_SESSION["msj"] = null;} ?>
+               </div>
                <hr>
                <table class="table bg-dark-alpha">
                     <thead>

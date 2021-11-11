@@ -36,6 +36,7 @@
             $jobOffer->setCompanyId($companyId);
             $jobOffer->setJobPosition($JobId);
             $jobOffer->setFechaCaducidad($fechaCaducidad);
+            $jobOffer->setIsActive(1);
 
             $this->JobOfferDAO->add($jobOffer);
 
