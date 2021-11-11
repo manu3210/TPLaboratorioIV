@@ -1,6 +1,13 @@
 [
     {
         "companyId": null,
+        "name": "Li",
+        "email": "",
+        "phoneNumber": "",
+        "isActive": 1
+    },
+    {
+        "companyId": null,
         "name": "Accenture",
         "email": "acc@mail.com",
         "phoneNumber": "4567865",
@@ -18,6 +25,27 @@
         "name": "Globant",
         "email": "globant@mail.com",
         "phoneNumber": "4578787",
+        "isActive": 1
+    },
+    {
+        "companyId": null,
+        "name": "Link",
+        "email": "link@link",
+        "phoneNumber": "65654",
+        "isActive": 1
+    },
+    {
+        "companyId": null,
+        "name": "Link",
+        "email": "link@link",
+        "phoneNumber": "654654564",
+        "isActive": 1
+    },
+    {
+        "companyId": null,
+        "name": "Link",
+        "email": "link@link",
+        "phoneNumber": "654987987",
         "isActive": 1
     },
     {

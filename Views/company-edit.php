@@ -3,7 +3,17 @@
      use Models\Company;
      use DAO\CompanyDAO;
 
-    require_once('nav.php');
+     $user = $_SESSION["user"];
+     if($user->getTypeOfUser() == 0)
+     {
+         require_once('nav-user.php');
+     }else if($user->getTypeOfUser() == 1)
+     {
+         require_once('nav.php');
+     }else 
+     {
+         require_once('nav-company.php');
+     }
 
     $companyDAO = new CompanyDAO();
     $company = $companyDAO->GetByIdBDD($companyId);

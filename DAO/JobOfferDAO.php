@@ -67,7 +67,6 @@
                 {
                     $rta++;                    
                 }
-                echo var_dump($rta);
                 return $rta;
             }
             catch(Exception $ex)
@@ -158,11 +157,12 @@
         {
             try
             {
-                $query = "INSERT INTO ".$this->tableName." (companyId, jobPosition, fechaCaducidad) VALUES (:companyId, :jobPosition, :fechaCaducidad);";
+                $query = "INSERT INTO ".$this->tableName." (companyId, jobPosition, fechaCaducidad, isActive) VALUES (:companyId, :jobPosition, :fechaCaducidad, :isActive);";
                 
                 $parameters["companyId"] = $jobOffer->getCompanyId();
                 $parameters["jobPosition"] = $jobOffer->getJobPosition();
                 $parameters["fechaCaducidad"] = $jobOffer->getFechaCaducidad();
+                $parameters["isActive"] = $jobOffer->getIsActive();
 
                 $this->connection = Connection::GetInstance();
 

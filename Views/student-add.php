@@ -29,7 +29,10 @@
                          </div>
                     </div>
                     <div class="row">
-                         <div class="col-lg-4"></div>
+                         <div class="col-lg-4">
+                              <label for="idApi">Id Api (para admin = 0)</label>
+                              <input type="number" min="0" max="200" name="idApi" required>
+                         </div>
                          <div class="col-lg-4">
                               <label for="description">Descripcion</label>
                               <textarea id="description" name="description" rows="4" cols="50"></textarea>

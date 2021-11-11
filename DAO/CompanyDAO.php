@@ -230,7 +230,8 @@
                     
                 }
 
-                return $company;
+                if($result != null)
+                    return $company;
             }
             catch(Exception $ex)
             {

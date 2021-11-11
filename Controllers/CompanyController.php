@@ -24,13 +24,18 @@
 
             if( $this->JobOfferDAO->countJobOffers($recordId ) == 0 )
                 $this->CompanyDAO->deleteFromBDD($company);
+            else
+            {
+                $_SESSION["msj"] = "La empresa no se puede deshabilitar porque tiene busquedas activas.";
+                $this->ShowListView();
+            }
             
                 //no se pudo borrar porque tiene al menos un JobOffer creado
 
             $this->ShowListView();
         }
 
-        public function add($name,$email,$phoneNumber)
+        public function add($name,$email, $pass, $phoneNumber)
         {
             $company = new Company();
             
@@ -38,6 +43,9 @@
             $company->setEmail($email);
             $company->setPhoneNumber($phoneNumber);
             $company->setIsActive(1);
+            $company->setPass($pass);
+            $company->setTipo(2);
+
 
             $this->CompanyDAO->add($company);
 
@@ -196,5 +204,12 @@
         {
             require_once(VIEWS_PATH."loginCompany.php");
         }
+
+        public function Logout()
+        {
+            session_destroy();
+            header("location:" .FRONT_ROOT . "Company/ShowLoginCompany");
+        }
+
     }
 ?>

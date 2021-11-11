@@ -8,7 +8,7 @@
         require_once('nav.php');
     }else 
     {
-        require_once('nav.php');
+        require_once('nav-company.php');
     }
 ?>
 <main class="py-5">
@@ -20,10 +20,13 @@
                     </div>
                     <div class="col-4">
                          <form class="d-flex" action="<?php echo FRONT_ROOT?>Company/ShowListfilteredView" method="post">
-                              <input class="form-control me-2" type="search" name="email" placeholder="buscar por nombre" aria-label="Search">
+                              <input class="form-control me-2" type="search" name="name" placeholder="buscar por nombre" aria-label="Search">
                               <button class="btn btn-outline-success" type="submit">Buscar</button>
                          </form>
                     </div>
+               </div>
+               <div style="color: red; text-align:center;">
+                    <?php if(isset($_SESSION["msj"])){echo $_SESSION["msj"]; $_SESSION["msj"] = null;} ?>
                </div>
                <hr>
                <table class="table bg-dark-alpha">

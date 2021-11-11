@@ -8,7 +8,7 @@
         require_once('nav.php');
     }else 
     {
-        require_once('nav.php');
+        require_once('nav-company.php');
     }
 
     use DAO\CompanyDAO;
@@ -93,7 +93,7 @@
                                         <td style="text-align: center;"><a href="<?php echo FRONT_ROOT ?>JobOffer/AddJobOfferToUser/<?php echo $offer->getIdJobOffer();  ?>/<?php echo $user->getId(); ?>"><i class="fas fa-plus text-dark"></i></a></td>
                                     <?php  }else{
                                                 if($user->getTypeOfUser() == 1 || $user->getTypeOfUser() == 2) ?>
-                                                    <td style="text-align: center;"><a href="<?php echo FRONT_ROOT ?>JobOffer/ShowUsersByJobOffer/<?php echo $offer->getIdJobOffer() ?>"><i class="fas fa-search"></i></a></td>
+                                                    <td style="text-align: center;"><a href="<?php echo FRONT_ROOT ?>JobOffer/ShowUsersByJobOffer/<?php echo $offer->getIdJobOffer() ?>/<?php echo $position->getDescription() ?>"><i class="fas fa-search"></i></a></td>
                                                 <?php } ?>
                                     </td>       
                                     </tr>       

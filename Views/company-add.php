@@ -11,19 +11,27 @@
                          <div class="col-lg-4">
                               <div class="form-group">
                                    <label for="">Nombre</label>
-                                   <input type="text" name="name" value="" class="form-control">
+                                   <input type="text" name="name" value="" class="form-control" required>
                               </div>
                          </div>
                          <div class="col-lg-4">
                               <div class="form-group">
                                    <label for="">Email</label>
-                                   <input type="email" name="email" value="" class="form-control">
+                                   <input type="email" name="email" value="" class="form-control" required>
+                              </div>
+                         </div>
+                    </div>
+                    <div class="row">
+                         <div class="col-lg-4">
+                              <div class="form-group">
+                                   <label for="">Contraseña</label>
+                                   <input type="password" name="pass" value="" class="form-control" required>
                               </div>
                          </div>
                          <div class="col-lg-4">
                               <div class="form-group">
                                    <label for="">PhoneNumber</label>
-                                   <input type="text" name="phoneNumber" value="" class="form-control">
+                                   <input type="text" name="phoneNumber" value="" class="form-control" required>
                               </div>
                          </div>
                     </div>

@@ -21,13 +21,12 @@
         private $offerXUserDAO;
         private $userDAO;
 
-
-
         public function __construct()
         {
             $this->userDAO = new UserDAO();
             $this->JobOfferDAO = new JobOfferDAO();
             $this->offerXUserDAO = new OfferXUserDAO();
+
         }
 
         public function add($companyId,$JobId,$fechaCaducidad)
@@ -37,6 +36,7 @@
             $jobOffer->setCompanyId($companyId);
             $jobOffer->setJobPosition($JobId);
             $jobOffer->setFechaCaducidad($fechaCaducidad);
+            $jobOffer->setIsActive(1);
 
             $this->JobOfferDAO->add($jobOffer);
 
@@ -64,6 +64,15 @@
             $this->JobOfferDAO->DeleteFromBDD($jobOffer);
 
             $this->ShowListOffer($jobOffer->getCompanyId()); 
+        }
+
+        public function DeleteOfferXUser($idJobOffer, $careerDescription, $idUsuario)
+        {
+            $offerXUserDAO = new OfferXUserDAO();
+            $offerXUserDAO->DeleteOfferXUserFromBDD($idJobOffer, $idUsuario);
+            
+
+            $this->ShowUsersByJobOffer($idJobOffer, $careerDescription); 
         }
 
         public function ActivateFromBDD($offerId)
@@ -116,8 +125,6 @@
             
             $offerXUser->setIdJobOffer($jobOfferId);
             $offerXUser->setIdUsuario($id);
-            $user->setAlreadyAplied(1);
-            $this->userDAO->Update($user);
 
             $this->offerXUserDAO->Add($offerXUser);
             
@@ -126,7 +133,7 @@
             require_once(VIEWS_PATH."user-home.php");
         }
 
-        public function ShowUsersByJobOffer($idJobOffer)
+        public function ShowUsersByJobOffer($idJobOffer, $careerDescription)
         {
             if(isset($_SESSION["user"]))
                 require_once(VIEWS_PATH."UsersByJobOffers.php");
