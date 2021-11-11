@@ -21,7 +21,7 @@
                </div>
                <div class="form-group">
                     <label for="">Email </label>
-                    <input type="email" name="email" class="form-control form-control-lg" placeholder="<?php echo $email; ?>" readonly>
+                    <input type="email" name="email" value="<?php echo $email; ?>" class="form-control form-control-lg" placeholder="<?php echo $email; ?>" readonly>
                </div>
                <div class="form-group">
                     <label for="">Contraseña nueva: </label>

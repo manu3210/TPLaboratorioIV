@@ -253,6 +253,12 @@
 
         public function GetDataFromApi()
         {
+            $list = $this->GetData();
+            return $list;
+        }
+
+        private function GetData()
+        {
             $ch = curl_init();
             $studentList = array();
 
@@ -287,7 +293,7 @@
             $user->setBirthDate($valuesArray["birthDate"]);
             $user->setEmail($valuesArray["email"]);
             $user->setPhoneNumber($valuesArray["phoneNumber"]);
-            if($valuesArray["active"] == "false" || $valuesArray["active"] == "0")
+            if($valuesArray["active"] == false || $valuesArray["active"] == "0")
                 $user->setIsActive(0);
             else
                 $user->setIsActive(1);

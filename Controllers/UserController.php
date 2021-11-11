@@ -177,7 +177,7 @@
             //con este primer foreach verifico si esta en la API(o sea si es estudiante)
             foreach($api as $student)
             {
-                if($student->getEmail() == $email)
+                if($student->getEmail() == $email && $student->getIsActive() == 1)
                 {
                     $flag1 = true;
                     $userLogged->setIdApi($student->getIdApi());
@@ -255,12 +255,14 @@
         {
             $user = new User();
             
+            
             $user->setEmail($email);
             $user->setPassword($pass);
             $user->setTypeOfUser(0);
             $user->setAlreadyAplied(0);
             $user->setDescription(null);
             $user->setIdApi($idApi);
+            var_dump($user);
 
             $this->userDAO->Add($user);
                 

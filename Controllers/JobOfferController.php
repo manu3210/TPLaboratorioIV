@@ -128,8 +128,6 @@
 
             $this->offerXUserDAO->Add($offerXUser);
             
-            
-
             require_once(VIEWS_PATH."user-home.php");
         }
 
