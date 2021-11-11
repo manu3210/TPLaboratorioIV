@@ -14,6 +14,21 @@
         private $connection;
         private $tableName = "postulacionesXUsuarios";
 
+        public function DeleteOfferXUserFromBDD($idJobOffer, $idUsuario)
+        {
+            try
+            {
+                $query1  = "DELETE FROM " . $this->tableName . " where idJobOffer=" . $idJobOffer ." and idUsuario=".$idUsuario;
+                
+                $this->connection  = Connection::GetInstance();
+                $this->connection->ExecuteNonQuery($query1);
+            }
+            catch(Exception $e)
+            {
+                throw $e;
+            }
+        }
+
         public function deleteFromBDD($offerXUser)
         {
             try
@@ -49,6 +64,35 @@
             }
         }
 
+        public function GetListByIdJobOffer($idJobOffer)
+        {
+            try
+            {
+                $offerXUserList = array();
+
+                $query = "SELECT * FROM ". $this->tableName ." WHERE idJobOffer = " .$idJobOffer;
+
+                $this->connection = Connection::GetInstance();
+
+                $resultSet = $this->connection->Execute($query);
+                
+                foreach ($resultSet as $row)
+                {
+                    $offerXUser = new OfferXUser();
+                    $offerXUser->setIdPostulacionesXUsuarios($row["idPostulacionesXUsuarios"]);
+                    $offerXUser->setIdJobOffer($row["idJobOffer"]);
+                    $offerXUser->setIdUsuario($row["idUsuario"]);
+                   
+                    array_push($offerXUserList, $offerXUser);
+                }
+                return $offerXUserList;
+            }
+            catch(Exception $ex)
+            {
+                throw $ex;
+            }
+        }
+
         //funciona
         public function GetByIdBDD($id)
         {
@@ -75,8 +119,6 @@
             {
                 throw $ex;
             }
-
-            
         }
 
         public function GetAll()

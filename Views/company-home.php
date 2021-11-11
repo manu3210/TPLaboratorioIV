@@ -1,6 +1,6 @@
 <?php 
 
-//nav nuevo
+    require_once('nav-company.php');
 
     $user = $_SESSION["user"];
     

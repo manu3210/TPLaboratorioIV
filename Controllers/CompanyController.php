@@ -196,5 +196,12 @@
         {
             require_once(VIEWS_PATH."loginCompany.php");
         }
+
+        public function Logout()
+        {
+            session_destroy();
+            header("location:" .FRONT_ROOT . "Company/ShowLoginCompany");
+        }
+
     }
 ?>

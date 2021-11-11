@@ -76,6 +76,45 @@
             }
         }
 
+        public function GetListByofferXUserList ($offerXUserList)
+        {
+            try
+            {
+                $UserList = array();
+
+                
+                foreach($offerXUserList as $offerXUser)
+                {
+                    $user = new User();
+
+                    $query = "SELECT * FROM ".$this->tableName . " WHERE idUsuario=" . $offerXUser->getIdUsuario();
+
+                    $this->connection = Connection::GetInstance();
+
+                    $result = $this->connection->Execute($query);
+
+                    foreach ($result as $row)
+                    {                
+                        $user->setId($row["idUsuario"]);
+                        $user->setEmail($row["email"]);
+                        $user->setTypeOfUser($row["tipo"]);
+                        $user->setDescription($row["descripcion"]);
+                        $user->setAlreadyAplied($row["alreadyAplied"]);
+                        $user->setIdApi($row["idAPI"]);
+                        $user->setPassword($row["pass"]);
+
+                        array_push($UserList, $user);
+                    }
+                }
+
+                return $UserList;
+            }
+            catch(Exception $ex)
+            {
+                throw $ex;
+            }
+        }
+
         public function GetById ($id) // app id
         {
             try
@@ -137,6 +176,34 @@
             {
                 throw $ex;
             }
+        }
+
+        public function MatchInfoWithAPI ($studentList)
+        {
+            $data = $this->GetDataFromApi();
+
+            foreach($studentList as $userBDD)
+            {
+                foreach($data as $student)
+                {
+                    if($userBDD->getEmail() == $student->getEmail())
+                    {
+                        $userBDD->setidApi($student->getIdApi());
+                        $userBDD->setCareerId($student->getCareerId());
+                        $userBDD->setFirstName($student->getfirstName());
+                        $userBDD->setLastName($student->getLastName());
+                        $userBDD->setDni($student->getDni());
+                        $userBDD->setFileNumber($student->getFileNumber());
+                        $userBDD->setGender($student->getGender());
+                        $userBDD->setBirthDate($student->getBirthDate());
+                        $userBDD->setEmail($student->getEmail());
+                        $userBDD->setPhoneNumber($student->getPhoneNumber());
+                        $userBDD->setIsActive($student->getIsActive());
+
+                    }
+                }
+            }
+            
         }
 
         public function Fetch ($user)

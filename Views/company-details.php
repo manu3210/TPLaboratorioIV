@@ -10,7 +10,7 @@
         require_once('nav.php');
     }else 
     {
-        require_once('nav.php');
+        require_once('nav-company.php');
     }
         
     
