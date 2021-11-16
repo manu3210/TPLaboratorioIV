@@ -61,9 +61,51 @@
         {
             $jobOffer = new JobOffer();
             $jobOffer = $this->JobOfferDAO->GetByIdBDD($offerId);
+            $this->sendMails($offerId);
             $this->JobOfferDAO->DeleteFromBDD($jobOffer);
 
             $this->ShowListOffer($jobOffer->getCompanyId()); 
+        }
+
+        private function sendMails($offerId)
+        {
+            $offerXUserList = $this->offerXUserDAO->getAll();
+            $userList = $this->userDAO->getAll();
+            $jobPositionList = $this->JobOfferDAO->GetJobPositionFromApi();
+            $jobOfferList = $this->JobOfferDAO->GetAllBDD();
+
+            foreach($jobOfferList as $jobOffer)
+            {
+                if($jobOffer->getIdJobOffer() == $offerId)
+                {
+                    foreach($jobPositionList as $jp)
+                    {
+                        if($jp->getJobPositionId() == $jobOffer->getJobPosition())
+                        {
+                            $jobPosition = $jp->getDescription();
+                        }
+                    }
+                }
+            }
+
+            foreach($offerXUserList as $oXu)
+            {
+                if($oXu->getIdJobOffer() == $offerId)
+                {
+                    foreach($userList as $user)
+                    {
+                        if($user->getId() == $oXu->getIdUsuario())
+                        {
+                            $para = 'manu_1019@hotmail.com'; //$user->getEmail();
+                            $asunto = 'La busqueda para la oferta ha terminado';
+                            $descripcion   = 'Le informamos que la busqueda para la oferta laboral '. $jobPosition . ' ha terminado. No te desanimes y continua postulandote!';
+                            $de = 'From: ema3216540@gmail.com';
+
+                            mail($para, $asunto, $descripcion, $de);
+                        }
+                    }
+                }
+            }
         }
 
         public function DeleteOfferXUser($idJobOffer, $careerDescription, $idUsuario)
