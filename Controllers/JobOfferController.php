@@ -96,10 +96,10 @@
                     {
                         if($user->getId() == $oXu->getIdUsuario())
                         {
-                            $para = 'manu_1019@hotmail.com'; //$user->getEmail();
+                            $para = 'sar_sebas@hotmail.com'; //$user->getEmail();
                             $asunto = 'La busqueda para la oferta ha terminado';
                             $descripcion   = 'Le informamos que la busqueda para la oferta laboral '. $jobPosition . ' ha terminado. No te desanimes y continua postulandote!';
-                            $de = 'From: ema3216540@gmail.com';
+                            $de = 'From: paneles.led.mdq@gmail.com';
 
                             mail($para, $asunto, $descripcion, $de);
                         }

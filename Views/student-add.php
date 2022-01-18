@@ -38,7 +38,7 @@
                               <textarea id="description" name="description" rows="4" cols="50"></textarea>
                          </div>
                     </div>
-                    <button type="submit" name="button" class="btn btn-dark ml-auto d-block">Agregar</button>
+                    <button type="submit" class="btn btn-dark ml-auto d-block">Agregar</button>
                </form>
           </div>
      </section>

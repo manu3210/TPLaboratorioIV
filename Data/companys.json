@@ -29,6 +29,13 @@
     },
     {
         "companyId": null,
+        "name": "hp",
+        "email": "hp@hp.com",
+        "phoneNumber": "9999",
+        "isActive": 1
+    },
+    {
+        "companyId": null,
         "name": "Link",
         "email": "link@link",
         "phoneNumber": "65654",
@@ -46,6 +53,13 @@
         "name": "Link",
         "email": "link@link",
         "phoneNumber": "654987987",
+        "isActive": 1
+    },
+    {
+        "companyId": null,
+        "name": "samsung",
+        "email": "samsung@samsung.com",
+        "phoneNumber": "3333",
         "isActive": 1
     },
     {
