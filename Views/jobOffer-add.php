@@ -1,8 +1,8 @@
 <?php
     $user = $_SESSION["user"];
-    if($user->getTypeOfUser() == 0)
+    if($user->getTypeOfUser() == 2)
     {
-          require_once('nav-user.php');
+          require_once('nav-company.php');
     }
     else
     {
@@ -11,7 +11,6 @@
     use Models\Company;
     use DAO\CompanyDAO;
 
-    use Models\JobOffer;
     use DAO\JobOfferDAO;
     $jobOfferDAO = new JobOfferDAO();
 
@@ -20,8 +19,8 @@
 <main class="py-5">
      <section id="listado" class="mb-5">
           <div class="container">
-               <h2 class="mb-4">Agregar oferta laboral</h2>
-               <form action="<?php echo FRONT_ROOT ?>JobOffer/Add" method="post" class="bg-dark-alpha p-5">
+               <h2 class="mb-4">Agregar oferta laboral88</h2>
+               <form method="post" action="<?php echo FRONT_ROOT ?>JobOffer/Add" enctype="multipart/form-data" class="bg-dark-alpha p-5">
                     <div class="row">                         
                          
                          <input type="hidden" name="companyId" value="<?php echo $companyId ?>" readonly >
@@ -48,7 +47,12 @@
                                    <input type="date" name="fechaCaducidad" value="" class="form-control">
                               </div>
                          </div>
-                         
+                         <div class="col-lg-4" >
+                              <div class="form-group">
+                                   <label for="">Seleccionar imagen:</label>
+                                   <input type="file" name="file" value="" class="form-control-file ml-3">
+                              </div>
+                         </div>
                     </div>
                     <div class="row justify-content-between">
                          <div class="col-3">
@@ -59,6 +63,7 @@
                          </div>
                     </div>
                </form>
+               
           </div>
      </section>
 </main>

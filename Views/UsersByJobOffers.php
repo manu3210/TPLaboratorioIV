@@ -40,6 +40,7 @@
      <section id="listado" class="mb-5">
           <div class="container">
                <h2 class="mb-4">Listado de alumnos para la busqueda de " <?php echo $careerDescription ?> "</h2>
+               <a href="<?php echo FRONT_ROOT ?>JobOffer/ShowReporte/<?php echo $idJobOffer; ?>/<?php echo $careerDescription; ?>" target="_blank" class="btn btn-dark me-md-2" type="button">Listado PDF</a>
                <table class="table bg-dark-alpha">
                     <thead>
                          <th>FirstName</th>

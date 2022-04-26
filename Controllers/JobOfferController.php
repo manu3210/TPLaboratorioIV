@@ -1,6 +1,7 @@
 <?php  
     namespace Controllers;
 
+    use \Exception as Exception;
     use DAO\JobOfferDAO as JobOfferDAO;
     use Models\JobOffer as JobOffer;
     use Models\Company as Company;
@@ -29,17 +30,63 @@
 
         }
 
-        public function add($companyId,$JobId,$fechaCaducidad)
+        public function Add($companyId,$JobId,$fechaCaducidad,$file)
         {
-            $jobOffer = new JobOffer();
+            echo "tttttttttt";
+
             
+            try
+            {
+                
+                echo "--------------";
+                $fileName = $file["name"];
+                $tempFileName = $file["tmp_name"];
+                $type = $file["type"];
+                
+                $filePath = UPLOADS_PATH.basename($fileName);            
+                echo "*********";
+                $fileType = strtolower(pathinfo($filePath, PATHINFO_EXTENSION));
+
+                $imageSize = getimagesize($tempFileName);
+
+                
+                if($imageSize !== false)
+                {
+                    if (move_uploaded_file($tempFileName, $filePath))
+                    {
+                        $jobOffer = new JobOffer();
+                        
+                        $jobOffer->setCompanyId($companyId);
+                        $jobOffer->setJobPosition($JobId);
+                        $jobOffer->setFechaCaducidad($fechaCaducidad);
+                        $jobOffer->setIsActive(1);
+                        $jobOffer->setNombreImagen($fileName);
+            
+                        $this->JobOfferDAO->add($jobOffer);
+
+                        $message = "Imagen subida correctamente";
+                    }
+                    else
+                        $message = "Ocurrió un error al intentar subir la imagen";
+                }
+                else   
+                    $message = "El archivo no corresponde a una imágen";
+            }
+            catch(Exception $ex)
+            {
+                $message = $ex->getMessage();
+            }
+            /*
+            $jobOffer = new JobOffer();
+                        
             $jobOffer->setCompanyId($companyId);
             $jobOffer->setJobPosition($JobId);
             $jobOffer->setFechaCaducidad($fechaCaducidad);
             $jobOffer->setIsActive(1);
-
+            $jobOffer->setNombreImagen("prueba32.jpg");
+            
             $this->JobOfferDAO->add($jobOffer);
-
+            */
             $this->ShowListOffer($companyId);
         }
 
@@ -124,6 +171,12 @@
             $this->JobOfferDAO->ActivateFromBDD($jobOffer);
 
             $this->ShowListOffer($jobOffer->getCompanyId()); 
+        }
+
+        public function ShowReporte($idJobOffer, $careerDescription)
+        {
+            if(isset($_SESSION["user"]))
+                require_once(VIEWS_PATH."reportes.php");
         }
 
         public function ShowAddJobOffer($companyId)

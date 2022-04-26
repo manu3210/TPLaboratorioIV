@@ -233,7 +233,7 @@
         {
             try
             {
-                $query1  = "UPDATE " . $this->tableName . " SET PASS='" . $user->getPassword() . "' where idUsuario=" . $user->getId();
+                $query1  = "UPDATE " . $this->tableName . " SET pass='" . $user->getPassword() . "' where idUsuario=" . $user->getId();
                 $query2  = "UPDATE " . $this->tableName . " SET descripcion='" . $user->getDescription() . "' where idUsuario=" . $user->getId();
                 $query3  = "UPDATE " . $this->tableName . " SET tipo='" . $user->getTypeOfUser() . "' where idUsuario=" . $user->getId();
                 $query4  = "UPDATE " . $this->tableName . " SET alreadyAplied='" . $user->getAlreadyAplied() . "' where idUsuario=" . $user->getId();

@@ -157,12 +157,16 @@
         {
             try
             {
-                $query = "INSERT INTO ".$this->tableName." (companyId, jobPosition, fechaCaducidad, isActive) VALUES (:companyId, :jobPosition, :fechaCaducidad, :isActive);";
+                
+                echo "55555";
+                $query = "INSERT INTO ".$this->tableName." (companyId, jobPosition, fechaCaducidad, isActive, nombreImagen) VALUES (:companyId, :jobPosition, :fechaCaducidad, :isActive, :nombreImagen);";
                 
                 $parameters["companyId"] = $jobOffer->getCompanyId();
                 $parameters["jobPosition"] = $jobOffer->getJobPosition();
                 $parameters["fechaCaducidad"] = $jobOffer->getFechaCaducidad();
                 $parameters["isActive"] = $jobOffer->getIsActive();
+                $parameters["nombreImagen"] = $jobOffer->getNombreImagen();
+                
 
                 $this->connection = Connection::GetInstance();
 
@@ -193,6 +197,7 @@
                     $jobOffer->setJobPosition($row["jobPosition"]);
                     $jobOffer->setFechaCaducidad($row["fechaCaducidad"]);
                     $jobOffer->setIsActive($row["isActive"]);
+                    $jobOffer->setNombreImagen($row["nombreImagen"]);
 
                     return $jobOffer;
                 }
@@ -223,6 +228,7 @@
                     $jobOffer->setJobPosition($row["jobPosition"]);
                     $jobOffer->setFechaCaducidad($row["fechaCaducidad"]);
                     $jobOffer->setIsActive($row["isActive"]);
+                    $jobOffer->setNombreImagen($row["nombreImagen"]);
                     
                     array_push($jobOfferList, $jobOffer);
                 }

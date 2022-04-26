@@ -80,7 +80,7 @@
 
             $this->CompanyDAO->editBDD($company);
 
-            $this->ShowListView();
+            $this->ShowCompanyHome();
         }
 
         public function activateCompany($recordId)

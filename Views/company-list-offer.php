@@ -41,6 +41,7 @@
                <table class="table bg-dark-alpha">
                     <thead>
                          <th>Id</th>
+                         <th>Imagen</th>
                          <th>posicion</th>
                          <th>carrera</th>
                          <th>fecha de caducidad</th>
@@ -52,15 +53,17 @@
                     </thead>
                     <tbody>
                          <?php
-                              foreach($offerList as $offer)
+                              foreach($offerList as $offer) //!offerlist son todas las joboffer y offer es cada una suelta
                               {
                                    if($offer->getCompanyId() == $company->getCompanyId() && $offer->getIsActive() == 1  )
                                    {
                                    ?>
                                         <tr>
                                              <td><?php echo $offer->getIdJobOffer() ?></td>
-
+                                             
                                              <td>
+                                                  <img src="<?php echo FRONT_ROOT.UPLOADS_PATH.$offer->getNombreImagen() ?>" width="70" height="70">
+                                                  <td>
                                                  <?php 
                                                     foreach($jobPositionList as $jobPosition)
                                                     {
@@ -75,13 +78,16 @@
                                                                  $career = $c;
                                                             }
                                                             }
+                                                            $position->getCareerId();
                                                             echo $position->getDescription();
                                                        }
                                                     }
                                                 ?>
+                                                </td>
                                              </td>
 
-                                             <td><?php echo $career->getDescription(); ?></td>
+                                             <td><?php //$position->getCareerId(); 
+                                                       echo $career->getDescription(); ?></td>
                                              <td><?php echo $offer->getFechaCaducidad(); ?></td>
                                              <?php if($user->getTypeOfUser() == 1 || $user->getTypeOfUser() == 2) {?>
                                              <td style="text-align: center;"><a href="<?php echo FRONT_ROOT ?>JobOffer/ShowEditView/<?php echo $offer->getIdJobOffer(); ?>"><i class="far fa-edit text-dark"></i></a></td>
@@ -117,10 +123,11 @@
      <?php if($user->getTypeOfUser() == 1 || $user->getTypeOfUser() == 2) { ?>
           <section id="listado" class="mb-5">
                <div class="container">
-                    <h2 class="mb-4">Listado de ofertas inactivas</h2>
+                    <h2 class="mb-4">Listado de ofertas inactivassss</h2>
                     <table class="table bg-dark-alpha">
                          <thead>
-                              <th>Id</th>
+                              <th>Iddd</th>
+                              <th>Imagen</th>
                               <th>posicion</th>
                               <th>carrera</th>
                               <th>fecha de caducidad</th>
@@ -141,6 +148,8 @@
                                                   <td><?php echo $offer->getIdJobOffer() ?></td>
 
                                                   <td>
+                                                  <img src="<?php echo FRONT_ROOT.UPLOADS_PATH.$offer->getNombreImagen()?>" width="70" height="70">
+                                                       <td>
                                                   <?php 
                                                        foreach($jobPositionList as $jobPosition)
                                                        {
@@ -159,6 +168,7 @@
                                                             }
                                                        }
                                                   ?>
+                                                       </td>
                                                   </td>
 
                                                   <td><?php echo $career->getDescription(); ?></td>

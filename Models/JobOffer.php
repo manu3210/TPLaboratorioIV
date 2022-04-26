@@ -9,6 +9,18 @@
         private $jobPosition;
         private $fechaCaducidad;
         private $isActive;
+        private $nombreImagen;
+
+        public function getNombreImagen()
+        {
+                return $this->nombreImagen;
+        }
+
+        public function setNombreImagen($nombreImagen)
+        {
+                $this->nombreImagen = $nombreImagen;
+                return $this;
+        }
 
         public function getIdJobOffer()
         {

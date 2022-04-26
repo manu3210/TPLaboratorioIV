@@ -25,7 +25,7 @@
                </div>
                <div class="form-group">
                     <label for="">Contraseña nueva: </label>
-                    <input type="password" name="pass" class="form-control form-control-lg" placeholder="Ingresar constraseña">
+                    <input type="password" name="pass" class="form-control form-control-lg" placeholder="Ingresar contraseña">
                </div>
                <button class="btn btn-dark btn-block btn-lg" type="submit">Cambiar Contraseña</button>
           </form>
